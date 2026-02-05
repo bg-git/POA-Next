@@ -3,6 +3,34 @@ import useSWR from "swr";
 import { useAuth } from "@/context/AuthContext";
 import { useAccountValidationContext } from "@/context/AccountValidationContext";
 import { useRouter } from "next/router";
+import Link from "next/link";
+
+interface Customer {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phone?: string;
+  website?: string;
+  social?: string;
+  addresses?: {
+    edges: Array<{
+      node: {
+        id: string;
+        firstName?: string;
+        lastName?: string;
+        company?: string;
+        address1?: string;
+        address2?: string;
+        city?: string;
+        province?: string;
+        provinceCode?: string;
+        country?: string;
+        zip?: string;
+        phone?: string;
+      };
+    }>;
+  };
+}
 
 const tabs = [
   "Orders",
@@ -15,6 +43,7 @@ const tabs = [
 export default function AccountPage() {
   const [activeTab, setActiveTab] = useState("Orders");
   const [expandedOrder, setExpandedOrder] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const { isAuthenticated, user, loading } = useAuth();
   const router = useRouter();
   
@@ -26,6 +55,16 @@ export default function AccountPage() {
   } catch (error) {
     console.warn('AccountValidationContext not available:', error);
   }
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!loading && !isAuthenticated) {
+      router.push("/sign-in");
+    }
+  }, [isAuthenticated, loading, router]);
 
   const fetcher = (url: string) =>
     fetch(url, { 
@@ -49,17 +88,12 @@ export default function AccountPage() {
     isLoading: ordersLoading,
   } = useSWR(user?.id ? "/api/shopify/get-orders" : null, fetcher);
 
-  useEffect(() => {
-    if (!loading && !isAuthenticated) {
-      router.push("/sign-in");
-    }
-  }, [isAuthenticated, loading, router]);
-
-  const customer = customerData?.customer;
+  const customer = (customerData?.customer as Customer | undefined) || ({} as Customer);
   const orders = ordersData?.orders || [];
   const dataError = customerError || ordersError;
 
-  if (loading || customerLoading || ordersLoading) {
+  // Show loading state while component mounts to prevent hydration mismatch
+  if (!isMounted || loading || customerLoading || ordersLoading) {
     return (
       <main className="account-page">
         <div style={{ textAlign: "center", padding: "50px" }}>
@@ -69,6 +103,7 @@ export default function AccountPage() {
     );
   }
 
+  // Redirect unauthenticated users - this happens after mount to prevent hydration issues
   if (!isAuthenticated) {
     return null;
   }
@@ -148,7 +183,7 @@ export default function AccountPage() {
               {orders.length === 0 ? (
                 <div style={{ textAlign: "center", padding: "30px" }}>No orders found.</div>
               ) : (
-                orders.map((order, index) => (
+                orders.map((order) => (
                   <div key={order.id} className="order-item">
                     <div className="order-header">
                       <div className="order-id">Order #{order.orderNumber || order.name}</div>
@@ -163,6 +198,61 @@ export default function AccountPage() {
                         >
                           {expandedOrder === order.id ? "Hide" : "View"}
                         </button>
+                        <a
+                          href={(() => {
+                            // Build items with unit price calculation
+                            const items = (order.lineItems?.edges || []).map((edge: { node: { title: string; quantity: number; discountedTotalPrice: { amount: string } } }) => {
+                              const qty = Number(edge.node.quantity || 1);
+                              const lineDiscounted = Number(edge.node.discountedTotalPrice?.amount || 0);
+                              const unit = qty > 0 ? (lineDiscounted / qty) : lineDiscounted;
+                              return {
+                                title: edge.node.title,
+                                quantity: qty,
+                                price: unit.toFixed(2),
+                              };
+                            });
+
+                            // Build billing address from customer's first address
+                            const addr = customer?.addresses?.edges?.[0]?.node;
+                            const billToLines = [
+                              `${customer?.firstName || ''} ${customer?.lastName || ''}`.trim(),
+                              addr?.address1,
+                              addr?.address2,
+                              addr?.city,
+                              addr?.provinceCode,
+                              addr?.zip,
+                              addr?.country,
+                            ].filter(Boolean).join('\n');
+
+                            // Get totals from order
+                            const subtotal = order.subtotalPriceV2?.amount || '0.00';
+                            const tax = order.totalTaxV2?.amount || '0.00';
+                            const shipping = order.totalShippingPriceV2?.amount || '0.00';
+                            const discount = order.totalDiscountsV2?.amount || '0.00';
+                            const total = order.totalPriceV2?.amount || '0.00';
+                            const currency = order.totalPriceV2?.currencyCode || 'GBP';
+
+                            const params = new URLSearchParams({
+                              orderId: order.id,
+                              orderNumber: order.orderNumber || order.name,
+                              date: order.processedAt ? new Date(order.processedAt).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }) : new Date().toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }),
+                              subtotal,
+                              tax,
+                              shipping,
+                              discount,
+                              total,
+                              currency,
+                              items: JSON.stringify(items),
+                              billTo: billToLines,
+                            });
+                            return `/api/downloads/invoice?${params.toString()}`;
+                          })()}
+                          download
+                          className="primary-btn small"
+                          style={{ marginLeft: "8px" }}
+                        >
+                          Invoice PDF
+                        </a>
                       </div>
                     </div>
 
@@ -172,7 +262,7 @@ export default function AccountPage() {
                           <strong>Items in this order:</strong>
                         </p>
                         {order.lineItems && order.lineItems.edges.length > 0 ? (
-                          order.lineItems.edges.map((itemEdge: any, idx: number) => (
+                          order.lineItems.edges.map((itemEdge, idx: number) => (
                             <div className="order-product-row" key={idx}>
                               <span className="product-title">{itemEdge.node.title}</span>
                               <span className="product-qty">×{itemEdge.node.quantity}</span>
@@ -246,6 +336,21 @@ export default function AccountPage() {
         <p>Manage your account, orders, and addresses below.</p>
       </div>
 
+{/* VIP Membership and Watermarks buttons */}
+    <div className="account-vip-cta">
+      <Link href="/vip-membership" className="vip-membership-button">
+        VIP Membership
+      </Link>
+      <a
+        href="/api/downloads/watermarks"
+        download
+        className="vip-membership-button"
+        style={{ marginLeft: "15px" }}
+      >
+        Download Watermarks
+      </a>
+    </div>
+    
       <div className="tab-bar">
         {tabs.map((tab) => (
           <button
@@ -268,7 +373,7 @@ export default function AccountPage() {
   );
 }
 
-function ProfileForm({ customer, refreshCustomer }: { customer: any; refreshCustomer: () => Promise<any> }) {
+function ProfileForm({ customer, refreshCustomer }: { customer: Customer; refreshCustomer: () => Promise<unknown> }) {
   
   // Safely get validation context - handle case where it might not be available
   let refreshValidation = () => {};
@@ -289,7 +394,7 @@ function ProfileForm({ customer, refreshCustomer }: { customer: any; refreshCust
 
   // Add a prop or callback to update parent customer state
   const [refreshing, setRefreshing] = useState(false);
-  const updateCustomerState = (newCustomer: any) => {
+  const updateCustomerState = (newCustomer: Customer) => {
     setFirstName(newCustomer?.firstName || "");
     setLastName(newCustomer?.lastName || "");
     setPhone(newCustomer?.phone || "");
@@ -339,7 +444,7 @@ function ProfileForm({ customer, refreshCustomer }: { customer: any; refreshCust
 const fetchLatestCustomer = async () => {
   setRefreshing(true);
   try {
-    const data = await refreshCustomer();
+    const data = await refreshCustomer() as { customer?: Customer };
     if (data?.customer) {
       updateCustomerState(data.customer);
     }
@@ -361,13 +466,13 @@ const fetchLatestCustomer = async () => {
     
     setLoading(true);
       try {
-        const payload: any = { firstName, lastName, phone, website, social };
+        const payload: Record<string, string> = { firstName, lastName, phone, website, social };
         const res = await fetch("/api/shopify/update-customer", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
-        const data = await res.json();
+        const data = await res.json() as { success?: boolean; error?: string };
         if (!res.ok || !data.success) {
           setError(data.error || "Failed to update profile");
         } else {
@@ -376,8 +481,9 @@ const fetchLatestCustomer = async () => {
           await fetchLatestCustomer();
           refreshValidation(); // Refresh site-wide banner status
         }
-    } catch (err: any) {
-      setError(err.message || "Unknown error");
+    } catch (err) {
+      const errorMsg = err instanceof Error ? err.message : "Unknown error";
+      setError(errorMsg);
     } finally {
       setLoading(false);
     }
@@ -510,7 +616,7 @@ function SecurityForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const data = await res.json();
+      const data = await res.json() as { success?: boolean; error?: string };
       if (!res.ok || !data.success) {
         setError(data.error || "Failed to update password");
       } else {
@@ -523,8 +629,9 @@ function SecurityForm() {
           signOut();
         }, 2000);
       }
-    } catch (err: any) {
-      setError(err.message || "Unknown error");
+    } catch (err) {
+      const errorMsg = err instanceof Error ? err.message : "Unknown error";
+      setError(errorMsg);
     } finally {
       setLoading(false);
     }
@@ -564,8 +671,21 @@ function SecurityForm() {
 
 function AddressForm({ type, address, onAddressUpdated }: {
   type: "edit";
-  address: any;
-  onAddressUpdated: () => Promise<any>;
+  address: {
+    id: string;
+    firstName?: string;
+    lastName?: string;
+    company?: string;
+    address1?: string;
+    address2?: string;
+    city?: string;
+    province?: string;
+    provinceCode?: string;
+    country?: string;
+    zip?: string;
+    phone?: string;
+  } | undefined;
+  onAddressUpdated: () => Promise<unknown>;
 }) {
   const [form, setForm] = useState({
     firstName: address?.firstName || "",
@@ -582,7 +702,6 @@ function AddressForm({ type, address, onAddressUpdated }: {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
-  const [validationErrors, setValidationErrors] = useState<{[key: string]: boolean}>({});
 
   useEffect(() => {
     setForm({
@@ -614,7 +733,6 @@ function AddressForm({ type, address, onAddressUpdated }: {
     if (!form.country.trim()) errors.country = true;
     if (!form.phone.trim()) errors.phone = true;
     
-    setValidationErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
@@ -653,7 +771,7 @@ function AddressForm({ type, address, onAddressUpdated }: {
     
     setLoading(true);
       try {
-        const payload: any = {
+        const payload: Record<string, unknown> = {
           address: {
             firstName: form.firstName,
             lastName: form.lastName,
@@ -673,15 +791,16 @@ function AddressForm({ type, address, onAddressUpdated }: {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
-      const data = await res.json();
+      const data = await res.json() as { success?: boolean; error?: string };
       if (!res.ok || !data.success) {
         setError(data.error || "Failed to update address");
       } else {
         setSuccess("Address updated successfully.");
         await onAddressUpdated();
       }
-    } catch (err: any) {
-      setError(err.message || "Unknown error");
+    } catch (err) {
+      const errorMsg = err instanceof Error ? err.message : "Unknown error";
+      setError(errorMsg);
     } finally {
       setLoading(false);
     }

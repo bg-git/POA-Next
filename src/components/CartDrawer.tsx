@@ -1,11 +1,23 @@
-import { useCart } from '@/context/CartContext';
+import { useCart, type CartItem } from '@/context/CartContext';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useFavourites } from '@/context/FavouritesContext';
+import { useAuth } from '@/context/AuthContext';
 
-const formatPrice = (price: string | undefined) => {
-  const num = parseFloat(price || '0');
+const formatPrice = (price: string | number | undefined) => {
+  const num = typeof price === 'number' ? price : parseFloat(price || '0');
   return num % 1 === 0 ? num.toFixed(0) : num.toFixed(2);
+};
+
+const getCurrencySymbol = (currencyCode?: string) => {
+  const symbols: Record<string, string> = {
+    GBP: '£',
+    USD: '$',
+    CAD: 'CA$',
+    EUR: '€',
+  };
+  
+  return symbols[currencyCode || 'GBP'] || '£';
 };
 
 const displayTitle = (title?: string, variantTitle?: string) => {
@@ -66,11 +78,39 @@ export default function CartDrawer() {
     closeDrawer,
     updateQuantity,
     flushSync,
+    draftCheckoutUrl,
+    draftStatus,
+    ensureVipDraftCheckout,
   } = useCart();
 
   const { addFavourite } = useFavourites();
 
+  const { user } = useAuth();
+  const isVipMember = Array.isArray(user?.tags)
+    ? user.tags.includes('VIP-MEMBER')
+    : false;
+
+  const parsePrice = (value?: string) => {
+    const trimmed = value?.trim();
+    if (!trimmed) return null;
+    const parsed = parseFloat(trimmed);
+    return Number.isFinite(parsed) ? parsed : null;
+  };
+
+  const getEffectivePrice = (
+    itemPrice: Pick<CartItem, 'basePrice' | 'memberPrice' | 'price'>
+  ) => {
+    const base =
+      parsePrice(itemPrice.basePrice) ?? parsePrice(itemPrice.price) ?? 0;
+    const member = parsePrice(itemPrice.memberPrice);
+
+    if (isVipMember && member !== null) return member;
+    return base;
+  };
+
   const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const isDraftBuilding = isVipMember && draftStatus === 'building';
+  const checkoutLabel = isVipMember ? 'CHECKOUT' : 'CHECKOUT';
 
 
   useEffect(() => {
@@ -154,7 +194,7 @@ export default function CartDrawer() {
                             +
                           </button>
                         </div>
-                        <div className="cart-price">£{formatPrice(item.price)}</div>
+                        <div className="cart-price">{getCurrencySymbol(item.currencyCode)}{formatPrice(getEffectivePrice(item))}</div>
 
                       </div>
                     </div>
@@ -166,56 +206,76 @@ export default function CartDrawer() {
 
           {cartItems.length > 0 && (
             <div className="cart-subtotal">
-  Subtotal: £
-  {formatPrice(
-    cartItems
-      .reduce(
-        (sum, item) => sum + parseFloat(item.price || '0') * item.quantity,
-        0
-      )
-      .toString()
-  )}
-</div>
-
+              Subtotal: {getCurrencySymbol(cartItems[0]?.currencyCode)}
+              {formatPrice(
+                cartItems.reduce(
+                  (sum, item) => sum + getEffectivePrice(item) * item.quantity,
+                  0
+                )
+              )}
+            </div>
           )}
 
           <a
             className={`checkout-button ${
-              checkoutUrl && !isCheckingOut ? '' : 'disabled'
+              isCheckingOut || isDraftBuilding || (!isVipMember && !checkoutUrl)
+                ? 'disabled'
+                : ''
             }`}
-            href={checkoutUrl || '#'}
+            href={draftCheckoutUrl || checkoutUrl || '#'}
             onClick={async (e) => {
               e.preventDefault();
-              if (isCheckingOut) return;
-              setIsCheckingOut(true);
-              const url = await flushSync();
-              setIsCheckingOut(false);
-              if (!url) return;
+              if (isCheckingOut || isDraftBuilding) return;
 
-              cartItems.forEach((item) => {
-                if (item.handle) {
-                  addFavourite({
-                    handle: item.handle,
-                    title: item.title || '',
-                    image: item.image,
-                    price: item.price,
-                    metafields: item.metafields,
-                    orderAgain: true, // ✅ This sets the flag
-                  });
-                }
-              });
+              setIsCheckingOut(true);
+
               try {
-                await unregisterServiceWorkersForCheckout();
-              } catch (error) {
-                console.warn(
-                  'Unexpected error while preparing checkout; continuing to Shopify checkout.',
-                  error
-                );
+                let urlToUse: string | null = null;
+
+                if (isVipMember) {
+                  if (draftCheckoutUrl && draftStatus === 'ready') {
+                    urlToUse = draftCheckoutUrl;
+                  } else {
+                    urlToUse = await ensureVipDraftCheckout();
+                  }
+                }
+
+                if (!urlToUse) {
+                  const syncedUrl = await flushSync();
+                  urlToUse = syncedUrl;
+                }
+
+                if (!urlToUse) return;
+
+                cartItems.forEach((item) => {
+                  if (item.handle) {
+                    addFavourite({
+                      handle: item.handle,
+                      title: item.title || '',
+                      image: item.image,
+                      price: item.price,
+                      metafields: item.metafields,
+                      orderAgain: true, // ✅ This sets the flag
+                    });
+                  }
+                });
+                try {
+                  await unregisterServiceWorkersForCheckout();
+                } catch (error) {
+                  console.warn(
+                    'Unexpected error while preparing checkout; continuing to Shopify checkout.',
+                    error
+                  );
+                }
+                window.location.href = urlToUse;
+              } finally {
+                setIsCheckingOut(false);
               }
-              window.location.href = url;
             }}
           >
-            {isCheckingOut ? 'LOADING…' : 'CHECKOUT'}
+            {isCheckingOut || isDraftBuilding
+              ? 'LOADING…'
+              : checkoutLabel}
           </a>
 
 

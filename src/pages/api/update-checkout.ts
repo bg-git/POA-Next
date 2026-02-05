@@ -1,12 +1,26 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { COOKIE_NAME } from '@/lib/cookies';
+import { getCustomerCountryCode } from '@/lib/market';
 
 const SHOPIFY_DOMAIN = process.env.SHOPIFY_STORE_DOMAIN!;
 const SHOPIFY_TOKEN = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
-const URL = `https://${SHOPIFY_DOMAIN}/api/2024-04/graphql.json`;
+const VIP_DISCOUNT_CODE = process.env.VIP_DISCOUNT_CODE;
+const SHOPIFY_API_URL = `https://${SHOPIFY_DOMAIN}/api/2024-04/graphql.json`;
+
+const applyVipDiscountParam = (url: string | undefined, isVipMember: boolean) => {
+  if (!url || !VIP_DISCOUNT_CODE || !isVipMember) return url;
+  try {
+    const parsed = new URL(url);
+    parsed.searchParams.set('discount', VIP_DISCOUNT_CODE);
+    return parsed.toString();
+  } catch (error) {
+    console.warn('Unable to append VIP discount param to checkout URL', error);
+    return url;
+  }
+};
 
 async function shopifyFetch(query: string, variables: Record<string, unknown>) {
-  const res = await fetch(URL, {
+  const res = await fetch(SHOPIFY_API_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -30,6 +44,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   const customerAccessToken = req.cookies?.[COOKIE_NAME];
+  let isVipMember = false;
 
   const GET_CART = `${CART_FRAGMENT}\nquery getCart($id: ID!) { cart(id: $id) { ...CartFields } }`;
 
@@ -85,9 +100,40 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await shopifyFetch(MUTATION, { cartId: checkoutId, lines: toAdd });
   }
 
+  // Get customer's country code if authenticated
+  let countryCode = 'GB'; // Default to UK
+  if (customerAccessToken) {
+    try {
+      const customerQuery = `
+        query customer($customerAccessToken: String!) {
+          customer(customerAccessToken: $customerAccessToken) {
+            tags
+            defaultAddress {
+              country
+            }
+          }
+        }
+      `;
+
+      const customerData = await shopifyFetch(customerQuery, { customerAccessToken });
+      const customer = customerData?.data?.customer;
+
+      if (customer?.defaultAddress?.country) {
+        countryCode = getCustomerCountryCode(customer);
+      }
+
+      if (Array.isArray(customer?.tags)) {
+        isVipMember = customer.tags.includes('VIP-MEMBER');
+      }
+    } catch (error) {
+      console.error('Failed to fetch customer country:', error);
+      // Continue with default country code
+    }
+  }
+
   const IDENTITY_MUTATION = `mutation cartBuyerIdentityUpdate($cartId: ID!, $buyerIdentity: CartBuyerIdentityInput!) { cartBuyerIdentityUpdate(cartId: $cartId, buyerIdentity: $buyerIdentity) { cart { id } userErrors { field message } } }`;
   const buyerIdentity = {
-    countryCode: 'GB',
+    countryCode,
     ...(customerAccessToken ? { customerAccessToken } : {}),
   };
   const identityRes = await shopifyFetch(IDENTITY_MUTATION, {
@@ -104,6 +150,43 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (!cart) {
     return res.status(404).json({ message: 'Cart not found after update', debug: json });
+  }
+
+  // Apply VIP discount code if configured and the customer is tagged
+  if (isVipMember && VIP_DISCOUNT_CODE) {
+    const discountMutation = `${CART_FRAGMENT}
+      mutation cartDiscountCodesUpdate($cartId: ID!, $discountCodes: [String!]!) {
+        cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
+          cart { ...CartFields }
+          userErrors { field message }
+        }
+      }
+    `;
+
+    const discountRes = await shopifyFetch(discountMutation, {
+      cartId: checkoutId,
+      discountCodes: [VIP_DISCOUNT_CODE],
+    });
+
+    const discountErrors = discountRes?.data?.cartDiscountCodesUpdate?.userErrors;
+    if (discountErrors?.length) {
+      console.error('Failed to apply VIP discount code on update:', discountErrors);
+    }
+
+    const discountedCart = discountRes?.data?.cartDiscountCodesUpdate?.cart;
+    if (discountedCart) {
+      cart = discountedCart;
+    }
+  }
+
+  // Ensure checkout URL carries the VIP discount code for the redirect,
+  // even if Shopify doesn't return a discounted URL in the mutation response.
+  const checkoutWithDiscount = applyVipDiscountParam(
+    cart.checkoutUrl as string,
+    isVipMember
+  );
+  if (checkoutWithDiscount) {
+    cart = { ...cart, checkoutUrl: checkoutWithDiscount };
   }
 
   return res.status(200).json({ cart });

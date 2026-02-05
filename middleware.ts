@@ -6,6 +6,11 @@ import { verifyCustomerSession } from '@/lib/verifyCustomerSession'
 const PUBLIC_FILE = /\.(?:js|css|png|jpg|jpeg|gif|svg|webp|ico)$/i
 
 export async function middleware(request: NextRequest) {
+  // ✅ In development, bypass all auth / gating
+  if (process.env.NODE_ENV === 'development') {
+    return NextResponse.next()
+  }
+
   const { pathname } = request.nextUrl
 
   // Skip Next.js internals and static assets
@@ -18,6 +23,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // 🔒 Customer session logic (unchanged)
   const sessionCookie = request.cookies.get(COOKIE_NAME)?.value
   if (sessionCookie) {
     const customer = await verifyCustomerSession(sessionCookie)
@@ -32,16 +38,16 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // Place custom middleware logic for dynamic pages here
   return NextResponse.next()
 }
 
+// ✅ IMPORTANT: DO NOT INCLUDE /admin OR /api HERE
 export const config = {
   matcher: [
-    '/products/:path*',
+    '/product/:path*',
     '/account/:path*',
     '/checkout/:path*',
-    '/collections/:path*',
+    '/collection/:path*',
     '/piercing/:path*',
     '/piercing-magazine/:path*',
     '/favourites',
