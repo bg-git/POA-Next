@@ -16,9 +16,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const result = await resend.emails.send({
-      from: 'AURICLE Support <support@auricle.co.uk>',
-      to: [email, 'admin@auricle.co.uk'], // 👈 CC to admin
-      subject: 'Your AURICLE Chat Transcript',
+      from: 'PIERCE OF ART Support <support@pierceofart.co.uk>',
+      to: [email, 'admin@pierceofart.co.uk'], // 👈 CC to admin
+      subject: 'Your PIERCE OF ART Chat Transcript',
       react: ChatTranscript({ name, messages }),
     });
 

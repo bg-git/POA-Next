@@ -32,10 +32,7 @@ const FavouriteToggleLazy = dynamic(
     loading: () => null,
   }
 );
-const vipPricingEnabled =
-  typeof window === 'undefined'
-    ? process.env.NEXT_PUBLIC_VIP_PRICING_ENABLED === 'true'
-    : process.env.NEXT_PUBLIC_VIP_PRICING_ENABLED === 'true';
+// VIP pricing removed for retail version
 
 const normalizeOptionText = (value?: string | null) =>
   (value ?? '').toString().trim().toLowerCase();
@@ -299,7 +296,6 @@ useEffect(() => {
 useEffect(() => {
   const v = variantEdges.find(e => e.node.id === selectedVariantId)?.node;
   if (!v) return;
-  setQty((v.quantityAvailable ?? 0) > 0 ? 1 : 0);
   if (!v.image) {
     setShowVariantImage(false);
   }
@@ -308,74 +304,9 @@ useEffect(() => {
 
 
 
- const { user, refreshUser, loading } = useAuth();
-const hasRefreshed = useRef(false);
-const [mounted, setMounted] = useState(false);
+  // Approval gating removed for retail version
 
-useEffect(() => {
-  setMounted(true);
-}, []);
-
-const approved: true | false | null = !mounted ? null : (loading ? null : Boolean(user?.approved));
-
-const isVipMember =
-  mounted && Array.isArray(user?.tags)
-    ? user!.tags!.includes('VIP-MEMBER')
-    : false;
-
-
-
-  useEffect(() => {
-    if (user && !user.approved && !hasRefreshed.current) {
-      hasRefreshed.current = true;
-      refreshUser();
-    }
-  }, [user, refreshUser]);
-
-  // Fetch market-specific prices when user is authenticated
- useEffect(() => {
-  if (!user || !product?.handle) {
-    console.log('Skipping market price fetch:', {
-      hasUser: !!user,
-      hasHandle: !!product?.handle,
-    });
-    return;
-  }
-
-  console.log('Fetching market prices for user with address:', user.defaultAddress);
-
-  const fetchMarketPrices = async () => {
-    try {
-      const response = await fetch('/api/shopify/get-product-price', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ handle: product.handle }),
-        credentials: 'include',
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Market prices received:', data);
-        setMarketPrices(data);
-
-        try {
-          localStorage.setItem(`market-price-${product.id}`, JSON.stringify({
-            data,
-            timestamp: Date.now(),
-          }));
-        } catch {
-          // Ignore localStorage errors
-        }
-      } else {
-        console.error('Failed to fetch market prices, status:', response.status);
-      }
-    } catch (error) {
-      console.error('Failed to fetch market prices:', error);
-    }
-  };
-
-  fetchMarketPrices();
-}, [user, product?.handle, product?.id]);
+  // Market-specific pricing fetch removed for retail version
 
 
   useEffect(() => {
@@ -460,19 +391,8 @@ const isVipMember =
 const baseRawPrice = parseFloat(currentPrice.amount);
 const currencyCode = currentPrice.currencyCode;
 
-// Member price from variant metafield (custom.member_price)
-const memberPriceRaw = selectedVariant?.metafield?.value ?? null;
-const memberRaw =
-  memberPriceRaw !== null && memberPriceRaw !== ''
-    ? parseFloat(memberPriceRaw)
-    : null;
-
-// Effective price: VIP uses member price if available; otherwise default
-const effectiveRawPrice =
-  vipPricingEnabled && isVipMember && memberRaw !== null
-    ? memberRaw
-    : baseRawPrice;
-
+// Price calculation simplified for retail (no member pricing)
+const effectiveRawPrice = baseRawPrice;
 
 const formattedPrice =
   effectiveRawPrice % 1 === 0
@@ -493,15 +413,6 @@ const defaultLabel =
   baseRawPrice % 1 === 0
     ? `${currencySymbol}${baseRawPrice.toFixed(0)}`
     : `${currencySymbol}${baseRawPrice.toFixed(2)}`;
-
-const memberLabel =
-  memberRaw !== null
-    ? memberRaw % 1 === 0
-      ? `${currencySymbol}${memberRaw.toFixed(0)}`
-      : `${currencySymbol}${memberRaw.toFixed(2)}`
-    : null;
-
-
 
   const metafields = useMemo(
     () => product?.metafields || [],
@@ -681,7 +592,7 @@ const testCertificateUrl = getFileUrl('test_certificate');
         description={
           getFieldValue('description') || `Buy ${product.title} in 14k gold or titanium.`
         }
-        canonical={`https://www.auricle.co.uk/product/${product.handle}`}
+        canonical={`https://www.pierceofart.co.uk/product/${product.handle}`}
       />
 
       <script
@@ -697,11 +608,11 @@ const testCertificateUrl = getFileUrl('test_certificate');
             "sku": product.metafields?.find((m) => m?.key === "sku")?.value || "",
             "brand": {
               "@type": "Brand",
-              "name": "AURICLE"
+              "name": "PIERCE OF ART"
             },
             "offers": {
               "@type": "Offer",
-              "url": `https://www.auricle.co.uk/product/${product.handle}`,
+              "url": `https://www.pierceofart.co.uk/product/${product.handle}`,
               "priceCurrency": currencyCode,
               "price": formattedPrice,
               "availability": isSoldOut ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
@@ -765,73 +676,16 @@ const testCertificateUrl = getFileUrl('test_certificate');
       textAlign: 'right',
     }}
   >
-    {approved === true ? (
-      isVipMember && memberLabel ? (
-        <>
-          {/* VIP: show member price as main (no label, no purple) */}
-          <div
-            aria-live="polite"
-            style={{
-              fontSize: '16px',
-              fontWeight: 600,
-              lineHeight: '22px',
-            }}
-          >
-            {memberLabel}
-          </div>
-          <div
-            style={{
-              fontSize: '12px',
-              opacity: 0.7,
-              marginTop: '2px',
-            }}
-          >
-            Non-member: {defaultLabel}
-          </div>
-        </>
-      ) : (
-        <>
-          {/* Non-VIP: show default price as main, VIP teaser underneath */}
-          <div
-            aria-live="polite"
-            style={{
-              fontSize: '16px',
-              fontWeight: 600,
-              lineHeight: '22px',
-            }}
-          >
-            {defaultLabel}
-          </div>
-        {vipPricingEnabled && memberLabel && (
-  <div className="vip-price-wrapper">
-    <div className="vip-price-teaser">
-      <span className="vip-price-teaser__label">VIP MEMBER PRICE</span>
-      <span className="vip-price-teaser__value">{memberLabel}</span>
+    <div
+      aria-live="polite"
+      style={{
+        fontSize: '16px',
+        fontWeight: 600,
+        lineHeight: '22px',
+      }}
+    >
+      {defaultLabel}
     </div>
-
-    <Link href="/vip-membership" className="vip-price-link">
-      Become a VIP MEMBER
-    </Link>
-  </div>
-)}
-
-
-
-        </>
-      )
-    ) : (
-      // Reserve space but hide price when not approved
-      <div
-        style={{
-          fontSize: '16px',
-          fontWeight: 600,
-          lineHeight: '22px',
-          visibility: 'hidden',
-        }}
-      >
-        {defaultLabel}
-      </div>
-    )}
   </div>
 </div>
 
@@ -997,7 +851,7 @@ const testCertificateUrl = getFileUrl('test_certificate');
 
 
 
-  {/* Quantity + Add to Cart (always rendered; masked when not approved) */}
+  {/* Quantity + Add to Cart */}
   <div className="desktop-add-to-cart" style={{ marginTop: '24px' }}>
     <div style={{ display: 'flex', gap: '12px' }}>
       <label htmlFor="qty" style={{ position: 'absolute', left: '-9999px' }}>
@@ -1014,7 +868,6 @@ const testCertificateUrl = getFileUrl('test_certificate');
           borderRadius: '4px',
           overflow: 'hidden',
           paddingInline: '4px',
-          opacity: approved !== true ? 0.6 : 1,
         }}
       >
         <button
@@ -1026,12 +879,11 @@ const testCertificateUrl = getFileUrl('test_certificate');
             background: '#fff',
             border: 'none',
             fontSize: '20px',
-            cursor: approved === true ? 'pointer' : 'not-allowed',
+            cursor: 'pointer',
           }}
           onClick={() => setQty((prev) => Math.max(isSoldOut ? 0 : 1, prev - 1))}
-          disabled={approved !== true}
-          aria-disabled={approved !== true}
-          title={approved !== true ? 'Sign in to purchase' : undefined}
+          disabled={isSoldOut}
+          aria-disabled={isSoldOut}
         >
           −
         </button>
@@ -1061,17 +913,15 @@ const testCertificateUrl = getFileUrl('test_certificate');
             fontSize: '20px',
             background: '#fff',
             border: 'none',
-            cursor: approved === true ? 'pointer' : 'not-allowed',
+            cursor: 'pointer',
           }}
           onClick={() => {
-            if (approved !== true) return;
             if (maxQty <= 0) { showToast('More coming soon 😉'); return; }
             if (qty >= maxQty) { showToast(`We only have ${maxQty} available. Sorry 😞`); return; }
             setQty((prev) => prev + 1);
           }}
-          disabled={approved !== true}
-          aria-disabled={approved !== true}
-          title={approved !== true ? 'Sign in to purchase' : undefined}
+          disabled={isSoldOut}
+          aria-disabled={isSoldOut}
         >
           +
         </button>
@@ -1091,37 +941,29 @@ const testCertificateUrl = getFileUrl('test_certificate');
           cursor: 'pointer',
           borderRadius: '4px',
           whiteSpace: 'nowrap',
-          opacity: approved !== true ? 0.85 : 1,
         }}
         onClick={() => {
-          if (approved !== true) {
-            router.push(`/sign-in?next=${encodeURIComponent(router.asPath)}`);
-            return;
-          }
           if (isSoldOut) { showToast('SOLD OUT. More coming soon.'); return; }
           if (!selectedVariantId || !selectedVariant) return;
 
           addToCart(selectedVariantId, qty, {
-  handle: router.query.handle as string,
-  title: product.title,
-  variantTitle: selectedVariant.title,
-  selectedOptions: selectedVariant.selectedOptions,
-  price: effectiveRawPrice.toString(),
-  basePrice: baseRawPrice.toString(),
-  memberPrice: memberRaw !== null ? memberRaw.toString() : undefined,
-  currencyCode: currentPrice.currencyCode,
-  image: product.images?.edges?.[0]?.node?.url || undefined,
-  metafields: product.metafields,
-  quantityAvailable: selectedVariant.quantityAvailable,
-});
-
-
+            handle: router.query.handle as string,
+            title: product.title,
+            variantTitle: selectedVariant.title,
+            selectedOptions: selectedVariant.selectedOptions,
+            price: effectiveRawPrice.toString(),
+            basePrice: baseRawPrice.toString(),
+            currencyCode: currentPrice.currencyCode,
+            image: product.images?.edges?.[0]?.node?.url || undefined,
+            metafields: product.metafields,
+            quantityAvailable: selectedVariant.quantityAvailable,
+          });
           openDrawer();
         }}
-        disabled={approved !== true || isSoldOut}
-        aria-disabled={approved !== true || isSoldOut}
+        disabled={isSoldOut}
+        aria-disabled={isSoldOut}
       >
-        {approved !== true ? 'SIGN IN' : (isSoldOut ? 'SOLD OUT' : 'ADD TO BAG')}
+        {isSoldOut ? 'SOLD OUT' : 'ADD TO BAG'}
       </button>
     </div>
   </div>
@@ -1184,8 +1026,8 @@ const testCertificateUrl = getFileUrl('test_certificate');
 
 </table>
 
-{/* ✅ Test Certificate box (only shows when user is approved AND metafield exists) */}
-{approved === true && testCertificateUrl && (
+{/* Test Certificate box (shows when metafield exists) */}
+{testCertificateUrl && (
   <div
     style={{
       marginTop: '16px',
@@ -1284,7 +1126,6 @@ const testCertificateUrl = getFileUrl('test_certificate');
             selectedOptions: selectedVariant.selectedOptions,
             price: effectiveRawPrice.toString(),
             basePrice: baseRawPrice.toString(),
-            memberPrice: memberRaw !== null ? memberRaw.toString() : undefined,
             currencyCode: currentPrice.currencyCode,
             image: product.images?.edges?.[0]?.node?.url || undefined,
             metafields: product.metafields,
@@ -1327,19 +1168,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<ProductPageProps> = async (
   context: GetStaticPropsContext
-) => {
+)  => {
   const handle = context.params?.handle as string;
-
-  // 🚀 301 redirect for the VIP membership product
-  if (handle === 'vip-membership') {
-    return {
-      redirect: {
-        destination: '/vip-membership',
-        permanent: true,
-      },
-    };
-  }
-
 
 const query = `
   query ProductByHandle($handle: String!) {

@@ -24,7 +24,7 @@ export function withAdminBasicAuth<P extends Record<string, unknown>>(
     const auth = req.headers.authorization;
 
     if (!auth || !auth.startsWith("Basic ")) {
-      res.setHeader("WWW-Authenticate", 'Basic realm="Auricle Admin"');
+      res.setHeader("WWW-Authenticate", 'Basic realm="PIERCE OF ART Admin"');
       res.statusCode = 401;
       res.end("Authentication required");
       return { props: {} as P };
@@ -36,7 +36,7 @@ export function withAdminBasicAuth<P extends Record<string, unknown>>(
     try {
       decoded = Buffer.from(base64, "base64").toString("utf8");
     } catch {
-      res.setHeader("WWW-Authenticate", 'Basic realm="Auricle Admin"');
+      res.setHeader("WWW-Authenticate", 'Basic realm="PIERCE OF ART Admin"');
       res.statusCode = 401;
       res.end("Authentication required");
       return { props: {} as P };
@@ -45,7 +45,7 @@ export function withAdminBasicAuth<P extends Record<string, unknown>>(
     const [username, password] = decoded.split(":");
 
     if (username !== ADMIN_USERNAME || password !== ADMIN_PASSWORD) {
-      res.setHeader("WWW-Authenticate", 'Basic realm="Auricle Admin"');
+      res.setHeader("WWW-Authenticate", 'Basic realm="PIERCE OF ART Admin"');
       res.statusCode = 401;
       res.end("Authentication required");
       return { props: {} as P };

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Seo from '@/components/Seo';
 
-const REGION_COOKIE_NAME = 'auricle_region_pref';
+const REGION_COOKIE_NAME = 'poa_region_pref';
 
 // --- small helper to read one cookie from the header ---
 function getCookieFromHeader(
@@ -36,8 +36,8 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async (
   const host = ctx.req.headers.host || '';
 
   const isDotCom =
-  host.endsWith('auriclejewelry.com') ||
-  host.endsWith('auricle.com');
+  host.endsWith('pierceofart.com') ||
+  host.endsWith('poa.com');
 
 
   // Only read the preference on .com (and localhost in dev)
@@ -111,7 +111,7 @@ const languages: Language[] = [
 // Mapping: region -> language -> href
 const regionLanguageHref: Record<string, Record<string, string>> = {
   gb: {
-    en: 'https://auricle.co.uk', // UK–English
+    en: 'https://pierceofart.co.uk', // UK–English
   },
   us: {
     en: '/us', // US–English
@@ -173,8 +173,8 @@ function RegionSelector() {
   return (
     <>
       <Seo
-        title="Choose region | AURICLE"
-        description="Select your country and language to continue to AURICLE."
+        title="Choose region | PIERCE OF ART"
+        description="Select your country and language to continue to PIERCE OF ART."
       />
 
       <main className="region-selector">
@@ -183,12 +183,12 @@ function RegionSelector() {
           <header className="region-selector__brand">
             <Image
               src="/auricle-logo.png"
-              alt="AURICLE"
+              alt="PIERCE OF ART"
               width={140}
               height={94}              priority
             />
             <p className="region-selector__welcome">
-              Welcome to the AURICLE international website.
+              Welcome to PIERCE OF ART – your premium body piercing studio.
             </p>
           </header>
 
@@ -274,10 +274,7 @@ function RegionSelector() {
           )}
 
           <footer className="region-selector__footer">
-            <p>
-              Looking for wholesale access in another country? Email{' '}
-              <a href="mailto:info@auricle.co.uk">info@auricle.co.uk</a>.
-            </p>
+            {/* Footer content can go here if needed */}
           </footer>
         </form>
       </main>
@@ -292,14 +289,14 @@ export function HomeContent() {
   return (
     <>
       <Seo
-        title="Wholesale Body Piercing Jewellery"
-        description="Boutique wholesaler of 14k gold & ASTM F136 titanium body jewellery. Dainty styles, low MOQs, fast UK dispatch. Limited-run piercing jewellery for pros."
+        title="Premium Body Piercing Studio"
+        description="Premium body piercing studio with locations in Chesterfield and Leicester. Shop our large selection of high-quality titanium and 14k gold piercing jewellery online with fast delivery."
         schemaType="Organization"
         schemaData={{
-          name: "AURICLE",
-          description: "UK's leading provider of premium, independently-tested body piercing jewellery for professional piercers. All products verified to ASTM standards (F136, F2923, F2999) with independent third-party testing and mill certificates. Specializing in high-quality, safe, and compliant professional piercing jewellery.",
-          url: "https://www.auricle.co.uk",
-          logo: "https://www.auricle.co.uk/auricle-logo.png",
+          name: "PIERCE OF ART",
+          description: "Premium body piercing studio with locations in Chesterfield and Leicester. We offer a large selection of high-quality jewellery available online with fast delivery. All products verified to ASTM standards (F136, F2923, F2999) with independent third-party testing and mill certificates.",
+          url: "https://www.pierceofart.co.uk",
+          logo: "https://www.pierceofart.co.uk/auricle-logo.png",
           areaServed: ["GB", "US", "AU", "DE", "FR", "IT", "ES", "NL", "BE", "AT", "PL", "SE", "DK", "IE", "PT", "GR", "CZ", "HU"],
           knowsAbout: [
             "ASTM F136 Implant-Grade Titanium",
@@ -311,10 +308,8 @@ export function HomeContent() {
             "Independent Third-Party Testing",
             "UK & EU Consumer Product Safety",
             "Medical-Grade Jewellery",
-            "Professional Piercer Supply",
-            "Wholesale Body Jewellery",
-            "High Quality Piercing Jewellery",
-            "Piercing Jewellery Wholesale"
+            "Professional Body Piercing",
+            "High Quality Piercing Jewellery"
           ],
           sameAs: []
         }}

@@ -19,7 +19,7 @@ interface FavouritesContextType {
 
 const FavouritesContext = createContext<FavouritesContextType | undefined>(undefined);
 
-const STORAGE_KEY = 'auricle-favourites';
+const STORAGE_KEY = 'poa-favourites';
 
 export const FavouritesProvider = ({ children }: { children: ReactNode }) => {
   const [favourites, setFavourites] = useState<FavouriteItem[]>([]);

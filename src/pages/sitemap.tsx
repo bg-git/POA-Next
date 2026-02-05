@@ -4,7 +4,6 @@ import matter from 'gray-matter'
 import Link from 'next/link'
 import type { GetStaticProps } from 'next'
 import { shopifyFetch } from '@/lib/shopify'
-import { WHOLESALERS, type Wholesaler } from '@/lib/wholesalers'
 
 interface PageLink {
   href: string
@@ -18,7 +17,6 @@ interface Props {
   qaLinks: PageLink[]
   collectionLinks: PageLink[]
   productLinks: PageLink[]
-  wholesalerLinks: PageLink[]
 }
 
 export default function SitemapPage({
@@ -28,7 +26,6 @@ export default function SitemapPage({
   qaLinks,
   collectionLinks,
   productLinks,
-  wholesalerLinks,
 }: Props) {
   return (
     <main style={{ maxWidth: '1400px', margin: '0 auto', padding: '32px' }}>
@@ -42,7 +39,6 @@ export default function SitemapPage({
       <Section title="Blog Posts" links={blogLinks} />
       <Section title="Terms & Conditions" links={termsLinks} />
       <Section title="Quality Assurance" links={qaLinks} />
-      <Section title="Piercing Wholesalers" links={wholesalerLinks} />
 
       <p style={{ fontSize: '14px', marginTop: '40px' }}>
         View the <Link href="/sitemap.xml">sitemap.xml</Link> for search engines.
@@ -76,34 +72,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     { href: '/piercing-magazine', label: 'Piercing Magazine' },
     { href: '/sitemap.xml', label: 'Sitemap XML' },
   ]
-
-  /* ---------- WHOLESALERS ---------- */
-
-  const wholesalerLinks: PageLink[] = [
-    { href: '/piercing-wholesalers', label: 'Piercing Wholesalers (Directory)' },
-  ]
-
-  const countries = Array.from(
-    new Map(
-      WHOLESALERS.map((w: Wholesaler) => [w.countrySlug, w.countryName])
-    ).entries()
-  )
-    .map(([slug, name]) => ({ slug, name }))
-    .sort((a, b) => a.name.localeCompare(b.name))
-
-  countries.forEach(c => {
-    wholesalerLinks.push({
-      href: `/piercing-wholesalers/${c.slug}`,
-      label: `Piercing Wholesalers – ${c.name}`,
-    })
-  })
-
-  WHOLESALERS.forEach(w => {
-    wholesalerLinks.push({
-      href: `/piercing-wholesalers/${w.countrySlug}/${w.slug}`,
-      label: `${w.name} (${w.countryName})`,
-    })
-  })
 
   /* ---------- BLOG ---------- */
 
@@ -212,7 +180,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       staticLinks,
-      wholesalerLinks,
       blogLinks,
       termsLinks,
       qaLinks,

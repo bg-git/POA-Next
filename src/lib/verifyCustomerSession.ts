@@ -5,7 +5,6 @@ export interface ShopifyCustomer {
   lastName?: string;
   phone?: string;
   tags?: string[];
-  approved?: boolean;
   [key: string]: unknown;
 }
 
@@ -26,9 +25,6 @@ export async function verifyCustomerSession(token: string): Promise<ShopifyCusto
         acceptsMarketing
         createdAt
         updatedAt
-        metafield(namespace: "custom", key: "approved") {
-          value
-        }
       }
     }
   `;
@@ -77,10 +73,7 @@ export async function verifyCustomerSession(token: string): Promise<ShopifyCusto
       }
     }
 
-    const isApproved = (t: string[]) =>
-      t.map((tag) => tag.toLowerCase()).includes('approved');
-
-    return { ...customer, tags, approved: isApproved(tags) };
+    return { ...customer, tags };
   } catch {
     return null;
   }

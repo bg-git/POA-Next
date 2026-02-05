@@ -52,9 +52,6 @@ export function mapStyledByYou(
       const imgRef = pick("image")?.reference;
       if (!isMediaImageRef(imgRef)) return null;
 
-      const approved = (pick("approved")?.value ?? "true") === "true";
-      if (!approved) return null;
-
       const productRef = pick("product")?.reference;
       const okForProduct =
         !productRef || !productId || (isProductRef(productRef) && productRef.id === productId);

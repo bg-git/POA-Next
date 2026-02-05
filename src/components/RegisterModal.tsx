@@ -6,7 +6,7 @@ type RegisterModalProps = {
   isOpen: boolean;
   onClose: () => void;
   whatsappLink: string;   // e.g. https://wa.me/4477... ?text=...
-  emailHref: string;      // your wholesaleMailto mailto: string
+  emailHref: string;      // mailto: string
 };
 
 const RegisterModal: React.FC<RegisterModalProps> = ({
@@ -34,7 +34,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
         </button>
 
         <h2>REGISTER YOUR WAY</h2>
-        <p>WhatsApp is the fastest way to get your wholesale account approved.</p>
+        <p>WhatsApp is the fastest way to create your account.</p>
 
         <div className="join-modal__options">
           <a
@@ -57,7 +57,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
         </div>
 
         <p className="join-modal__note">
-          We aim to have your whatsapp account request approved in under 1 hour during our opening times.</p>
+          We aim to process your WhatsApp request in under 1 hour during our opening times.</p>
           <p className="join-modal__note">
           Email requests can take 1–2 business days.
         </p>

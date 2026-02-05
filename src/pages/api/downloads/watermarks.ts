@@ -17,8 +17,8 @@ export default async function handler(
     console.log('Directory exists:', fs.existsSync(watermarksDir));
     
     // Read watermark files with correct filenames
-    const whitePath = path.join(watermarksDir, 'AURICLE_White_watermark.png');
-    const blackPath = path.join(watermarksDir, 'AURICLE_Black_Watermark.png');
+    const whitePath = path.join(watermarksDir, 'PIERCE_OF_ART_White_watermark.png');
+    const blackPath = path.join(watermarksDir, 'PIERCE_OF_ART_Black_Watermark.png');
     
     console.log('White watermark path:', whitePath, 'exists:', fs.existsSync(whitePath));
     console.log('Black watermark path:', blackPath, 'exists:', fs.existsSync(blackPath));
@@ -35,7 +35,7 @@ export default async function handler(
     
     // Set response headers
     res.setHeader('Content-Type', 'application/zip');
-    res.setHeader('Content-Disposition', 'attachment; filename="auricle-watermarks.zip"');
+    res.setHeader('Content-Disposition', 'attachment; filename="poa-watermarks.zip"');
     res.setHeader('Content-Length', zipBuffer.length);
     
     // Send zip file

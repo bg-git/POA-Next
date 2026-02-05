@@ -64,15 +64,15 @@ function generateAtomFeed(entries: FeedEntry[]): string {
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Auricle - Blog &amp; Information</title>
+  <title>PIERCE OF ART - Blog &amp; Information</title>
   <link href="${DOMAIN}/feed.xml" rel="self"/>
   <link href="${DOMAIN}/" rel="alternate"/>
   <id>${DOMAIN}/</id>
   <updated>${lastUpdated}</updated>
   <author>
-    <name>Auricle</name>
+    <name>PIERCE OF ART</name>
   </author>
-  <rights>Copyright © ${new Date().getFullYear()} Auricle. All rights reserved.</rights>
+  <rights>Copyright © ${new Date().getFullYear()} PIERCE OF ART. All rights reserved.</rights>
 `
 
   for (const entry of entries) {

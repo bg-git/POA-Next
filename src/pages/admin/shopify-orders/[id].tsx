@@ -340,7 +340,7 @@ function OrderDetailPage({
     <>
       <Head>
         <title>
-          {order ? `Order ${order.name} – AURICLE Admin` : 'Order not found – AURICLE Admin'}
+          {order ? `Order ${order.name} – PIERCE OF ART Admin` : 'Order not found – PIERCE OF ART Admin'}
         </title>
         <meta name="robots" content="noindex,nofollow" />
       </Head>
@@ -350,7 +350,7 @@ function OrderDetailPage({
         <aside className="admin-sidebar">
           <div className="admin-sidebar__brand">
             <span className="admin-sidebar__logo">A</span>
-            <span className="admin-sidebar__name">AURICLE Admin</span>
+            <span className="admin-sidebar__name">PIERCE OF ART Admin</span>
           </div>
 
           <nav className="admin-sidebar__nav">

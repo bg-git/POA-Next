@@ -136,16 +136,6 @@ export default function ProductPage({ product, ugcItems }: ProductPageProps) {
 
 
   const { user, refreshUser, loading } = useAuth();
-  const hasRefreshed = useRef(false); 
-const approved: true | false | null = loading ? null : Boolean(user?.approved);
-
-
-  useEffect(() => {
-    if (user && !user.approved && !hasRefreshed.current) {
-      hasRefreshed.current = true;
-      refreshUser();
-    }
-  }, [user, refreshUser]);
 
   useEffect(() => {
     const v = variantEdges.find(e => e.node.id === selectedVariantId)?.node;
@@ -341,7 +331,7 @@ const approved: true | false | null = loading ? null : Boolean(user?.approved);
         description={
           getFieldValue('description') || `Buy ${product.title} in 14k gold or titanium.`
         }
-        canonical={`https://www.auricle.co.uk/product/${product.handle}`}
+        canonical={`https://www.pierceofart.co.uk/product/${product.handle}`}
       />
 
       <script
@@ -357,11 +347,11 @@ const approved: true | false | null = loading ? null : Boolean(user?.approved);
             "sku": product.metafields?.find((m) => m?.key === "sku")?.value || "",
             "brand": {
               "@type": "Brand",
-              "name": "AURICLE"
+              "name": "PIERCE OF ART"
             },
             "offers": {
               "@type": "Offer",
-              "url": `https://www.auricle.co.uk/product/${product.handle}`,
+              "url": `https://www.pierceofart.co.uk/product/${product.handle}`,
               "priceCurrency": "GBP",
               "price": "0.01",
               "availability": "https://schema.org/InStock",
@@ -434,9 +424,6 @@ const approved: true | false | null = loading ? null : Boolean(user?.approved);
             fontSize: '14px',
             fontWeight: 500,
             lineHeight: '24px',
-            visibility: approved === true ? 'visible' : 'hidden',
-            opacity: approved === true ? 1 : 0,
-            transition: 'opacity 0.2s ease',
           }}
         >
           £{formattedPrice}
@@ -521,7 +508,7 @@ const approved: true | false | null = loading ? null : Boolean(user?.approved);
     </div>
   )}
 
-  {/* Quantity + Add to Cart (always rendered; masked when not approved) */}
+  {/* Quantity + Add to Cart */}
   <div className="desktop-add-to-cart" style={{ marginTop: '24px' }}>
     <div style={{ display: 'flex', gap: '12px' }}>
       <label htmlFor="qty" style={{ position: 'absolute', left: '-9999px' }}>
@@ -538,7 +525,6 @@ const approved: true | false | null = loading ? null : Boolean(user?.approved);
           borderRadius: '4px',
           overflow: 'hidden',
           paddingInline: '4px',
-          opacity: approved !== true ? 0.6 : 1,
         }}
       >
         <button
@@ -550,12 +536,11 @@ const approved: true | false | null = loading ? null : Boolean(user?.approved);
             background: '#fff',
             border: 'none',
             fontSize: '20px',
-            cursor: approved === true ? 'pointer' : 'not-allowed',
+            cursor: 'pointer',
           }}
           onClick={() => setQty((prev) => Math.max(isSoldOut ? 0 : 1, prev - 1))}
-          disabled={approved !== true}
-          aria-disabled={approved !== true}
-          title={approved !== true ? 'Sign in to purchase' : undefined}
+          disabled={isSoldOut}
+          aria-disabled={isSoldOut}
         >
           −
         </button>
@@ -583,17 +568,15 @@ const approved: true | false | null = loading ? null : Boolean(user?.approved);
             fontSize: '20px',
             background: '#fff',
             border: 'none',
-            cursor: approved === true ? 'pointer' : 'not-allowed',
+            cursor: 'pointer',
           }}
           onClick={() => {
-            if (approved !== true) return;
             if (maxQty <= 0) { showToast('More coming soon 😉'); return; }
             if (qty >= maxQty) { showToast(`We only have ${maxQty} available. Sorry 😞`); return; }
             setQty((prev) => prev + 1);
           }}
-          disabled={approved !== true}
-          aria-disabled={approved !== true}
-          title={approved !== true ? 'Sign in to purchase' : undefined}
+          disabled={isSoldOut}
+          aria-disabled={isSoldOut}
         >
           +
         </button>
@@ -613,13 +596,8 @@ const approved: true | false | null = loading ? null : Boolean(user?.approved);
           cursor: 'pointer',
           borderRadius: '4px',
           whiteSpace: 'nowrap',
-          opacity: approved !== true ? 0.85 : 1,
         }}
         onClick={() => {
-          if (approved !== true) {
-            router.push(`/sign-in?next=${encodeURIComponent(router.asPath)}`);
-            return;
-          }
           if (isSoldOut) { showToast('SOLD OUT. More coming soon.'); return; }
           if (!selectedVariantId || !selectedVariant) return;
 
@@ -635,27 +613,13 @@ const approved: true | false | null = loading ? null : Boolean(user?.approved);
           });
           openDrawer();
         }}
-        disabled={approved !== true || isSoldOut}
-        aria-disabled={approved !== true || isSoldOut}
+        disabled={isSoldOut}
+        aria-disabled={isSoldOut}
       >
-        {approved !== true ? 'SIGN IN' : (isSoldOut ? 'SOLD OUT' : 'ADD TO BAG')}
+        {isSoldOut ? 'SOLD OUT' : 'ADD TO BAG'}
       </button>
     </div>
   </div>
-
-  {/* VAT Note (reserve height to avoid CLS) */}
-  <p
-    style={{
-      fontSize: '12px',
-      color: '#666',
-      marginTop: '10px',
-      marginBottom: '16px',
-      textAlign: 'right',
-      minHeight: 18,
-    }}
-  >
-    VAT & shipping calculated at checkout
-  </p>
 
   {/* Details block (unchanged) */}
   <div style={{ marginTop: '32px' }}>

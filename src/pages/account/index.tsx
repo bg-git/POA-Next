@@ -336,16 +336,11 @@ export default function AccountPage() {
         <p>Manage your account, orders, and addresses below.</p>
       </div>
 
-{/* VIP Membership and Watermarks buttons */}
-    <div className="account-vip-cta">
-      <Link href="/vip-membership" className="vip-membership-button">
-        VIP Membership
-      </Link>
+    <div className="account-tools-cta">
       <a
         href="/api/downloads/watermarks"
         download
-        className="vip-membership-button"
-        style={{ marginLeft: "15px" }}
+        className="tools-button"
       >
         Download Watermarks
       </a>

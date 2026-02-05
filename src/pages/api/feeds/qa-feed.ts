@@ -42,16 +42,16 @@ function generateAtomFeed(entries: FeedEntry[]): string {
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Auricle - Quality Assurance</title>
+  <title>PIERCE OF ART - Quality Assurance</title>
   <subtitle>Piercing jewelry quality standards, certifications, and policies</subtitle>
   <link href="${DOMAIN}/qa-feed.xml" rel="self"/>
   <link href="${DOMAIN}/quality-assurance" rel="alternate"/>
   <id>${DOMAIN}/quality-assurance</id>
   <updated>${lastUpdated}</updated>
   <author>
-    <name>Auricle</name>
+    <name>PIERCE OF ART</name>
   </author>
-  <rights>Copyright © ${new Date().getFullYear()} Auricle. All rights reserved.</rights>
+  <rights>Copyright © ${new Date().getFullYear()} PIERCE OF ART. All rights reserved.</rights>
 `
 
   for (const entry of entries) {

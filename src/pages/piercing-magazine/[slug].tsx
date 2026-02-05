@@ -24,8 +24,8 @@ export default function BlogPost({ title, description, content, image, slug, pre
     <>
       <Seo
         title={title}
-        description={description || `Read ${title} on the AURICLE piercing magazine.`}
-        canonical={`https://www.auricle.co.uk/piercing-magazine/${slug}`}
+        description={description || `Read ${title} on the PIERCE OF ART piercing magazine.`}
+        canonical={`https://www.pierceofart.co.uk/piercing-magazine/${slug}`}
       />
       <Head>
         <meta property="og:type" content="article" />
@@ -45,7 +45,7 @@ export default function BlogPost({ title, description, content, image, slug, pre
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": title,
-      "description": description || `Read ${title} on the AURICLE piercing magazine.`,
+      "description": description || `Read ${title} on the PIERCE OF ART piercing magazine.`,
       "datePublished": datePublished || new Date().toISOString(),// Optional: set manually if available in frontmatter
       "dateModified": new Date().toISOString(), // Same here
       "author": {
@@ -54,15 +54,15 @@ export default function BlogPost({ title, description, content, image, slug, pre
       },
       "publisher": {
         "@type": "Organization",
-        "name": "AURICLE",
+        "name": "PIERCE OF ART",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.auricle.co.uk/auricle-logo.png"
+          "url": "https://www.pierceofart.co.uk/auricle-logo.png"
         }
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://www.auricle.co.uk/piercing-magazine/${slug}`
+        "@id": `https://www.pierceofart.co.uk/piercing-magazine/${slug}`
       },
       ...(image && {
         image: {

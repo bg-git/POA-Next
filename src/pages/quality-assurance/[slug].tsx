@@ -39,8 +39,8 @@ export default function QualityAssurancePage({ slug, gbEn, usEn }: QualityAssura
 
   const canonicalBase =
     region === 'us'
-      ? 'https://www.auriclejewelry.com'
-      : 'https://www.auricle.co.uk';
+      ? 'https://www.pierceofart.co.uk'
+      : 'https://www.pierceofart.co.uk';
 
   return (
     <main className="quality-assurance-page">
@@ -81,7 +81,7 @@ export default function QualityAssurancePage({ slug, gbEn, usEn }: QualityAssura
             version and the original UK English version of these terms or
             policies, the UK English version will take priority and will govern
             your use of our services. If anything in a translation is unclear,
-            email <strong>info@auricle.co.uk</strong> so we can assist.
+            email <strong>info@pierceofart.co.uk</strong> so we can assist.
           </p>
         ) : (
           <p>
@@ -92,7 +92,7 @@ export default function QualityAssurancePage({ slug, gbEn, usEn }: QualityAssura
             version and the UK English version of these terms or policies, the
             UK English version takes priority and governs your use of our
             services. If anything in a translation is unclear, email{' '}
-            <strong>info@auricle.co.uk</strong> so we can help.
+            <strong>info@pierceofart.co.uk</strong> so we can help.
           </p>
         )}
       </section>

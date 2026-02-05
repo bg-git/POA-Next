@@ -17,7 +17,7 @@ export default function QualityAssuranceIndex({ pages }: { pages: QualityAssuran
       <Seo title="Quality Assurance" description="Important quality assurance pages." />
       <h1>QUALITY ASSURANCE</h1>
       <p>
-        AURICLE takes jewellery safety and quality assurance seriously. The statements below explain how materials are tested, verified, and assessed for professional use.
+        PIERCE OF ART takes jewellery safety and quality assurance seriously. We maintain the highest standards for all our premium piercing jewellery.
       </p>
       <br />
       <ul>

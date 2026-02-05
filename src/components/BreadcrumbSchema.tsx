@@ -32,7 +32,7 @@ export default function BreadcrumbSchema() {
       '@type': 'ListItem',
       position: index + 1,
       name: bc.label,
-      item: `https://www.auricle.co.uk${bc.url}`
+      item: `https://www.pierceofart.co.uk${bc.url}`
     }))
   };
 

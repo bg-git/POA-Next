@@ -103,7 +103,7 @@ export default function AccountActivation() {
       <>
         <Seo
           title="Account Activation"
-          description="Activate your AURICLE account."
+          description="Activate your PIERCE OF ART account."
         />
         <main className="reset-password-page">
           <div className="reset-password-container">
@@ -127,13 +127,13 @@ export default function AccountActivation() {
     <>
       <Seo
         title="Account Activation"
-        description="Activate your AURICLE account and set your password."
+        description="Activate your PIERCE OF ART account and set your password."
       />
       <main className="reset-password-page">
         <div className="reset-password-container">
           <div className="reset-password-info">
             <h1>Activate Your Account</h1>
-            <p>Set your password to activate your AURICLE business account</p>
+            <p>Set your password to activate your PIERCE OF ART business account</p>
           </div>
           
           <form className="reset-password-form" onSubmit={handleSubmit}>

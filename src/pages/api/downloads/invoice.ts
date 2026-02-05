@@ -116,7 +116,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Addresses (pass as multi-line strings)
     const fromAddress = s(req.query.fromAddress) || [
-      "AURICLE",
+      "PIERCE OF ART",
       "Unit 9",
       "King Street Buildings",
       "Enderby",
@@ -425,7 +425,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       doc.moveDown(0.8);
 
       doc.font("Helvetica-Bold").text("BANK DETAILS");
-      doc.font("Helvetica").text(["AURICLE Limited", "Sort: 82-61-37", "Account: 80533262"].join("\n"), {
+      doc.font("Helvetica").text(["PIERCE OF ART Limited", "Sort: 82-61-37", "Account: 80533262"].join("\n"), {
         lineGap: 2,
       });
 

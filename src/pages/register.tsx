@@ -43,7 +43,7 @@ export default function Register() {
     <>
       <Seo
         title="Register"
-        description="Create a free B2B account to buy piercing jewellery from AURICLE."
+        description="Create an account to shop premium piercing jewellery from PIERCE OF ART."
       />
       <main className="register-page">
       <div className="register-container">

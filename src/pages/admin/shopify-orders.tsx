@@ -258,7 +258,7 @@ function ShopifyOrdersPage({
   return (
     <>
       <Head>
-        <title>AURICLE Admin – Shopify Orders</title>
+        <title>PIERCE OF ART Admin – Shopify Orders</title>
         <meta name="robots" content="noindex,nofollow" />
       </Head>
 
@@ -267,7 +267,7 @@ function ShopifyOrdersPage({
         <aside className="admin-sidebar">
           <div className="admin-sidebar__brand">
             <span className="admin-sidebar__logo">A</span>
-            <span className="admin-sidebar__name">AURICLE Admin</span>
+            <span className="admin-sidebar__name">PIERCE OF ART Admin</span>
           </div>
 
           <nav className="admin-sidebar__nav">

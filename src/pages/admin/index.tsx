@@ -230,7 +230,7 @@ function AdminDashboardPage({
   return (
     <>
       <Head>
-        <title>AURICLE Admin Dashboard</title>
+        <title>PIERCE OF ART Admin Dashboard</title>
         <meta name="robots" content="noindex,nofollow" />
       </Head>
 
@@ -238,7 +238,7 @@ function AdminDashboardPage({
         <aside className="admin-sidebar">
           <div className="admin-sidebar__brand">
             <span className="admin-sidebar__logo">A</span>
-            <span className="admin-sidebar__name">AURICLE Admin</span>
+            <span className="admin-sidebar__name">PIERCE OF ART Admin</span>
           </div>
 
           <nav className="admin-sidebar__nav">
@@ -259,9 +259,6 @@ function AdminDashboardPage({
             <Link href="/admin/shopify-orders" className="admin-sidebar__nav-item">
               Orders
             </Link>
-            <Link href="/admin/poa-pricing" className="admin-sidebar__nav-item">
-              POA Pricing &amp; Sync
-            </Link>
           </nav>
 
           <div className="admin-sidebar__footer">
@@ -274,7 +271,7 @@ function AdminDashboardPage({
             <div>
               <h1 className="admin-main__title">Dashboard</h1>
               <p className="admin-main__subtitle">
-                High-level view of AURICLE performance.
+                High-level view of PIERCE OF ART performance.
               </p>
             </div>
           </header>
@@ -309,14 +306,6 @@ function AdminDashboardPage({
               <p className="admin-card__value">{shopifyRevenueMonthFormatted}</p>
               <p className="admin-card__meta">
                 Month-to-date revenue across Shopify orders.
-              </p>
-            </Link>
-
-            <Link href="/admin/poa-pricing" className="admin-card admin-card--clickable">
-              <h2 className="admin-card__title">POA Product Sync</h2>
-              <p className="admin-card__value">Manage</p>
-              <p className="admin-card__meta">
-                Enable Auricle products for Pierce of Art and set retail pricing.
               </p>
             </Link>
           </section>

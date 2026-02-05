@@ -5,17 +5,17 @@ type ShopifyAdminConfig = {
   token: string;
 };
 
-// 🔧 Auricle: support both legacy + new env names
-const AURICLE_DOMAIN =
+// 🔧 Source store: support both legacy + new env names
+const SOURCE_DOMAIN =
   process.env.AURICLE_SHOPIFY_STORE_DOMAIN ??
   process.env.SHOPIFY_STORE_DOMAIN;
 
-const AURICLE_TOKEN =
+const SOURCE_TOKEN =
   process.env.AURICLE_SHOPIFY_ADMIN_API_ACCESS_TOKEN ??
   process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN ??
   process.env.SHOPIFY_ADMIN_ACCESS_TOKEN;
 
-if (!AURICLE_DOMAIN || !AURICLE_TOKEN) {
+if (!SOURCE_DOMAIN || !SOURCE_TOKEN) {
   console.error('Shopify Admin env check failed', {
     hasAuricleDomain: !!process.env.AURICLE_SHOPIFY_STORE_DOMAIN,
     hasShopifyDomain: !!process.env.SHOPIFY_STORE_DOMAIN,
@@ -49,8 +49,8 @@ if (!POA_DOMAIN || !POA_TOKEN) {
 }
 
 export const auricleAdmin: ShopifyAdminConfig = {
-  domain: AURICLE_DOMAIN,
-  token: AURICLE_TOKEN,
+  domain: SOURCE_DOMAIN,
+  token: SOURCE_TOKEN,
 };
 
 export const poaAdmin: ShopifyAdminConfig = {

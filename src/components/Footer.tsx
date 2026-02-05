@@ -36,7 +36,7 @@ const sections = [
   {
     title: 'SOCIALS',
     links: [
-      { label: 'Instagram', href: 'https://instagram.com/auricle.co.uk' },
+      { label: 'Instagram', href: 'https://instagram.com/pierceofart.co.uk' },
     ],
   },
 ];

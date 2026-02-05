@@ -28,9 +28,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         acceptsMarketing
         createdAt
         updatedAt
-        metafield(namespace: "custom", key: "approved") {
-      value
-    }
         websiteMetafield: metafield(namespace: "custom", key: "website") {
       value
     }
@@ -139,9 +136,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     }
 
-    const isApproved = (t: string[]) =>
-      t.map((tag) => tag.toLowerCase()).includes('approved');
-
     setCustomerCookie(res, token);
     return res.status(200).json({
       success: true,
@@ -150,7 +144,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         website,
         social,
         tags,
-        approved: isApproved(tags),
       },
     });
 

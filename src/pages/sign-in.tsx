@@ -1,65 +1,7 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/router';
 import Seo from '@/components/Seo';
-import RegisterModal from '@/components/RegisterModal';
-
-// Shared register email text
-const wholesaleMailto = `mailto:info@auricle.co.uk?subject=${encodeURIComponent(
-  'Wholesale Enquiry'
-)}&body=${encodeURIComponent(
-  `Hey,
-    
-Thank you for your interest in becoming an authorised AURICLE stockist.
-
-To ensure access is reserved exclusively for verified piercing studios and jewellery retailers, please complete the details below. This helps us confirm eligibility and activate your wholesale account as quickly as possible.
-
-First Name = 
-
-Last Name = 
-
-Company Name = 
-
-Email Address = 
-
-Trading Address = 
-
-Website = 
-
-Social Media = 
-
-Phone Number =
-
-Once we’ve confirmed your business details, we’ll respond to this email with your access credentials. Verification is usually completed within one hour.
-
-Best Regards
-Auricle`
-)}`;
-
-// WhatsApp details – same as header/footer
-const whatsappNumber = '447757690863';
-
-const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-  `Hey,
-
-Thank you for your interest in becoming an authorised AURICLE stockist.
-
-To ensure access is reserved exclusively for verified piercing studios and jewellery retailers, please complete the details below and send them in this chat:
-
-First Name = 
-Last Name = 
-Company Name = 
-Email Address = 
-Trading Address = 
-Website = 
-Social Media = 
-Phone Number = 
-
-Once we’ve confirmed your business details, we’ll respond via email or WhatsApp with your access credentials. Verification is usually completed within one hour.
-
-Best Regards
-Auricle`
-)}`;
 
 export default function SignIn() {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -128,7 +70,7 @@ export default function SignIn() {
     <>
       <Seo
         title="Sign In"
-        description="Sign in to your AURICLE wholesale account."
+        description="Sign in to your PIERCE OF ART account."
       />
       <main className="sign-in-page">
         <div className="sign-in-container">
@@ -181,7 +123,7 @@ export default function SignIn() {
               </div>
 
               <button type="submit" disabled={status === 'submitting'}>
-                {status === 'submitting' ? 'Signing in…' : 'SIGN IN'}
+                {status === 'submitting' ? 'Signing inâ€¦' : 'SIGN IN'}
               </button>
 
               <p>
@@ -229,7 +171,7 @@ export default function SignIn() {
                 disabled={forgotStatus === 'submitting'}
                 style={{ width: '100%' }}
               >
-                {forgotStatus === 'submitting' ? 'Sending…' : 'Send Reset Email'}
+                {forgotStatus === 'submitting' ? 'Sendingâ€¦' : 'Send Reset Email'}
               </button>
               {forgotStatus === 'success' && (
                 <div style={{ color: 'green', marginTop: 4 }}>{forgotMsg}</div>
@@ -257,13 +199,6 @@ export default function SignIn() {
           )}
         </div>
       </main>
-
-      <RegisterModal
-        isOpen={isJoinModalOpen}
-        onClose={() => setIsJoinModalOpen(false)}
-        whatsappLink={whatsappLink}
-        emailHref={wholesaleMailto}
-      />
     </>
   );
 }

@@ -50,8 +50,8 @@ export type DraftStatus = 'idle' | 'building' | 'ready' | 'error';
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-const ITEMS_KEY = 'auricle-cart-items';
-const CHECKOUT_ID_KEY = 'auricle-checkout-id';
+const ITEMS_KEY = 'poa-cart-items';
+const CHECKOUT_ID_KEY = 'poa-checkout-id';
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);

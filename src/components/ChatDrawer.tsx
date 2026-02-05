@@ -87,7 +87,7 @@ export default function ChatDrawer() {
       emailSentRef.current = true;
 
       const formattedMessages = messages.map((msg) => ({
-        sender: msg.role === 'user' ? 'You' : 'AURICLE',
+        sender: msg.role === 'user' ? 'You' : 'PIERCE OF ART',
         text: msg.content,
       }));
 
@@ -95,7 +95,7 @@ export default function ChatDrawer() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          email: customerEmail || 'anonymous@auricle.co.uk',
+          email: customerEmail || 'anonymous@pierceofart.co.uk',
           name: 'Customer',
           messages: formattedMessages,
         }),
@@ -216,7 +216,7 @@ export default function ChatDrawer() {
         textAlign: msg.role === 'user' ? 'right' : 'left',
       }}
     >
-      {msg.role === 'user' ? 'ME' : 'AURICLE'}
+      {msg.role === 'user' ? 'ME' : 'PIERCE OF ART'}
     </div>
 
     {/* Message bubble */}
@@ -251,7 +251,7 @@ export default function ChatDrawer() {
                   color: '#181818',
                 }}
               >
-                <strong>AURICLE:</strong> Typing…
+                <strong>PIERCE OF ART:</strong> Typing…
               </div>
             )}
 
@@ -268,7 +268,7 @@ export default function ChatDrawer() {
                 }}
               >
                 <div>
-                  <strong>AURICLE:</strong> Want a copy of this chat? Enter your
+                  <strong>PIERCE OF ART:</strong> Want a copy of this chat? Enter your
                   email:
                 </div>
                 <form

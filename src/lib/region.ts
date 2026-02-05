@@ -6,8 +6,8 @@ export const getRegionFromHost = (host?: string | null): Region => {
 
   const lower = host.toLowerCase();
 
-  if (lower.includes('auriclejewelry.com')) return 'us';
-  if (lower.includes('auricle.co.uk')) return 'uk';
+  if (lower.includes('pierceofart.com')) return 'us';
+  if (lower.includes('pierceofart.co.uk')) return 'uk';
 
   // default
   return 'uk';

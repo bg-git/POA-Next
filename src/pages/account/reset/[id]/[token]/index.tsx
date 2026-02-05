@@ -78,7 +78,7 @@ export default function ResetPassword() {
     <>
       <Seo
         title="Reset Password"
-        description="Choose a new password for your AURICLE account."
+        description="Choose a new password for your PIERCE OF ART account."
       />
       <main className="reset-password-page">
       <div className="reset-password-container">

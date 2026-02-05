@@ -18,8 +18,6 @@ import '@/styles/pages/CartDrawer.scss';
 import '@/styles/pages/register.scss';
 import '@/styles/pages/sign-in.scss';
 import '@/styles/pages/account.scss';
-import '@/styles/pages/studio-list.scss';
-import '@/styles/pages/studio-page.scss';
 import '@/styles/pages/search.scss';
 import '@/styles/pages/filters.scss';
 import '@/styles/pages/resetPassword.scss';
@@ -29,9 +27,7 @@ import '@/styles/pages/information.scss';
 import '@/styles/pages/quality-assurance.scss';
 import '@/styles/pages/register-modal.scss';
 import '@/styles/pages/region-selector.scss';
-import '@/styles/pages/vip-membership.scss';
 import '@/styles/pages/admin.scss';
-import '@/styles/pages/piercing-wholesalers.scss';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -200,7 +196,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   // 2) In dev, allow overriding with process.env.HOST so we can simulate domains locally
   const effectiveHost = process.env.HOST || headerHost;
 
-  // 3) Derive region from effective host (auricle.co.uk vs auriclejewelry.com)
+  // 3) Derive region from effective host (pierceofart.co.uk vs pierceofart.com)
   const region = getRegionFromHost(effectiveHost);
   myAppProps.pageProps.region = region;
 

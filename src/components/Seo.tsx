@@ -42,18 +42,18 @@ export default function Seo({ title, description, canonical, schemaType = 'WebPa
     "keywords": "body piercing jewellery, compliance, UK, EU, ASTM standards",
     "author": {
       "@type": "Organization",
-      "name": "AURICLE",
-      "url": "https://www.auricle.co.uk"
+      "name": "PIERCE OF ART",
+      "url": "https://www.pierceofart.co.uk"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "AURICLE",
-      "url": "https://www.auricle.co.uk"
+      "name": "PIERCE OF ART",
+      "url": "https://www.pierceofart.co.uk"
     },
     "isPartOf": {
       "@type": "WebSite",
-      "name": "AURICLE",
-      "url": "https://www.auricle.co.uk"
+      "name": "PIERCE OF ART",
+      "url": "https://www.pierceofart.co.uk"
     }
   } : schemaData && schemaType === 'Organization' ? {
     "@context": "https://schema.org",
@@ -61,8 +61,8 @@ export default function Seo({ title, description, canonical, schemaType = 'WebPa
     "name": (schemaData as SeoOrganizationData).name,
     "description": (schemaData as SeoOrganizationData).description,
     "url": (schemaData as SeoOrganizationData).url,
-    "logo": (schemaData as SeoOrganizationData).logo || "https://www.auricle.co.uk/auricle-logo.png",
-    "image": (schemaData as SeoOrganizationData).logo || "https://www.auricle.co.uk/auricle-logo.png",
+    "logo": (schemaData as SeoOrganizationData).logo || "https://www.pierceofart.co.uk/auricle-logo.png",
+    "image": (schemaData as SeoOrganizationData).logo || "https://www.pierceofart.co.uk/auricle-logo.png",
     "areaServed": (schemaData as SeoOrganizationData).areaServed || ["GB", "EU"],
     "knowsAbout": (schemaData as SeoOrganizationData).knowsAbout || [
       "Body Piercing Jewellery",
@@ -77,7 +77,7 @@ export default function Seo({ title, description, canonical, schemaType = 'WebPa
     "sameAs": (schemaData as SeoOrganizationData).sameAs || [],
     "founder": {
       "@type": "Person",
-      "name": "AURICLE Team"
+      "name": "PIERCE OF ART Team"
     },
     "address": {
       "@type": "PostalAddress",
@@ -87,13 +87,13 @@ export default function Seo({ title, description, canonical, schemaType = 'WebPa
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "Customer Support",
-      "email": "info@auricle.co.uk"
+      "email": "info@pierceofart.co.uk"
     }
   } : null;
 
   return (
     <Head>
-      <title>{`${title} | AURICLE`}</title>
+      <title>{`${title} | PIERCE OF ART`}</title>
       {description && <meta name="description" content={description} />}
       {canonical && <link rel="canonical" href={canonical} />}
       {schema && (

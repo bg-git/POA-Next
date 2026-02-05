@@ -16,8 +16,8 @@ export default function PiercingMagazineIndex({ posts }: { posts: BlogPreview[] 
   return (
     <main className="blog-index">
   <Seo
-    title="Piercing Magazine | AURICLE"
-    description="Read expert articles about body piercing, aftercare, and jewellery from the AURICLE team."
+    title="Piercing Magazine | PIERCE OF ART"
+    description="Read expert articles about body piercing, aftercare, and jewellery from the PIERCE OF ART team."
   />
 
   <h1>PIERCING MAGAZINE</h1>

@@ -208,7 +208,7 @@ export default function CollectionPage({ products, title, seoTitle, seoDescripti
       <Seo
         title={seoTitle || title}
         description={seoDescription || undefined}
-        canonical={`https://www.auricle.co.uk/collections/${handle}`}
+        canonical={`https://www.pierceofart.co.uk/collections/${handle}`}
       />
 <script
   type="application/ld+json"
@@ -218,19 +218,19 @@ export default function CollectionPage({ products, title, seoTitle, seoDescripti
       "@type": "ItemList",
       "name": title,
       "description": seoDescription || "",
-      "url": `https://www.auricle.co.uk/collections/${handle}`,
+      "url": `https://www.pierceofart.co.uk/collections/${handle}`,
       ...(collectionImage && { image: collectionImage }),
       "itemListElement": products.map((product, index) => ({
         "@type": "ListItem",
         "position": index + 1,
-        "url": `https://www.auricle.co.uk/products/${product.handle}`,
+        "url": `https://www.pierceofart.co.uk/products/${product.handle}`,
         "item": {
           "@type": "Product",
           "name": product.title,
           "image": product.images?.edges?.[0]?.node?.url || undefined,
           "brand": {
             "@type": "Brand",
-            "name": "AURICLE"
+            "name": "PIERCE OF ART"
           },
           "offers": {
             "@type": "Offer",

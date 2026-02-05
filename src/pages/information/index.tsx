@@ -16,7 +16,7 @@ export default function InformationIndex({ pages }: { pages: InfoPreview[] }) {
       <Seo title="Information" description="Important information pages." />
       <h1>ALL TERMS & POLICIES</h1>
       <p>
-        All AURICLE legal pages in one place. All terms and policies are
+        All PIERCE OF ART legal pages in one place. All terms and policies are
         non-negotiable; to use the website or place orders you must accept
         them. Cookies are required for site and checkout (all-or-nothing
         consent)

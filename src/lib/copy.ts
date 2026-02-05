@@ -41,7 +41,7 @@ type CopyMap = {
 
 const copyByRegion: Record<Region, CopyMap> = {
  uk: {
-  taxLabel: 'VAT & shipping calculated at checkout',
+  taxLabel: '',
   gemColourLabel: 'Gem Colour',
   metalColourLabel: 'Metal Colour',
   shippingFromText: 'Ships from United Kingdom',
@@ -75,7 +75,7 @@ const copyByRegion: Record<Region, CopyMap> = {
     },
   },
   us: {
-  taxLabel: 'Tax & shipping calculated at checkout',
+  taxLabel: '',
   gemColourLabel: 'Gem Color',
   metalColourLabel: 'Metal Color',
   shippingFromText: 'Ships from the UK',

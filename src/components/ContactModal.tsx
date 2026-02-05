@@ -39,7 +39,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
           ×
         </button>
 
-        <h2>CONTACT AURICLE</h2>
+        <h2>CONTACT PIERCE OF ART</h2>
         <p>Choose how you&apos;d like to reach us.</p>
 
         <div className="join-modal__options">

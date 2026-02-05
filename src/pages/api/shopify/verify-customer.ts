@@ -28,9 +28,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           acceptsMarketing
           createdAt
           updatedAt
-          metafield(namespace: "custom", key: "approved") {
-            value
-          }
         }
       }
   `;
@@ -75,16 +72,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     }
 
-    const isApproved = (t: string[]) =>
-      t.map((tag) => tag.toLowerCase()).includes('approved');
-
     setCustomerCookie(res, token);
     return res.status(200).json({
       success: true,
       customer: {
         ...customer,
         tags,
-        approved: isApproved(tags),
       },
     });
   } catch (error: unknown) {

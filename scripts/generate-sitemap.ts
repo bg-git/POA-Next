@@ -3,8 +3,6 @@ import fs from 'fs'
 import path from 'path'
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { shopifyFetch } from '../src/lib/shopify.js'
-import { WHOLESALERS } from '../src/lib/wholesalers.js'
-import type { Wholesaler } from '../src/lib/wholesalers.js'
 
 const DOMAIN = process.env.SITE_DOMAIN || 'http://localhost:3000'
 
@@ -50,7 +48,6 @@ async function generateSitemap() {
     '/sign-in',
     '/favourites',
     '/piercing-magazine',
-    '/piercing-wholesalers',
   ]
 
   staticPaths.forEach(url => {
@@ -126,27 +123,6 @@ async function generateSitemap() {
       url: `/collection/${handle}`,
       changefreq: 'weekly',
       priority: 0.8,
-    })
-  })
-
-  // Wholesalers: country pages + company pages (at the end)
-  const countrySlugs = Array.from(
-    new Set(WHOLESALERS.map((w: Wholesaler) => w.countrySlug))
-  ).sort()
-
-  countrySlugs.forEach(countrySlug => {
-    smStream.write({
-      url: `/piercing-wholesalers/${countrySlug}`,
-      changefreq: 'monthly',
-      priority: 0.7,
-    })
-  })
-
-  WHOLESALERS.forEach((w: Wholesaler) => {
-    smStream.write({
-      url: `/piercing-wholesalers/${w.countrySlug}/${w.slug}`,
-      changefreq: 'monthly',
-      priority: 0.6,
     })
   })
 

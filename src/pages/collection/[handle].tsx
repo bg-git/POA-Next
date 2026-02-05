@@ -48,7 +48,7 @@ type Product = {
 const FILTER_TTL_MS = 60 * 60 * 1000; // 1 hour
 
 const getFilterStorageKey = (handle: string) =>
-  `auricle_filters_${handle}`;
+  `poa_filters_${handle}`;
 
 type SavedFilters = {
   selectedMetals: string[];
@@ -312,7 +312,7 @@ const getMetafieldValue = useCallback(
       <Seo
         title={seoTitle || title}
         description={seoDescription || undefined}
-        canonical={`https://www.auricle.co.uk/collection/${handle}`}
+        canonical={`https://www.pierceofart.co.uk/collection/${handle}`}
       />
 <script
   type="application/ld+json"
@@ -322,19 +322,19 @@ const getMetafieldValue = useCallback(
       "@type": "ItemList",
       "name": title,
       "description": seoDescription || "",
-      "url": `https://www.auricle.co.uk/collection/${handle}`,
+      "url": `https://www.pierceofart.co.uk/collection/${handle}`,
       ...(collectionImage && { image: collectionImage }),
       "itemListElement": products.map((product, index) => ({
         "@type": "ListItem",
         "position": index + 1,
-        "url": `https://www.auricle.co.uk/product/${product.handle}`,
+        "url": `https://www.pierceofart.co.uk/product/${product.handle}`,
         "item": {
           "@type": "Product",
           "name": product.title,
           "image": product.images?.edges?.[0]?.node?.url || undefined,
           "brand": {
             "@type": "Brand",
-            "name": "AURICLE"
+            "name": "PIERCE OF ART"
           },
           "offers": {
             "@type": "Offer",

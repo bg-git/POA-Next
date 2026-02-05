@@ -41,7 +41,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/b
 
 ## Environment Variables
 
-- `AUTH_COOKIE_DOMAIN` - domain for the `customer_session` cookie. Set to `.auricle.co.uk` in the deployment environment.
+- `AUTH_COOKIE_DOMAIN` - domain for the `customer_session` cookie. Set to `.pierceofart.co.uk` in the deployment environment.
 - `OPENAI_API_KEY` - required for the chat feature. Set this to your OpenAI API key.
 - Make sure this variable is configured when running locally or deploying.
 

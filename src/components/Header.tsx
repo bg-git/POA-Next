@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { memo } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import { useFavourites } from '@/context/FavouritesContext';
@@ -9,8 +9,13 @@ import { useFavourites } from '@/context/FavouritesContext';
 function Header() {
   const { openDrawer, cartItems } = useCart();
   const { isAuthenticated, user, signOut, loading } = useAuth();
+  const [isMounted, setIsMounted] = useState(false);
   const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 const { favourites } = useFavourites();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <>
@@ -39,10 +44,10 @@ const { favourites } = useFavourites();
           }}
         >
           {!loading && (
-            isAuthenticated ? (
+            isMounted && isAuthenticated ? (
               <>
                 <Link href="/account" style={{ color: '#fff', textDecoration: 'none', marginRight: '12px' }}>
-                  {user?.firstName ? 'My Account' : 'My Account'}
+                  {user?.firstName ? `My Account` : 'My Account'}
 
 
                 </Link>

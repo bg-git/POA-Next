@@ -8,7 +8,7 @@ import {
 import { useRouter } from 'next/router';
 import { COOKIE_NAME, COOKIE_MAX_AGE } from '@/lib/cookies';
 
-const STORAGE_KEY = 'auricle-auth-user';
+const STORAGE_KEY = 'poa-auth-user';
 
 type Debounced<T extends (...args: unknown[]) => void> = ((...args: Parameters<T>) => void) & {
   cancel: () => void;
