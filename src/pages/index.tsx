@@ -37,7 +37,8 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async (
 
   const isDotCom =
   host.endsWith('pierceofart.com') ||
-  host.endsWith('poa.com');
+  host.endsWith('poa.com') ||
+  host.includes('vercel.app'); // Allow Vercel preview domains for testing
 
 
   // Only read the preference on .com (and localhost in dev)
