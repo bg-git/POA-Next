@@ -33,21 +33,31 @@ type HomeProps = {
 export const getServerSideProps: GetServerSideProps<HomeProps> = async (
   ctx
 ) => {
-  const host = ctx.req.headers.host || '';
+  try {
+    const host = ctx.req.headers.host || '';
 
-  const isDotCom =
-  host.endsWith('pierceofart.com') ||
-  host.endsWith('poa.com') ||
-  host.includes('vercel.app'); // Allow Vercel preview domains for testing
+    const isDotCom =
+    host.endsWith('pierceofart.com') ||
+    host.endsWith('poa.com') ||
+    host.includes('vercel.app'); // Allow Vercel preview domains for testing
 
 
-  // Only read the preference on .com (and localhost in dev)
-  if (isDotCom) {
-    const pref = getCookieFromHeader(ctx, REGION_COOKIE_NAME);
+    // Only read the preference on .com (and localhost in dev)
+    if (isDotCom) {
+      const pref = getCookieFromHeader(ctx, REGION_COOKIE_NAME);
 
-    if (pref) {
-      // If pref is a full URL, redirect there
-      if (pref.startsWith('http://') || pref.startsWith('https://')) {
+      if (pref) {
+        // If pref is a full URL, redirect there
+        if (pref.startsWith('http://') || pref.startsWith('https://')) {
+          return {
+            redirect: {
+              destination: pref,
+              permanent: false,
+            },
+          };
+        }
+
+        // Otherwise treat as a path on .com, e.g. "/us" or "/us-es"
         return {
           redirect: {
             destination: pref,
@@ -56,31 +66,31 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async (
         };
       }
 
-      // Otherwise treat as a path on .com, e.g. "/us" or "/us-es"
+      // No preference yet → show selector (and turn off global layout)
       return {
-        redirect: {
-          destination: pref,
-          permanent: false,
+        props: {
+          showSelector: true,
+          noLayout: true,
         },
       };
     }
 
-    // No preference yet → show selector (and turn off global layout)
+    // Not .com → normal homepage (e.g. .co.uk)
     return {
       props: {
-        showSelector: true,
-        noLayout: true,
+        showSelector: false,
+        noLayout: false,
+      },
+    };
+  } catch (error) {
+    console.error('Homepage getServerSideProps error:', error);
+    return {
+      props: {
+        showSelector: false,
+        noLayout: false,
       },
     };
   }
-
-  // Not .com → normal homepage (e.g. .co.uk)
-  return {
-    props: {
-      showSelector: false,
-      noLayout: false,
-    },
-  };
 };
 
 // --- REGION SELECTOR COMPONENT (for .com root) ---
