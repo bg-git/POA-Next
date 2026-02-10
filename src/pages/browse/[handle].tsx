@@ -408,7 +408,7 @@ const getMetafieldValue = useCallback(
   const image = product.images?.edges?.[0]?.node;
 
 return (
-  <Link href={`/product/${product.handle}`} key={product.id} className="product-card">
+  <Link href={`/item/${product.handle}`} key={product.id} className="product-card">
     <div className="product-card-inner">
   <div className="product-image-wrapper">
     <Image
