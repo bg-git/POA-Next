@@ -36,46 +36,13 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async (
   try {
     const host = ctx.req.headers.host || '';
 
-    const isDotCom =
-    host.endsWith('pierceofart.com') ||
-    host.endsWith('poa.com') ||
-    host.includes('vercel.app'); // Allow Vercel preview domains for testing
+    // POA doesn't need region selection - just show normal homepage
+    // Only the old Auricle .com domains would need the selector
+    const isDotCom = 
+      host.endsWith('pierceofart.com') ||
+      host.endsWith('poa.com');
 
-
-    // Only read the preference on .com (and localhost in dev)
-    if (isDotCom) {
-      const pref = getCookieFromHeader(ctx, REGION_COOKIE_NAME);
-
-      if (pref) {
-        // If pref is a full URL, redirect there
-        if (pref.startsWith('http://') || pref.startsWith('https://')) {
-          return {
-            redirect: {
-              destination: pref,
-              permanent: false,
-            },
-          };
-        }
-
-        // Otherwise treat as a path on .com, e.g. "/us" or "/us-es"
-        return {
-          redirect: {
-            destination: pref,
-            permanent: false,
-          },
-        };
-      }
-
-      // No preference yet → show selector (and turn off global layout)
-      return {
-        props: {
-          showSelector: true,
-          noLayout: true,
-        },
-      };
-    }
-
-    // Not .com → normal homepage (e.g. .co.uk)
+    // Not .com → normal homepage (including vercel.app for testing)
     return {
       props: {
         showSelector: false,
@@ -109,7 +76,6 @@ const ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;
 
 const regions: Region[] = [
   { id: 'gb', label: 'United Kingdom' },
-  { id: 'us', label: 'United States' },
 ];
 
 // All languages we support overall
@@ -123,10 +89,6 @@ const languages: Language[] = [
 const regionLanguageHref: Record<string, Record<string, string>> = {
   gb: {
     en: 'https://pierceofart.co.uk', // UK–English
-  },
-  us: {
-    en: '/us', // US–English
-    // es: '/us/es', // US–Spanish (later)
   },
 };
 
