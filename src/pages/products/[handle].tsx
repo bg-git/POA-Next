@@ -331,7 +331,7 @@ export default function ProductPage({ product, ugcItems }: ProductPageProps) {
         description={
           getFieldValue('description') || `Buy ${product.title} in 14k gold or titanium.`
         }
-        canonical={`https://www.pierceofart.co.uk/product/${product.handle}`}
+        canonical={`https://www.pierceofart.co.uk/item/${product.handle}`}
       />
 
       <script
@@ -351,7 +351,7 @@ export default function ProductPage({ product, ugcItems }: ProductPageProps) {
             },
             "offers": {
               "@type": "Offer",
-              "url": `https://www.pierceofart.co.uk/product/${product.handle}`,
+              "url": `https://www.pierceofart.co.uk/item/${product.handle}`,
               "priceCurrency": "GBP",
               "price": "0.01",
               "availability": "https://schema.org/InStock",

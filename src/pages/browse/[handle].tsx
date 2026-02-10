@@ -312,7 +312,7 @@ const getMetafieldValue = useCallback(
       <Seo
         title={seoTitle || title}
         description={seoDescription || undefined}
-        canonical={`https://www.pierceofart.co.uk/collection/${handle}`}
+        canonical={`https://www.pierceofart.co.uk/browse/${handle}`}
       />
 <script
   type="application/ld+json"
@@ -322,7 +322,7 @@ const getMetafieldValue = useCallback(
       "@type": "ItemList",
       "name": title,
       "description": seoDescription || "",
-      "url": `https://www.pierceofart.co.uk/collection/${handle}`,
+      "url": `https://www.pierceofart.co.uk/browse/${handle}`,
       ...(collectionImage && { image: collectionImage }),
       "itemListElement": products.map((product, index) => ({
         "@type": "ListItem",

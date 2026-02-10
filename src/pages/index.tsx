@@ -306,7 +306,7 @@ export function HomeContent() {
         <h2 className="overlay-title">ENDS & GEMS</h2>
         <p className="overlay-subtitle">View our collection of ends & gems</p>
         <div className="overlay-buttons">
-          <Link href="/collection/ends-gems" className="button">
+          <Link href="/browse/ends-gems" className="button">
             VIEW ALL ENDS & GEMS &#x27F6;
           </Link>
         </div>
@@ -332,7 +332,7 @@ export function HomeContent() {
           Browse our collection of chains & charms
         </p>
         <div className="overlay-buttons">
-          <Link href="/collection/chains-charms" className="button">
+          <Link href="/browse/chains-charms" className="button">
             VIEW ALL CHAINS & CHARMS &#x27F6;
           </Link>
         </div>
@@ -355,7 +355,7 @@ export function HomeContent() {
         <h2 className="overlay-title">RINGS & HOOPS</h2>
         <p className="overlay-subtitle">View our collection of rings</p>
         <div className="overlay-buttons">
-          <Link href="/collection/rings-hoops" className="button">
+          <Link href="/browse/rings-hoops" className="button">
             VIEW ALL RINGS &#x27F6;
           </Link>
         </div>
@@ -380,7 +380,7 @@ export function HomeContent() {
         </p>
         <div className="overlay-buttons">
           <Link
-            href="/product/labret-base-titanium-polished-16-gauge"
+            href="/item/labret-base-titanium-polished-16-gauge"
             className="button"
           >
             VIEW ALL LABRETS &#x27F6;
@@ -407,7 +407,7 @@ export function HomeContent() {
         </p>
         <div className="overlay-buttons">
           <Link
-            href="/product/piercing-jewellery-plain-hinged-ring-polished-silver-titanium"
+            href="/item/piercing-jewellery-plain-hinged-ring-polished-silver-titanium"
             className="button"
           >
             VIEW ALL PLAIN HINGED RINGS &#x27F6;
@@ -433,7 +433,7 @@ export function HomeContent() {
           Browse our collection of curved barbells
         </p>
         <div className="overlay-buttons">
-          <Link href="/product/curved-barbell-titanium-polished" className="button">
+          <Link href="/item/curved-barbell-titanium-polished" className="button">
             VIEW ALL CURVED BARBELLS &#x27F6;
           </Link>
         </div>
@@ -457,7 +457,7 @@ export function HomeContent() {
           Browse our collection of circular barbells
         </p>
         <div className="overlay-buttons">
-          <Link href="/product/circular-barbell-titanium-polished" className="button">
+          <Link href="/item/circular-barbell-titanium-polished" className="button">
             VIEW ALL CIRCULAR BARBELLS &#x27F6;
           </Link>
         </div>
@@ -481,7 +481,7 @@ export function HomeContent() {
           Browse our collection of straight barbells
         </p>
         <div className="overlay-buttons">
-          <Link href="/product/barbell-titanium-polished" className="button">
+          <Link href="/item/barbell-titanium-polished" className="button">
             VIEW ALL STRAIGHT BARBELLS &#x27F6;
           </Link>
         </div>
@@ -503,7 +503,7 @@ export function HomeContent() {
         <h2 className="overlay-title">PIERCING AFTERCARE</h2>
         <p className="overlay-subtitle">Browse our piercing aftercare</p>
         <div className="overlay-buttons">
-          <Link href="/product/piercemed-piercing-aftercare" className="button">
+          <Link href="/item/piercemed-piercing-aftercare" className="button">
             VIEW PIERCING AFTERCARE &#x27F6;
           </Link>
         </div>
