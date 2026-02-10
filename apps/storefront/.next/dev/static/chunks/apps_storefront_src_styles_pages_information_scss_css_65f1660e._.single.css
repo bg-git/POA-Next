@@ -1,0 +1,119 @@
+/* [project]/apps/storefront/src/styles/pages/information.scss.css [client] (css) */
+.information-index {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.information-index h1 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.information-index ul {
+  padding: 0;
+  list-style: none;
+}
+
+.information-index ul li {
+  margin-bottom: 1rem;
+}
+
+.information-index ul li a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.information-index ul li p {
+  color: #555;
+  margin-top: .25rem;
+}
+
+.info-page {
+  color: #181818;
+  background: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+.info-page h1 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.info-page h2 {
+  margin-top: 2rem;
+  margin-bottom: .75rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.info-page h3 {
+  margin-top: 1.5rem;
+  margin-bottom: .5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.info-page p, .info-page li {
+  margin-bottom: 1rem;
+}
+
+.info-page ul, .info-page ol {
+  margin-bottom: 1rem;
+  margin-left: 1.5rem;
+}
+
+.info-page code, .info-page pre {
+  background: #ececec;
+  border-radius: 4px;
+  padding: .25rem .5rem;
+  font-family: monospace;
+  font-size: .9rem;
+}
+
+.info-page blockquote {
+  color: #555;
+  border-left: 3px solid #ececec;
+  margin: 1rem 0;
+  padding-left: 1rem;
+}
+
+.info-page a {
+  color: #181818;
+  text-decoration: underline;
+}
+
+.info-page a:hover {
+  opacity: .7;
+}
+
+@media (min-width: 768px) {
+  .information-index {
+    padding: 2rem;
+  }
+
+  .information-index h1 {
+    font-size: 2rem;
+  }
+
+  .info-page {
+    padding: 2rem;
+    font-size: 1rem;
+  }
+
+  .info-page h1 {
+    font-size: 2rem;
+  }
+
+  .info-page h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/*# sourceMappingURL=apps_storefront_src_styles_pages_information_scss_css_65f1660e._.single.css.map*/

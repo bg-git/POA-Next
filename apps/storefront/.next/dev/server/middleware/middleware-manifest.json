@@ -1,0 +1,71 @@
+{
+  "sorted_middleware": [],
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/_7e49d869._.js",
+        "server/edge/chunks/[root-of-the-server]__30e5d777._.js",
+        "server/edge/chunks/turbopack-apps_storefront_edge-wrapper_62ec1835.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/product/:path*{(\\\\.json)}?",
+          "originalSource": "/product/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/account/:path*{(\\\\.json)}?",
+          "originalSource": "/account/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/checkout/:path*{(\\\\.json)}?",
+          "originalSource": "/checkout/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/collection/:path*{(\\\\.json)}?",
+          "originalSource": "/collection/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/piercing/:path*{(\\\\.json)}?",
+          "originalSource": "/piercing/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/piercing-magazine/:path*{(\\\\.json)}?",
+          "originalSource": "/piercing-magazine/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/favourites{(\\\\.json)}?",
+          "originalSource": "/favourites"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/sign-in{(\\\\.json)}?",
+          "originalSource": "/sign-in"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/register{(\\\\.json)}?",
+          "originalSource": "/register"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/reset-password{(\\\\.json)}?",
+          "originalSource": "/reset-password"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/search{(\\\\.json)}?",
+          "originalSource": "/search"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "AIAmugFjB6LfI/4GpUTGJHx6rjrkn5UQ4BMotjtHFi8=",
+        "__NEXT_PREVIEW_MODE_ID": "2d6b9fd609e39a3f94a8196ab05b27ff",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "0f54abe3852dfad8772701f3ace1ee3dc8b24f12b6eb1082838d0385257a02ba",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "eac6ac4856c4137e217067ab5229a61da254e2204c2dbf8d87ac080d72d2a3ce"
+      }
+    }
+  },
+  "instrumentation": null,
+  "functions": {}
+}

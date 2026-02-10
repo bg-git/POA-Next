@@ -1,0 +1,84 @@
+/* [project]/apps/storefront/src/styles/pages/blog-page.scss.css [client] (css) */
+.blog-post h1 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.blog-post .blog-layout .blog-image {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.blog-post .blog-layout .blog-image img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.blog-post .blog-layout .blog-content p, .blog-post .blog-layout .blog-content ul, .blog-post .blog-layout .blog-content ol {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.blog-post .blog-layout .blog-content h2, .blog-post .blog-layout .blog-content h3, .blog-post .blog-layout .blog-content h4 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.blog-post .blog-layout .blog-content ul, .blog-post .blog-layout .blog-content ol {
+  padding-left: 1.5rem;
+}
+
+.blog-post .blog-layout .blog-content li {
+  margin-bottom: 8px;
+}
+
+.blog-post .blog-layout .blog-content a {
+  color: #181818;
+  text-decoration: underline;
+}
+
+.blog-post .blog-layout .blog-content a:hover {
+  opacity: .8;
+}
+
+.blog-post .blog-layout .blog-content blockquote {
+  color: #555;
+  border-left: 4px solid #ccc;
+  margin: 24px 0;
+  padding-left: 16px;
+  font-style: italic;
+}
+
+.blog-post .blog-layout .blog-content:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.blog-post .blog-nav {
+  justify-content: space-between;
+  margin-top: 40px;
+  font-size: 14px;
+  display: flex;
+}
+
+.blog-post .blog-nav a {
+  color: #181818;
+  text-decoration: underline;
+}
+
+@media (min-width: 800px) {
+  .blog-post .blog-image {
+    float: right;
+    max-width: 320px;
+    margin-bottom: 16px;
+    margin-left: 24px;
+  }
+}
+
+/*# sourceMappingURL=apps_storefront_src_styles_pages_blog-page_scss_css_65f1660e._.single.css.map*/

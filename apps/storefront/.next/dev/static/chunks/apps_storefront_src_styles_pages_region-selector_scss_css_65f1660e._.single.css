@@ -1,0 +1,146 @@
+/* [project]/apps/storefront/src/styles/pages/region-selector.scss.css [client] (css) */
+.region-selector {
+  color: #181818;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+}
+
+.region-selector__panel {
+  width: 100%;
+  max-width: 420px;
+}
+
+.region-selector__brand {
+  margin-bottom: 2rem;
+}
+
+.region-selector__logo {
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: .4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.region-selector__welcome {
+  color: #555;
+  font-size: .9rem;
+}
+
+.region-selector__section {
+  margin-bottom: 1.8rem;
+}
+
+.region-selector__label {
+  margin-bottom: .2rem;
+  font-size: .9rem;
+  font-weight: 500;
+  display: block;
+}
+
+.region-selector__hint-text {
+  color: #777;
+  margin-bottom: .7rem;
+  font-size: .8rem;
+}
+
+.region-selector__field {
+  position: relative;
+}
+
+.region-selector__select {
+  -webkit-appearance: none;
+  appearance: none;
+  color: #181818;
+  background: #f9f9f9;
+  border: 1px solid #ececec;
+  border-radius: 999px;
+  outline: none;
+  width: 100%;
+  padding: .65rem 1rem;
+  font-size: .9rem;
+}
+
+.region-selector__select:focus-visible {
+  border-color: #181818;
+}
+
+.region-selector__select:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.region-selector__footer {
+  color: #777;
+  font-size: .8rem;
+}
+
+.region-selector__footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .region-selector {
+    padding: 3rem;
+  }
+
+  .region-selector__panel {
+    max-width: 460px;
+  }
+
+  .region-selector__welcome {
+    max-width: 360px;
+  }
+}
+
+.region-selector__section--remember {
+  flex-direction: column;
+  gap: .9rem;
+  display: flex;
+}
+
+.region-selector__remember {
+  color: #555;
+  align-items: center;
+  gap: .5rem;
+  font-size: .85rem;
+  display: flex;
+}
+
+.region-selector__remember-checkbox {
+  accent-color: #181818;
+  width: 16px;
+  height: 16px;
+}
+
+.region-selector__remember-label {
+  line-height: 1.3;
+}
+
+.region-selector__continue {
+  color: #fff;
+  cursor: pointer;
+  background: #181818;
+  border: #181818;
+  border-radius: 999px;
+  align-self: flex-start;
+  padding: .7rem 1.4rem;
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+:is(.region-selector__continue:hover, .region-selector__continue:focus-visible) {
+  opacity: .9;
+}
+
+.region-selector__brand img {
+  margin-bottom: .4rem;
+  display: block;
+}
+
+/*# sourceMappingURL=apps_storefront_src_styles_pages_region-selector_scss_css_65f1660e._.single.css.map*/

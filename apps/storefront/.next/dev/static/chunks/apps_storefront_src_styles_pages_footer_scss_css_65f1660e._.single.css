@@ -1,0 +1,151 @@
+/* [project]/apps/storefront/src/styles/pages/footer.scss.css [client] (css) */
+.site-footer {
+  background: #181818;
+  padding: 24px;
+}
+
+.site-footer .footer-inner {
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+}
+
+.site-footer .footer-section {
+  margin-bottom: 12px;
+}
+
+.site-footer .footer-section .footer-toggle {
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 36px;
+  padding: 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  display: flex;
+}
+
+.site-footer .footer-section .footer-toggle .footer-toggle-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.site-footer .footer-section .footer-links {
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: max-height .3s;
+  overflow: hidden;
+}
+
+.site-footer .footer-section[data-open="true"] .footer-links {
+  max-height: 300px;
+}
+
+.site-footer .footer-section .footer-links li + li {
+  margin-top: 4px;
+}
+
+.site-footer .footer-section .footer-links a {
+  color: #fff;
+  min-height: 36px;
+  padding-block: 8px;
+  font-size: 14px;
+  line-height: 1.3;
+  text-decoration: none;
+  display: block;
+}
+
+.site-footer .footer-section .footer-links a:hover {
+  text-decoration: underline;
+}
+
+.site-footer .footer-section .footer-links a:focus-visible {
+  outline-offset: 2px;
+  outline: 2px solid #181818;
+}
+
+.site-footer .footer-legal {
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-top: 8px;
+  display: flex;
+}
+
+.site-footer .footer-legal a {
+  color: #181818;
+  align-items: center;
+  min-height: 32px;
+  padding-block: 6px;
+  font-size: 13px;
+  text-decoration: none;
+  display: inline-flex;
+}
+
+.site-footer .footer-legal a:hover {
+  text-decoration: underline;
+}
+
+.site-footer .footer-legal a:focus-visible {
+  outline-offset: 2px;
+  outline: 2px solid #181818;
+}
+
+@media (min-width: 1024px) {
+  .site-footer .footer-inner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .site-footer .footer-section {
+    margin-bottom: 0;
+  }
+
+  .site-footer .footer-section .footer-toggle {
+    cursor: default;
+    pointer-events: none;
+    min-height: 0;
+    padding: 0;
+    font-size: 18px;
+  }
+
+  .site-footer .footer-section .footer-toggle .footer-toggle-icon {
+    display: none;
+  }
+
+  .site-footer .footer-section .footer-links {
+    max-height: none;
+    margin-top: 6px;
+    overflow: visible;
+  }
+
+  .site-footer .footer-section .footer-links a {
+    min-height: 36px;
+    padding-block: 6px;
+  }
+}
+
+@media (pointer: coarse) {
+  .site-footer .footer-section .footer-toggle {
+    min-height: 48px;
+    padding: 12px 0;
+  }
+
+  .site-footer .footer-section .footer-links li + li {
+    margin-top: 0;
+  }
+
+  .site-footer .footer-section .footer-links a, .site-footer .footer-legal a {
+    min-height: 48px;
+    padding-block: 12px;
+  }
+}
+
+/*# sourceMappingURL=apps_storefront_src_styles_pages_footer_scss_css_65f1660e._.single.css.map*/

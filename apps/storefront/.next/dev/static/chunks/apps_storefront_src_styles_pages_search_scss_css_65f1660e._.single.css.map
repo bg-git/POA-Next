@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///C:/POA Next/apps/storefront/src/styles/pages/search.scss"],"sourcesContent":[".search-results {\r\n  display: grid;\r\n  gap: 24px;\r\n  margin-top: 16px;\r\n\r\n  // Mobile first\r\n  grid-template-columns: repeat(2, 1fr);\r\n\r\n  // Desktop (1024px+)\r\n  @media (min-width: 1024px) {\r\n    grid-template-columns: repeat(5, 1fr);\r\n  }\r\n}\r\n.page-content {\r\n  min-height: 400px;\r\n  padding: 32px 16px;\r\n  max-width: 1400px;\r\n  margin: 0 auto;\r\n}\r\n"],"names":[],"mappings":"AAAA;;;;;;;AASE;EATF;;;;;AAaA"}}]
+}

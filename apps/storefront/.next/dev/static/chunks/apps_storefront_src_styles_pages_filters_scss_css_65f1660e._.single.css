@@ -1,0 +1,80 @@
+/* [project]/apps/storefront/src/styles/pages/filters.scss.css [client] (css) */
+.filter-drawer-toggle {
+  z-index: 999;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  padding: 12px;
+  display: block;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  box-shadow: 0 4px 12px #0000001a;
+}
+
+.filter-drawer-toggle svg {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .filter-drawer-toggle {
+    display: none;
+  }
+}
+
+.filter-drawer-backdrop {
+  z-index: 1000;
+  pointer-events: none;
+  background: none;
+  justify-content: flex-end;
+  transition: background .1s;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+.filter-drawer-backdrop.open {
+  pointer-events: all;
+  background: #0000004d;
+}
+
+.filter-drawer {
+  pointer-events: none;
+  background: #fff;
+  border-left: 1px solid #181818;
+  width: 80%;
+  max-width: 320px;
+  height: 100dvh;
+  padding: 24px;
+  transition: transform .1s ease-out;
+  position: relative;
+  overflow-y: auto;
+  transform: translateX(100%);
+}
+
+.filter-drawer.open {
+  pointer-events: all;
+  transform: translateX(0);
+}
+
+.filter-drawer .filter-drawer-close {
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  background: #181818;
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  margin-bottom: 32px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .filter-drawer .filter-drawer-backdrop, .filter-drawer .filter-drawer, .filter-drawer .filter-drawer-toggle {
+    display: none !important;
+  }
+}
+
+/*# sourceMappingURL=apps_storefront_src_styles_pages_filters_scss_css_65f1660e._.single.css.map*/

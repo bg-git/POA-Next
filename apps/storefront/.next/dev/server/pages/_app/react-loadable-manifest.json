@@ -1,0 +1,16 @@
+{
+  "[project]/apps/storefront/src/components/ChatDrawer.tsx [client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/apps/storefront/src/components/ChatDrawer.tsx [client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/apps_storefront_src_components_ChatDrawer_tsx_42c92d5f._.js",
+      "static/chunks/apps_storefront_src_components_ChatDrawer_tsx_d847651c._.js"
+    ]
+  },
+  "[project]/apps/storefront/src/components/CartDrawer.tsx [client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/apps/storefront/src/components/CartDrawer.tsx [client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/apps_storefront_src_components_CartDrawer_tsx_7d48ae73._.js",
+      "static/chunks/apps_storefront_src_components_CartDrawer_tsx_d847651c._.js"
+    ]
+  }
+}

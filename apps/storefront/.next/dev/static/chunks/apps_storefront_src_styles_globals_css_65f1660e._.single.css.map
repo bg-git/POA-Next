@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/apps/storefront/src/styles/globals.css"],"sourcesContent":["/* Reset */\r\n* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\n/* HTML / Body */\r\nhtml, body {\r\n  width: 100%;\r\n  height: 100%;\r\n  background: #ffffff;\r\n  background-color: #ffffff;\r\n  color: #181818;\r\n  font-family: Arial, Helvetica, sans-serif;\r\n  font-size: 16px;\r\n  line-height: 1.5;\r\n}\r\n#__next {\r\n  background-color: #ffffff;\r\n}\r\n\r\n\r\n/* Links */\r\na {\r\n  color: inherit;\r\n  text-decoration: none;\r\n}\r\n\r\na:hover {\r\n  text-decoration: underline;\r\n}\r\nbutton {\r\n  -webkit-appearance: none;\r\n  -moz-appearance: none;\r\n  appearance: none;\r\n  background-color: transparent;\r\n  color: inherit;\r\n  border: none;\r\n}\r\n\r\n\r\n.toast-message {\r\n  position: fixed;\r\n  bottom: 40px;\r\n  left: 50%;\r\n  transform: translateX(-50%);\r\n  background: #181818;\r\n  color: #fff;\r\n  padding: 8px 16px;\r\n  border-radius: 4px;\r\n  opacity: 0.9;\r\n  z-index: 10000;\r\n  pointer-events: none;\r\n  width: 400px;\r\n  text-align: center;\r\n}\r\n"],"names":[],"mappings":"AACA;;;;;;AAOA;;;;;;;;;;AAUA;;;;AAMA;;;;;AAKA;;;;AAGA;;;;;;;;AAUA"}}]
+}

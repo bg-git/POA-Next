@@ -1,0 +1,22 @@
+/* [project]/apps/storefront/src/styles/pages/search.scss.css [client] (css) */
+.search-results {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+  display: grid;
+}
+
+@media (min-width: 1024px) {
+  .search-results {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.page-content {
+  max-width: 1400px;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+/*# sourceMappingURL=apps_storefront_src_styles_pages_search_scss_css_65f1660e._.single.css.map*/
