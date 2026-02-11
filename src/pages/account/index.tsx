@@ -4,6 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useAccountValidationContext } from "@/context/AccountValidationContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import MyAppointments from "@/components/MyAppointments";
 
 interface Customer {
   firstName?: string;
@@ -33,6 +34,7 @@ interface Customer {
 }
 
 const tabs = [
+  "My Appointments",
   "Orders",
   "Billing Address",
   "Shipping Address",
@@ -138,6 +140,10 @@ export default function AccountPage() {
         
       case "Security":
         // Security tab has no mandatory fields (password is optional)
+        return false;
+        
+      case "My Appointments":
+        // My Appointments tab has no mandatory fields
         return false;
         
       case "Billing Address": {
@@ -322,6 +328,11 @@ export default function AccountPage() {
       case "Security":
         return (
           <SecurityForm />
+        );
+
+      case "My Appointments":
+        return (
+          <MyAppointments />
         );
 
       default:

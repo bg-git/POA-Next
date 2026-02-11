@@ -10,6 +10,7 @@ import { RegionProvider } from '@/context/RegionContext';
 import { getRegionFromHost, type Region } from '@/lib/region';
 
 import '@/styles/globals.css';
+import '@/styles/layout.css';
 import '@/styles/pages/home.scss';
 import '@/styles/pages/footer.scss';
 import '@/styles/pages/product.scss';
@@ -32,13 +33,11 @@ import '@/styles/pages/admin.scss';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BreadcrumbSchema from '@/components/BreadcrumbSchema';
-import AccountCompletionBanner from '@/components/AccountCompletionBanner';
 import { CartProvider } from '@/context/CartContext';
 import { AuthProvider } from '@/context/AuthContext';
 import { FavouritesProvider } from '@/context/FavouritesContext';
 import { ToastProvider } from '@/context/ToastContext';
 import { ChatDrawerProvider } from '@/context/ChatDrawerContext';
-import { AccountValidationProvider } from '@/context/AccountValidationContext';
 import type { ShopifyCustomer } from '@/lib/verifyCustomerSession';
 
 const CartDrawer = dynamic(() => import('@/components/CartDrawer'), { ssr: false });
@@ -125,7 +124,6 @@ export default function MyApp({ Component, pageProps }: MyAppProps) {
       <Analytics />
       <ToastProvider>
         <AuthProvider initialUser={pageProps.customer || null}>
-        <AccountValidationProvider>
           <FavouritesProvider>
             <CartProvider>
               <ChatDrawerProvider>
@@ -157,7 +155,6 @@ export default function MyApp({ Component, pageProps }: MyAppProps) {
                           minHeight: '100dvh',
                         }}
                       >
-                        <AccountCompletionBanner />
                         <Header />
                         <main style={{ flex: '1 0 auto' }}>
                           <Component {...pageProps} />
@@ -173,7 +170,6 @@ export default function MyApp({ Component, pageProps }: MyAppProps) {
               </ChatDrawerProvider>
             </CartProvider>
           </FavouritesProvider>
-        </AccountValidationProvider>
       </AuthProvider>
       </ToastProvider>
     </>

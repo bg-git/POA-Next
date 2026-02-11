@@ -1,4 +1,16 @@
 self.__BUILD_MANIFEST = {
+  "/": [
+    "static/chunks/pages/index.js"
+  ],
+  "/blogs/piercing-magazine": [
+    "static/chunks/pages/blogs/piercing-magazine.js"
+  ],
+  "/blogs/piercing-magazine/[slug]": [
+    "static/chunks/pages/blogs/piercing-magazine/[slug].js"
+  ],
+  "/information/[slug]": [
+    "static/chunks/pages/information/[slug].js"
+  ],
   "__rewrites": {
     "afterFiles": [],
     "beforeFiles": [],
@@ -17,6 +29,11 @@ self.__BUILD_MANIFEST = {
     "/admin/shopify-orders/[id]",
     "/admin/vip-subscribers",
     "/api/admin/poa-test",
+    "/api/booking/availability",
+    "/api/booking/confirm",
+    "/api/booking/reschedule",
+    "/api/bookings/cancel",
+    "/api/bookings/my-appointments",
     "/api/chat",
     "/api/create-checkout",
     "/api/create-vip-draft-checkout",
@@ -30,6 +47,7 @@ self.__BUILD_MANIFEST = {
     "/api/hello",
     "/api/search-products",
     "/api/shopify/activate-customer",
+    "/api/shopify/blog/articles",
     "/api/shopify/create-customer",
     "/api/shopify/forgot-password",
     "/api/shopify/get-customer",
@@ -46,6 +64,10 @@ self.__BUILD_MANIFEST = {
     "/api/stripe/webhook",
     "/api/update-checkout",
     "/api/vip/create-draft-order",
+    "/api/webhooks/shopify",
+    "/blogs/piercing-magazine",
+    "/blogs/piercing-magazine/[slug]",
+    "/book-a-piercing/[location]",
     "/browse/[handle]",
     "/collections/[handle]",
     "/favourites",

@@ -4,6 +4,8 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Seo from '@/components/Seo';
+import VideoSection from '@/components/VideoSection';
+import HomepageContent from '@/components/HomepageContent';
 
 const REGION_COOKIE_NAME = 'poa_region_pref';
 
@@ -288,7 +290,40 @@ export function HomeContent() {
         }}
       />
 
-      <main className="home-page">
+      {/* HERO SECTION - FULL WIDTH */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            DESIGN | CREATE | DEFINE
+          </h1>
+          <p className="hero-subtitle">
+            REBELLING AGAINST THE ORDINARY
+          </p>
+          <div className="hero-buttons">
+            <Link href="/book-a-piercing/chesterfield" className="hero-button">
+              BOOK CHESTERFIELD
+            </Link>
+            <Link href="/book-a-piercing/leicester" className="hero-button">
+              BOOK LEICESTER
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO SECTION */}
+      <VideoSection
+        videoPath="/piercing-near-me.mp4"
+        title="PIERCING JEWELLERY"
+        subtitle="PIERCING AGAINST THE ORDINARY"
+        description="Explore our full collection of high-quality piercing jewellery, crafted from implant-grade materials and designed for safe, long-term wear."
+        buttonText="SHOP PIERCING JEWELLERY"
+        buttonLink="/collection"
+      />
+
+      {/* HOMEPAGE CONTENT SECTION */}
+      <HomepageContent />
+
+      <main className="home-page" style={{ marginTop: '0', paddingTop: '0' }}>
         <section className="custom-grid">
   {/* ENDS & GEMS (above the fold) */}
   <div className="custom-card">

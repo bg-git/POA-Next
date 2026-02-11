@@ -1,0 +1,10 @@
+var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/pages/book-a-piercing/[location].js")
+R.c("server/chunks/ssr/node_modules_next_dist_1a314bd1._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__ab4f7a7e._.js")
+R.c("server/chunks/ssr/node_modules_d3119bbe._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__6a146e9c._.js")
+R.c("server/chunks/ssr/apps_storefront_src_components_ff9783f5._.js")
+R.c("server/chunks/ssr/node_modules_e77a74de._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__8952c621._.js")
+R.m("[project]/node_modules/next/dist/esm/build/templates/pages.js { INNER_PAGE => \"[project]/apps/storefront/src/pages/book-a-piercing/[location].tsx [ssr] (ecmascript)\", INNER_DOCUMENT => \"[project]/apps/storefront/src/pages/_document.tsx [ssr] (ecmascript)\", INNER_APP => \"[project]/apps/storefront/src/pages/_app.tsx [ssr] (ecmascript)\" } [ssr] (ecmascript)")
+module.exports=R.m("[project]/node_modules/next/dist/esm/build/templates/pages.js { INNER_PAGE => \"[project]/apps/storefront/src/pages/book-a-piercing/[location].tsx [ssr] (ecmascript)\", INNER_DOCUMENT => \"[project]/apps/storefront/src/pages/_document.tsx [ssr] (ecmascript)\", INNER_APP => \"[project]/apps/storefront/src/pages/_app.tsx [ssr] (ecmascript)\" } [ssr] (ecmascript)").exports

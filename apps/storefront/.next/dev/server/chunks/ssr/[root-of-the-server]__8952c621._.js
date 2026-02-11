@@ -953,26 +953,9 @@ function Header() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("header", {
-                style: {
-                    width: '100%',
-                    background: '#181818',
-                    borderTop: '1px solid #fff',
-                    height: '40px',
-                    display: 'flex',
-                    alignItems: 'center'
-                },
+                className: "header-top",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    style: {
-                        width: '100%',
-                        maxWidth: '1400px',
-                        margin: '0 auto',
-                        padding: '0 16px',
-                        display: 'flex',
-                        justifyContent: 'flex-end',
-                        alignItems: 'center',
-                        fontSize: '12px',
-                        color: '#000'
-                    },
+                    className: "header-top-content",
                     children: !loading && (isMounted && isAuthenticated ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -985,7 +968,7 @@ function Header() {
                                 children: user?.firstName ? `My Account` : 'My Account'
                             }, void 0, false, {
                                 fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                                lineNumber: 49,
+                                lineNumber: 28,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -995,7 +978,7 @@ function Header() {
                                 children: "|"
                             }, void 0, false, {
                                 fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                                lineNumber: 54,
+                                lineNumber: 33,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -1011,7 +994,7 @@ function Header() {
                                 children: "Sign Out"
                             }, void 0, false, {
                                 fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                                lineNumber: 55,
+                                lineNumber: 34,
                                 columnNumber: 17
                             }, this)
                         ]
@@ -1027,7 +1010,7 @@ function Header() {
                                 children: "Join Us"
                             }, void 0, false, {
                                 fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                                lineNumber: 71,
+                                lineNumber: 50,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -1037,7 +1020,7 @@ function Header() {
                                 children: "|"
                             }, void 0, false, {
                                 fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                                lineNumber: 74,
+                                lineNumber: 53,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1049,14 +1032,14 @@ function Header() {
                                 children: "Sign In"
                             }, void 0, false, {
                                 fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                                lineNumber: 75,
+                                lineNumber: 54,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true))
                 }, void 0, false, {
                     fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                    lineNumber: 33,
+                    lineNumber: 24,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
@@ -1065,24 +1048,9 @@ function Header() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                style: {
-                    width: '100%',
-                    background: '#181818',
-                    height: '64px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    borderBottom: '1px solid #fff'
-                },
+                className: "header-main",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    style: {
-                        width: '100%',
-                        maxWidth: '1400px',
-                        margin: '0 auto',
-                        padding: '0 16px',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center'
-                    },
+                    className: "header-main-content",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                             href: "/",
@@ -1102,12 +1070,12 @@ function Header() {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                                lineNumber: 109,
+                                lineNumber: 69,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                            lineNumber: 107,
+                            lineNumber: 67,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1142,17 +1110,17 @@ function Header() {
                                             d: "M12 21c-1.1-1.04-5.55-5.08-7.62-7.51C2.64 11.21 2 9.66 2 8.25 2 5.4 4.4 3 7.25 3c1.49 0 2.94.68 3.75 1.75A5.48 5.48 0 0116.75 3C19.6 3 22 5.4 22 8.25c0 1.41-.64 2.96-2.38 5.24C17.55 15.92 13.1 19.96 12 21z"
                                         }, void 0, false, {
                                             fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                                            lineNumber: 135,
+                                            lineNumber: 95,
                                             columnNumber: 7
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                                        lineNumber: 125,
+                                        lineNumber: 85,
                                         columnNumber: 5
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                                    lineNumber: 120,
+                                    lineNumber: 80,
                                     columnNumber: 3
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -1174,41 +1142,30 @@ function Header() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                                    lineNumber: 143,
+                                    lineNumber: 103,
                                     columnNumber: 3
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                            lineNumber: 119,
+                            lineNumber: 79,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                    lineNumber: 95,
+                    lineNumber: 65,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                lineNumber: 85,
+                lineNumber: 64,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("nav", {
-                style: {
-                    width: '100%',
-                    background: '#181818',
-                    borderBottom: '1px solid #ececec',
-                    overflowX: 'auto'
-                },
+                className: "header-nav",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    style: {
-                        display: 'flex',
-                        maxWidth: '1400px',
-                        margin: '0 auto',
-                        padding: '0 16px',
-                        whiteSpace: 'nowrap'
-                    },
+                    className: "header-nav-content",
                     children: [
                         {
                             label: 'BOOK A PIERCING',
@@ -1247,17 +1204,17 @@ function Header() {
                             children: label
                         }, label, false, {
                             fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                            lineNumber: 191,
+                            lineNumber: 136,
                             columnNumber: 3
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                    lineNumber: 173,
+                    lineNumber: 126,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/apps/storefront/src/components/Header.tsx",
-                lineNumber: 165,
+                lineNumber: 125,
                 columnNumber: 7
             }, this)
         ]
@@ -1805,6 +1762,7 @@ var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
 ;
 ;
 ;
+;
 const CartDrawer = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dynamic$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"])(()=>__turbopack_context__.A("[project]/apps/storefront/src/components/CartDrawer.tsx [ssr] (ecmascript, next/dynamic entry, async loader)"), {
     loadableGenerated: {
         modules: [
@@ -1846,7 +1804,7 @@ function MyApp({ Component, pageProps }) {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$vercel$2f$analytics$2f$next__$5b$external$5d$__$2840$vercel$2f$analytics$2f$next$2c$__esm_import$29$__["Analytics"], {}, void 0, false, {
                 fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                lineNumber: 125,
+                lineNumber: 126,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$storefront$2f$src$2f$context$2f$ToastContext$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["ToastProvider"], {
@@ -1866,7 +1824,7 @@ function MyApp({ Component, pageProps }) {
                                                         content: "width=device-width, initial-scale=1, viewport-fit=cover"
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 134,
+                                                        lineNumber: 135,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
@@ -1874,7 +1832,7 @@ function MyApp({ Component, pageProps }) {
                                                         content: "#ffffff"
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 138,
+                                                        lineNumber: 139,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("link", {
@@ -1882,7 +1840,7 @@ function MyApp({ Component, pageProps }) {
                                                         href: "/favicon.ico"
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 139,
+                                                        lineNumber: 140,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("link", {
@@ -1891,7 +1849,7 @@ function MyApp({ Component, pageProps }) {
                                                         href: "/apple-touch-icon.png"
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 140,
+                                                        lineNumber: 141,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("link", {
@@ -1901,7 +1859,7 @@ function MyApp({ Component, pageProps }) {
                                                         href: "/favicon-32x32.png"
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 141,
+                                                        lineNumber: 142,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("link", {
@@ -1911,7 +1869,7 @@ function MyApp({ Component, pageProps }) {
                                                         href: "/favicon-16x16.png"
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 142,
+                                                        lineNumber: 143,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("link", {
@@ -1919,7 +1877,7 @@ function MyApp({ Component, pageProps }) {
                                                         href: "/site.webmanifest"
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 143,
+                                                        lineNumber: 144,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("link", {
@@ -1928,7 +1886,7 @@ function MyApp({ Component, pageProps }) {
                                                         color: "#181818"
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 144,
+                                                        lineNumber: 145,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
@@ -1936,13 +1894,13 @@ function MyApp({ Component, pageProps }) {
                                                         content: "#ffffff"
                                                     }, void 0, false, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 145,
+                                                        lineNumber: 146,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                lineNumber: 133,
+                                                lineNumber: 134,
                                                 columnNumber: 19
                                             }, this),
                                             noLayout ? // Dedicated pages like the .com region selector or /admin
@@ -1950,7 +1908,7 @@ function MyApp({ Component, pageProps }) {
                                                 ...pageProps
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                lineNumber: 150,
+                                                lineNumber: 151,
                                                 columnNumber: 21
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
                                                 children: [
@@ -1963,12 +1921,12 @@ function MyApp({ Component, pageProps }) {
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$storefront$2f$src$2f$components$2f$AccountCompletionBanner$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                                                 fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                                lineNumber: 160,
+                                                                lineNumber: 161,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$storefront$2f$src$2f$components$2f$Header$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                                                 fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                                lineNumber: 161,
+                                                                lineNumber: 162,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("main", {
@@ -1979,38 +1937,38 @@ function MyApp({ Component, pageProps }) {
                                                                     ...pageProps
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                                    lineNumber: 163,
+                                                                    lineNumber: 164,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                                lineNumber: 162,
+                                                                lineNumber: 163,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$storefront$2f$src$2f$components$2f$BreadcrumbSchema$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                                                 fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                                lineNumber: 165,
+                                                                lineNumber: 166,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$apps$2f$storefront$2f$src$2f$components$2f$Footer$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                                                 fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                                lineNumber: 166,
+                                                                lineNumber: 167,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 153,
+                                                        lineNumber: 154,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(CartDrawer, {}, void 0, false, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 168,
+                                                        lineNumber: 169,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(ChatDrawer, {}, void 0, false, {
                                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                                        lineNumber: 169,
+                                                        lineNumber: 170,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
@@ -2018,37 +1976,37 @@ function MyApp({ Component, pageProps }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                        lineNumber: 132,
+                                        lineNumber: 133,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                    lineNumber: 131,
+                                    lineNumber: 132,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                                lineNumber: 130,
+                                lineNumber: 131,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                            lineNumber: 129,
+                            lineNumber: 130,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                        lineNumber: 128,
+                        lineNumber: 129,
                         columnNumber: 9
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                    lineNumber: 127,
+                    lineNumber: 128,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/apps/storefront/src/pages/_app.tsx",
-                lineNumber: 126,
+                lineNumber: 127,
                 columnNumber: 7
             }, this)
         ]

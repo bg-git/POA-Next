@@ -687,7 +687,7 @@ function RegionSelector() {
                 description: "Select your country and language to continue to PIERCE OF ART."
             }, void 0, false, {
                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                lineNumber: 148,
+                lineNumber: 149,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -707,7 +707,7 @@ function RegionSelector() {
                                     priority: true
                                 }, void 0, false, {
                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                    lineNumber: 157,
+                                    lineNumber: 158,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -715,13 +715,13 @@ function RegionSelector() {
                                     children: "Welcome to PIERCE OF ART – your premium body piercing studio."
                                 }, void 0, false, {
                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                    lineNumber: 163,
+                                    lineNumber: 164,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 156,
+                            lineNumber: 157,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -733,7 +733,7 @@ function RegionSelector() {
                                     children: "Choose your region"
                                 }, void 0, false, {
                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                    lineNumber: 170,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -741,7 +741,7 @@ function RegionSelector() {
                                     children: "Select where you are based to see the correct store."
                                 }, void 0, false, {
                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                    lineNumber: 173,
+                                    lineNumber: 174,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -757,7 +757,7 @@ function RegionSelector() {
                                                 children: "Select region"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 183,
+                                                lineNumber: 184,
                                                 columnNumber: 17
                                             }, this),
                                             regions.map((region)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -765,24 +765,24 @@ function RegionSelector() {
                                                     children: region.label
                                                 }, region.id, false, {
                                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                    lineNumber: 185,
+                                                    lineNumber: 186,
                                                     columnNumber: 19
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 177,
+                                        lineNumber: 178,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                    lineNumber: 176,
+                                    lineNumber: 177,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 169,
+                            lineNumber: 170,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -794,7 +794,7 @@ function RegionSelector() {
                                     children: "Choose your language"
                                 }, void 0, false, {
                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                    lineNumber: 195,
+                                    lineNumber: 196,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -802,7 +802,7 @@ function RegionSelector() {
                                     children: "Languages are based on the region selected above."
                                 }, void 0, false, {
                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                    lineNumber: 198,
+                                    lineNumber: 199,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -819,7 +819,7 @@ function RegionSelector() {
                                                 children: selectedRegion ? 'Select language' : 'Select a region first'
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 211,
+                                                lineNumber: 212,
                                                 columnNumber: 17
                                             }, this),
                                             availableLanguagesForSelectedRegion.map((lang)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -827,24 +827,24 @@ function RegionSelector() {
                                                     children: lang.label
                                                 }, lang.id, false, {
                                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                    lineNumber: 217,
+                                                    lineNumber: 218,
                                                     columnNumber: 19
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 202,
+                                        lineNumber: 203,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                    lineNumber: 201,
+                                    lineNumber: 202,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 194,
+                            lineNumber: 195,
                             columnNumber: 11
                         }, this),
                         canShowRememberRow && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -860,7 +860,7 @@ function RegionSelector() {
                                             className: "region-selector__remember-checkbox"
                                         }, void 0, false, {
                                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                            lineNumber: 229,
+                                            lineNumber: 230,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -868,13 +868,13 @@ function RegionSelector() {
                                             children: "Remember this preference on this device"
                                         }, void 0, false, {
                                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                            lineNumber: 235,
+                                            lineNumber: 236,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                    lineNumber: 228,
+                                    lineNumber: 229,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -883,31 +883,31 @@ function RegionSelector() {
                                     children: "Continue"
                                 }, void 0, false, {
                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                    lineNumber: 240,
+                                    lineNumber: 241,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 227,
+                            lineNumber: 228,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
                             className: "region-selector__footer"
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 249,
+                            lineNumber: 250,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                    lineNumber: 154,
+                    lineNumber: 155,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                lineNumber: 153,
+                lineNumber: 154,
                 columnNumber: 7
             }, this)
         ]
@@ -965,11 +965,74 @@ function HomeContent() {
                 }
             }, void 0, false, {
                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                lineNumber: 264,
+                lineNumber: 265,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                className: "hero-section",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "hero-content",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                            className: "hero-title",
+                            children: "DESIGN | CREATE | DEFINE"
+                        }, void 0, false, {
+                            fileName: "[project]/apps/storefront/src/pages/index.tsx",
+                            lineNumber: 295,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "hero-subtitle",
+                            children: "REBELLING AGAINST THE ORDINARY"
+                        }, void 0, false, {
+                            fileName: "[project]/apps/storefront/src/pages/index.tsx",
+                            lineNumber: 298,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "hero-buttons",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "/book-a-piercing/chesterfield",
+                                    className: "hero-button",
+                                    children: "BOOK CHESTERFIELD"
+                                }, void 0, false, {
+                                    fileName: "[project]/apps/storefront/src/pages/index.tsx",
+                                    lineNumber: 302,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "/book-a-piercing/leicester",
+                                    className: "hero-button",
+                                    children: "BOOK LEICESTER"
+                                }, void 0, false, {
+                                    fileName: "[project]/apps/storefront/src/pages/index.tsx",
+                                    lineNumber: 305,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/apps/storefront/src/pages/index.tsx",
+                            lineNumber: 301,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/apps/storefront/src/pages/index.tsx",
+                    lineNumber: 294,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/apps/storefront/src/pages/index.tsx",
+                lineNumber: 293,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
                 className: "home-page",
+                style: {
+                    marginTop: '0',
+                    paddingTop: '0'
+                },
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                     className: "custom-grid",
                     children: [
@@ -990,7 +1053,7 @@ function HomeContent() {
                                         sizes: "(max-width: 800px) 50vw, 600px"
                                     }, void 0, false, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 296,
+                                        lineNumber: 317,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1001,7 +1064,7 @@ function HomeContent() {
                                                 children: "ENDS & GEMS"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 306,
+                                                lineNumber: 327,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1009,7 +1072,7 @@ function HomeContent() {
                                                 children: "View our collection of ends & gems"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 307,
+                                                lineNumber: 328,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1020,29 +1083,29 @@ function HomeContent() {
                                                     children: "VIEW ALL ENDS & GEMS ⟶"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                    lineNumber: 309,
+                                                    lineNumber: 330,
                                                     columnNumber: 11
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 308,
+                                                lineNumber: 329,
                                                 columnNumber: 9
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 305,
+                                        lineNumber: 326,
                                         columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                lineNumber: 295,
+                                lineNumber: 316,
                                 columnNumber: 5
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 294,
+                            lineNumber: 315,
                             columnNumber: 3
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1062,7 +1125,7 @@ function HomeContent() {
                                         sizes: "(max-width: 800px) 50vw, 600px"
                                     }, void 0, false, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 320,
+                                        lineNumber: 341,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1073,7 +1136,7 @@ function HomeContent() {
                                                 children: "CHAINS & CHARMS"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 330,
+                                                lineNumber: 351,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1081,7 +1144,7 @@ function HomeContent() {
                                                 children: "Browse our collection of chains & charms"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 331,
+                                                lineNumber: 352,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1092,29 +1155,29 @@ function HomeContent() {
                                                     children: "VIEW ALL CHAINS & CHARMS ⟶"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                    lineNumber: 335,
+                                                    lineNumber: 356,
                                                     columnNumber: 11
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 334,
+                                                lineNumber: 355,
                                                 columnNumber: 9
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 329,
+                                        lineNumber: 350,
                                         columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                lineNumber: 319,
+                                lineNumber: 340,
                                 columnNumber: 5
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 318,
+                            lineNumber: 339,
                             columnNumber: 3
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1133,7 +1196,7 @@ function HomeContent() {
                                         sizes: "(max-width: 800px) 50vw, 600px"
                                     }, void 0, false, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 346,
+                                        lineNumber: 367,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1144,7 +1207,7 @@ function HomeContent() {
                                                 children: "RINGS & HOOPS"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 355,
+                                                lineNumber: 376,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1152,7 +1215,7 @@ function HomeContent() {
                                                 children: "View our collection of rings"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 356,
+                                                lineNumber: 377,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1163,29 +1226,29 @@ function HomeContent() {
                                                     children: "VIEW ALL RINGS ⟶"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                    lineNumber: 358,
+                                                    lineNumber: 379,
                                                     columnNumber: 11
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 357,
+                                                lineNumber: 378,
                                                 columnNumber: 9
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 354,
+                                        lineNumber: 375,
                                         columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                lineNumber: 345,
+                                lineNumber: 366,
                                 columnNumber: 5
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 344,
+                            lineNumber: 365,
                             columnNumber: 3
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1203,7 +1266,7 @@ function HomeContent() {
                                         sizes: "(max-width: 800px) 50vw, 600px"
                                     }, void 0, false, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 369,
+                                        lineNumber: 390,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1214,7 +1277,7 @@ function HomeContent() {
                                                 children: "LABRET BARS"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 377,
+                                                lineNumber: 398,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1222,7 +1285,7 @@ function HomeContent() {
                                                 children: "Browse our collection of labret bars"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 378,
+                                                lineNumber: 399,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1233,29 +1296,29 @@ function HomeContent() {
                                                     children: "VIEW ALL LABRETS ⟶"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                    lineNumber: 382,
+                                                    lineNumber: 403,
                                                     columnNumber: 11
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 381,
+                                                lineNumber: 402,
                                                 columnNumber: 9
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 376,
+                                        lineNumber: 397,
                                         columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                lineNumber: 368,
+                                lineNumber: 389,
                                 columnNumber: 5
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 367,
+                            lineNumber: 388,
                             columnNumber: 3
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1273,7 +1336,7 @@ function HomeContent() {
                                         sizes: "(max-width: 800px) 50vw, 600px"
                                     }, void 0, false, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 396,
+                                        lineNumber: 417,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1284,7 +1347,7 @@ function HomeContent() {
                                                 children: "PLAIN HINGED RINGS"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 404,
+                                                lineNumber: 425,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1292,7 +1355,7 @@ function HomeContent() {
                                                 children: "Browse our collection of plain hinged rings"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 405,
+                                                lineNumber: 426,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1303,29 +1366,29 @@ function HomeContent() {
                                                     children: "VIEW ALL PLAIN HINGED RINGS ⟶"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                    lineNumber: 409,
+                                                    lineNumber: 430,
                                                     columnNumber: 11
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 408,
+                                                lineNumber: 429,
                                                 columnNumber: 9
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 403,
+                                        lineNumber: 424,
                                         columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                lineNumber: 395,
+                                lineNumber: 416,
                                 columnNumber: 5
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 394,
+                            lineNumber: 415,
                             columnNumber: 3
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1343,7 +1406,7 @@ function HomeContent() {
                                         sizes: "(max-width: 800px) 50vw, 600px"
                                     }, void 0, false, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 423,
+                                        lineNumber: 444,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1354,7 +1417,7 @@ function HomeContent() {
                                                 children: "CURVED BARBELLS"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 431,
+                                                lineNumber: 452,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1362,7 +1425,7 @@ function HomeContent() {
                                                 children: "Browse our collection of curved barbells"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 432,
+                                                lineNumber: 453,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1373,29 +1436,29 @@ function HomeContent() {
                                                     children: "VIEW ALL CURVED BARBELLS ⟶"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                    lineNumber: 436,
+                                                    lineNumber: 457,
                                                     columnNumber: 11
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 435,
+                                                lineNumber: 456,
                                                 columnNumber: 9
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 430,
+                                        lineNumber: 451,
                                         columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                lineNumber: 422,
+                                lineNumber: 443,
                                 columnNumber: 5
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 421,
+                            lineNumber: 442,
                             columnNumber: 3
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1413,7 +1476,7 @@ function HomeContent() {
                                         sizes: "(max-width: 800px) 50vw, 600px"
                                     }, void 0, false, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 447,
+                                        lineNumber: 468,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1424,7 +1487,7 @@ function HomeContent() {
                                                 children: "CIRCULAR BARBELLS"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 455,
+                                                lineNumber: 476,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1432,7 +1495,7 @@ function HomeContent() {
                                                 children: "Browse our collection of circular barbells"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 456,
+                                                lineNumber: 477,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1443,29 +1506,29 @@ function HomeContent() {
                                                     children: "VIEW ALL CIRCULAR BARBELLS ⟶"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                    lineNumber: 460,
+                                                    lineNumber: 481,
                                                     columnNumber: 11
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 459,
+                                                lineNumber: 480,
                                                 columnNumber: 9
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 454,
+                                        lineNumber: 475,
                                         columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                lineNumber: 446,
+                                lineNumber: 467,
                                 columnNumber: 5
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 445,
+                            lineNumber: 466,
                             columnNumber: 3
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1483,7 +1546,7 @@ function HomeContent() {
                                         sizes: "(max-width: 800px) 50vw, 600px"
                                     }, void 0, false, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 471,
+                                        lineNumber: 492,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1494,7 +1557,7 @@ function HomeContent() {
                                                 children: "STRAIGHT BARBELLS"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 479,
+                                                lineNumber: 500,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1502,7 +1565,7 @@ function HomeContent() {
                                                 children: "Browse our collection of straight barbells"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 480,
+                                                lineNumber: 501,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1513,29 +1576,29 @@ function HomeContent() {
                                                     children: "VIEW ALL STRAIGHT BARBELLS ⟶"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                    lineNumber: 484,
+                                                    lineNumber: 505,
                                                     columnNumber: 11
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 483,
+                                                lineNumber: 504,
                                                 columnNumber: 9
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 478,
+                                        lineNumber: 499,
                                         columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                lineNumber: 470,
+                                lineNumber: 491,
                                 columnNumber: 5
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 469,
+                            lineNumber: 490,
                             columnNumber: 3
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1553,7 +1616,7 @@ function HomeContent() {
                                         sizes: "(max-width: 800px) 50vw, 600px"
                                     }, void 0, false, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 495,
+                                        lineNumber: 516,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1564,7 +1627,7 @@ function HomeContent() {
                                                 children: "PIERCING AFTERCARE"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 503,
+                                                lineNumber: 524,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1572,7 +1635,7 @@ function HomeContent() {
                                                 children: "Browse our piercing aftercare"
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 504,
+                                                lineNumber: 525,
                                                 columnNumber: 9
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1583,40 +1646,40 @@ function HomeContent() {
                                                     children: "VIEW PIERCING AFTERCARE ⟶"
                                                 }, void 0, false, {
                                                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                    lineNumber: 506,
+                                                    lineNumber: 527,
                                                     columnNumber: 11
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                                lineNumber: 505,
+                                                lineNumber: 526,
                                                 columnNumber: 9
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                        lineNumber: 502,
+                                        lineNumber: 523,
                                         columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                                lineNumber: 494,
+                                lineNumber: 515,
                                 columnNumber: 5
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                            lineNumber: 493,
+                            lineNumber: 514,
                             columnNumber: 3
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                    lineNumber: 292,
+                    lineNumber: 313,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/apps/storefront/src/pages/index.tsx",
-                lineNumber: 291,
+                lineNumber: 312,
                 columnNumber: 7
             }, this)
         ]
@@ -1629,14 +1692,14 @@ function Home(param) {
         // .com root with no cookie → show country/language selector
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(RegionSelector, {}, void 0, false, {
             fileName: "[project]/apps/storefront/src/pages/index.tsx",
-            lineNumber: 525,
+            lineNumber: 546,
             columnNumber: 12
         }, this);
     }
     // .co.uk root (and any non-.com domain) → normal homepage
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(HomeContent, {}, void 0, false, {
         fileName: "[project]/apps/storefront/src/pages/index.tsx",
-        lineNumber: 529,
+        lineNumber: 550,
         columnNumber: 10
     }, this);
 }

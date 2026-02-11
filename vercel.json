@@ -8,15 +8,5 @@
     "SHOPIFY_STOREFRONT_ACCESS_TOKEN": "@shopify_storefront_access_token",
     "SUPABASE_URL": "@supabase_url",
     "SUPABASE_ANON_KEY": "@supabase_anon_key"
-  },
-  "projects": {
-    "poa-storefront": {
-      "name": "poa-storefront",
-      "path": "apps/storefront"
-    },
-    "poa-booking": {
-      "name": "poa-booking",
-      "path": "apps/booking"
-    }
   }
 }

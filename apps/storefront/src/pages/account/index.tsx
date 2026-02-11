@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import useSWR from "swr";
 import { useAuth } from "@/context/AuthContext";
-import { useAccountValidationContext } from "@/context/AccountValidationContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import MyAppointments from "@/components/MyAppointments";
 
 interface Customer {
   firstName?: string;
@@ -33,6 +33,7 @@ interface Customer {
 }
 
 const tabs = [
+  "My Appointments",
   "Orders",
   "Billing Address",
   "Shipping Address",
@@ -46,15 +47,6 @@ export default function AccountPage() {
   const [isMounted, setIsMounted] = useState(false);
   const { isAuthenticated, user, loading } = useAuth();
   const router = useRouter();
-  
-  // Safely get validation context - handle case where it might not be available
-  let refreshValidation = () => {};
-  try {
-    const validationContext = useAccountValidationContext();
-    refreshValidation = validationContext.refreshValidation;
-  } catch (error) {
-    console.warn('AccountValidationContext not available:', error);
-  }
 
   useEffect(() => {
     setIsMounted(true);
@@ -138,6 +130,10 @@ export default function AccountPage() {
         
       case "Security":
         // Security tab has no mandatory fields (password is optional)
+        return false;
+        
+      case "My Appointments":
+        // My Appointments tab has no mandatory fields
         return false;
         
       case "Billing Address": {
@@ -324,6 +320,11 @@ export default function AccountPage() {
           <SecurityForm />
         );
 
+      case "My Appointments":
+        return (
+          <MyAppointments />
+        );
+
       default:
         return null;
     }
@@ -369,15 +370,6 @@ export default function AccountPage() {
 }
 
 function ProfileForm({ customer, refreshCustomer }: { customer: Customer; refreshCustomer: () => Promise<unknown> }) {
-  
-  // Safely get validation context - handle case where it might not be available
-  let refreshValidation = () => {};
-  try {
-    const validationContext = useAccountValidationContext();
-    refreshValidation = validationContext.refreshValidation;
-  } catch (error) {
-    console.warn('AccountValidationContext not available:', error);
-  }
   const [firstName, setFirstName] = useState(customer?.firstName || "");
   const [lastName, setLastName] = useState(customer?.lastName || "");
   const [phone, setPhone] = useState(customer?.phone || "");
