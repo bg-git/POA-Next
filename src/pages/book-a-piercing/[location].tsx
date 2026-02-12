@@ -144,6 +144,7 @@ const BookAPiercing = ({ initialAvailabilities }: BookAPiercingProps) => {
     const todayDate = today.getDate();
     const currentMonthNum = today.getMonth();
     const currentYear = today.getFullYear();
+    const todayStr = today.toISOString().split('T')[0];
 
     // Empty cells for days before the first day of month
     for (let i = 0; i < firstDay; i++) {
@@ -158,7 +159,7 @@ const BookAPiercing = ({ initialAvailabilities }: BookAPiercingProps) => {
       const isToday = (day === todayDate && 
                        currentMonth.getMonth() === currentMonthNum && 
                        currentMonth.getFullYear() === currentYear);
-      const isPastDate = date < today;
+      const isPastDate = dateStr < todayStr;
       const isSelected = selectedDate === dateStr;
       const hasAvailability = availability && availability.available && !isPastDate;
 
