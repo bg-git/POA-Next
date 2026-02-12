@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import React from 'react';
 import { useRouter } from 'next/router';
 import { useState, useEffect, useCallback } from 'react';
 import type { GetStaticProps, GetStaticPaths } from 'next';
@@ -116,7 +117,7 @@ const BookAPiercing = ({ initialAvailabilities }: BookAPiercingProps) => {
     if (!currentMonth) return [];
     const daysInMonth = getDaysInMonth(currentMonth);
     const firstDay = getFirstDayOfMonth(currentMonth);
-    const days: JSX.Element[] = [];
+    const days: React.ReactElement[] = [];
     const today = new Date();
     const todayDate = today.getDate();
     const currentMonthNum = today.getMonth();

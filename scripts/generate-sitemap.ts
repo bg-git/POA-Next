@@ -107,7 +107,12 @@ async function generateSitemap() {
   })
 
   // Shopify product pages
-  const productHandles = await fetchShopifyHandles('products')
+  let productHandles: string[] = []
+  try {
+    productHandles = await fetchShopifyHandles('products')
+  } catch (error) {
+    console.warn('⚠️ Could not fetch Shopify products, skipping product pages in sitemap')
+  }
   productHandles.forEach(handle => {
     smStream.write({
       url: `/item/${handle}`,
@@ -117,7 +122,12 @@ async function generateSitemap() {
   })
 
   // Shopify collection pages
-  const collectionHandles = await fetchShopifyHandles('collections')
+  let collectionHandles: string[] = []
+  try {
+    collectionHandles = await fetchShopifyHandles('collections')
+  } catch (error) {
+    console.warn('⚠️ Could not fetch Shopify collections, skipping collection pages in sitemap')
+  }
   collectionHandles.forEach(handle => {
     smStream.write({
       url: `/browse/${handle}`,

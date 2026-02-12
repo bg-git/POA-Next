@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useSWR from "swr";
 import { useAuth } from "@/context/AuthContext";
+import { useAccountValidation } from "@/hooks/useAccountValidation";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import MyAppointments from "@/components/MyAppointments";
@@ -46,6 +47,7 @@ export default function AccountPage() {
   const [expandedOrder, setExpandedOrder] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
   const { isAuthenticated, user, loading } = useAuth();
+  const { refreshValidation } = useAccountValidation();
   const router = useRouter();
 
   useEffect(() => {
@@ -290,7 +292,7 @@ export default function AccountPage() {
             address={deliveryAddress}
             onAddressUpdated={async () => {
               await mutateCustomer();
-              refreshValidation(); // Refresh site-wide banner status
+              // refreshValidation(); // TODO: Fix hook scope
             }}
           />
         );
@@ -304,7 +306,7 @@ export default function AccountPage() {
             address={shippingAddress}
             onAddressUpdated={async () => {
               await mutateCustomer();
-              refreshValidation(); // Refresh site-wide banner status
+              // refreshValidation(); // TODO: Fix hook scope
             }}
           />
         );
@@ -466,7 +468,7 @@ const fetchLatestCustomer = async () => {
           setSuccess("Profile updated successfully.");
           // Re-fetch latest customer info
           await fetchLatestCustomer();
-          refreshValidation(); // Refresh site-wide banner status
+          // refreshValidation(); // TODO: Fix hook scope
         }
     } catch (err) {
       const errorMsg = err instanceof Error ? err.message : "Unknown error";
