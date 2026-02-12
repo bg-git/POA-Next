@@ -72,6 +72,7 @@ const { favourites } = useFavourites();
               width={300}
               height={27}
               priority
+              className="header-logo"
               style={{ verticalAlign: 'middle', display: 'block' }}
             />
           </Link>
