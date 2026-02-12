@@ -168,7 +168,6 @@ async function createShopifyCheckout(
         'X-Shopify-Storefront-Access-Token': storefrontToken,
       },
       body: JSON.stringify({ query }),
-      timeout: 10000, // 10 second timeout
     });
   } catch (fetchError) {
     const errorMsg = fetchError instanceof Error ? fetchError.message : String(fetchError);
