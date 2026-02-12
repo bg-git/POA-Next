@@ -268,6 +268,8 @@ export default async function handler(
   try {
     const locationName = LOCATION_MAP[location];
     const productId = SHOPIFY_PRODUCTS[location];
+    const shopifyStoreUrl = process.env.SHOPIFY_STORE_DOMAIN || '';
+    const storefrontToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || '';
 
     // Check if slot is still available
     const { data: bookings, error: checkError } = await supabase
@@ -288,28 +290,24 @@ export default async function handler(
       });
     }
 
-    // Create Shopify checkout
+    // Create Shopify checkout (REQUIRED for booking)
     let shopifyCheckoutId = '';
-    let cart: { id?: string; checkoutUrl?: string } | null = null;
-    try {
-      cart = await createShopifyCheckout(
-        email || '',
-        firstName || 'Guest',
-        lastName || '',
-        productId,
-        date,
-        time,
-        locationName,
-        customerAccessToken
-      );
+    let checkoutUrl = '';
+    
+    const cart = await createShopifyCheckout(
+      email || '',
+      firstName || 'Guest',
+      lastName || '',
+      productId,
+      date,
+      time,
+      locationName,
+      customerAccessToken
+    );
+    shopifyCheckoutId = cart?.id || '';
+    checkoutUrl = cart?.checkoutUrl || '';
 
-      shopifyCheckoutId = cart?.id || '';
-    } catch (shopifyError) {
-      console.error('Shopify checkout creation failed:', shopifyError instanceof Error ? shopifyError.message : shopifyError);
-      // Continue with booking even if Shopify fails, but log it
-    }
-
-    // Create booking in Supabase
+    // Create booking in Supabase (after Shopify succeeds)
     const fullName = `${firstName || 'Guest'} ${lastName || ''}`.trim();
     
     console.log('Creating booking with:', {
@@ -318,6 +316,7 @@ export default async function handler(
       time,
       customerEmail: email,
       customerId,
+      shopifyCheckoutId,
     });
 
     const { data: newBooking, error: insertError } = await supabase
@@ -344,15 +343,12 @@ export default async function handler(
       throw insertError;
     }
 
-    // Construct checkout URL from Shopify cart
-    const checkoutUrl = cart?.checkoutUrl || '';
-    
     return res.status(201).json({
       success: true,
-      message: 'Booking confirmed and checkout created',
+      message: 'Booking confirmed - redirecting to checkout',
       booking: newBooking?.[0],
-      shopifyCheckoutId: shopifyCheckoutId,
-      checkoutUrl: checkoutUrl,
+      shopifyCheckoutId,
+      checkoutUrl,
     });
   } catch (error) {
     console.error('Booking confirmation error:', error);
