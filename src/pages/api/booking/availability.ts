@@ -131,20 +131,13 @@ const CLOSED_DATES: Record<string, string[]> = {
 
 // Special hours for specific dates (overrides default)
 // Format: 'YYYY-MM-DD' -> array of { time, slots }
+// Empty array means CLOSED for that day
 const SPECIAL_HOURS: Record<string, Record<string, Array<{ time: string; slots: number }>>> = {
   Chesterfield: {
-    '2026-02-13': [ // Valentine's Eve - extended hours
-      { time: '09:00 AM', slots: 3 },
-      { time: '10:00 AM', slots: 3 },
-      { time: '11:00 AM', slots: 3 },
-      { time: '02:00 PM', slots: 3 },
-      { time: '03:00 PM', slots: 3 },
-      { time: '04:00 PM', slots: 2 },
-      { time: '05:00 PM', slots: 1 },
-    ],
+    '2026-12-25': [], // Christmas Day - CLOSED
   },
   Leicester: {
-    // Add any special hours for Leicester here
+    '2026-12-25': [], // Christmas Day - CLOSED
   },
 };
 

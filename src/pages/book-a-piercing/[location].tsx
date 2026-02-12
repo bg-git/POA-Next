@@ -351,12 +351,12 @@ const BookAPiercing = ({ initialAvailabilities }: BookAPiercingProps) => {
             <p style={{ margin: '0 0 8px 0' }}>
               <strong>You&apos;ve already got a piercing booked for {bookedTime}</strong>
             </p>
-            <p style={{ margin: '0 0 8px 0' }}>Don&apos;t worry though. You can have more than 1 piercing when you arrive.</p>
+            <p style={{ margin: '0 0 8px 0' }}>You can book additional appointments - just select another date and time below.</p>
             <p style={{ margin: 0 }}>If you&apos;re trying to book for a friend, they will need to book separately.</p>
           </div>
         )}
 
-        {!isBooked && (
+        {!isRescheduleMode && (
           <div style={{
             background: '#f9f9f9',
             padding: '40px 24px',

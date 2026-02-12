@@ -85,13 +85,14 @@ export default async function handler(
       graphqlErrors: result.errors,
       userErrors: result.data?.cartCreate?.userErrors,
     });
-  } catch (error: any) {
-    console.error('Fetch error:', error);
+  } catch (error: unknown) {
+    const err = error instanceof Error ? error : new Error(String(error));
+    console.error('Fetch error:', err);
     return res.status(500).json({
       success: false,
-      error: error.message,
-      code: error.code,
-      name: error.name,
+      error: err.message,
+      code: (error as Record<string, unknown>)?.code,
+      name: err.name,
     });
   }
 }
