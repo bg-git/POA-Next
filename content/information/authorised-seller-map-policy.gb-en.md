@@ -10,7 +10,7 @@ date: 2026-02-03
 
 **Effective Date:** 9 August 2025
 
-> **NON-NEGOTIABLE POLICY:** Authorisation to resell AURICLE products and to use our brand assets requires compliance with this policy, including our **Minimum Advertised Price (MAP)** rules. If you do not agree, do not resell AURICLE products. See also [TERMS OF SALE](/information/terms-of-sale), [TERMS OF SERVICE](/information/terms-of-service) and [DESIGNS & IP](/information/design-copyright-ip-notice).
+> **NON-NEGOTIABLE POLICY:** Authorisation to resell our products and to use our brand assets requires compliance with this policy, including our **Minimum Advertised Price (MAP)** rules. If you do not agree, do not resell our products. See also [TERMS OF SALE](/information/terms-of-sale), [TERMS OF SERVICE](/information/terms-of-service) and [DESIGNS & IP](/information/design-copyright-ip-notice).
 
 ---
 
@@ -24,7 +24,7 @@ date: 2026-02-03
 
 ## 2. WHO IS COVERED
 
-All customers who **resell** AURICLE-branded products (online or offline), including distributors and retailers that use AURICLE images, copy or trademarks. Authorisation may be withdrawn for non-compliance.
+All customers who **resell** our branded products (online or offline), including distributors and retailers that use our images, copy or trademarks. Authorisation may be withdrawn for non-compliance.
 
 ---
 
@@ -46,7 +46,7 @@ Any price visible **without a specific one-to-one quote**, including:
 
 ## 4. MAP RULE
 
-- Do **not** publicly advertise any AURICLE item **below the RRP/MAP** shown on our product page (or a different MAP we communicate in writing).  
+- Do **not** publicly advertise any of our products **below the RRP/MAP** shown on our product page (or a different MAP we communicate in writing).  
 - “Below” includes effective prices after **automatic discounts**, **stackable public vouchers**, or **bundles** that drive the per-unit public price below MAP.  
 - You may use **“POA / Call for price”** or omit public pricing.  
 - Temporary promotions **at or above** MAP are allowed.
@@ -61,15 +61,15 @@ This policy concerns **advertised** price only. **Actual transactional sale pric
 
 ## 6. ONLINE MARKETPLACES & ADVERTISING
 
-- Listing AURICLE products on **third-party marketplaces** may require **our prior written approval**.  
+- Listing our products on **third-party marketplaces** may require **our prior written approval**.  
 - If approved, marketplace and shopping-feed pricing must **meet or exceed MAP**.  
-- Do not bid on AURICLE trademarks (or close misspellings) in search ads without written permission.
+- Do not bid on our trademarks (or close misspellings) in search ads without written permission.
 
 ---
 
 ## 7. BRAND ASSETS & CONTENT
 
-Use of AURICLE images, copy and logos is subject to [DESIGNS & IP](/information/design-copyright-ip-notice). We may **withdraw the image/content licence** and request takedown for MAP breaches or brand misuse.
+Use of our images, copy and logos is subject to [DESIGNS & IP](/information/design-copyright-ip-notice). We may **withdraw the image/content licence** and request takedown for MAP breaches or brand misuse.
 
 ---
 
@@ -93,7 +93,7 @@ Nothing in this policy requires you to sell at any particular price. It governs 
 
 ## 10. QUESTIONS & NOTICES
 
-Policy enquiries: **info@auricle.co.uk**  
+Policy enquiries: **info@pierceofart.co.uk**  
 Company details: [COMPANY INFORMATION](/information/company-information-imprint)
 Formal notices: [COMPLAINTS & NOTICES](/information/complaints-notices)
 

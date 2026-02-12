@@ -1,6 +1,6 @@
 ---
 title: TERMS OF SALE
-description: Conditions for wholesale purchases with AURICLE.
+description: Conditions for purchases from Pierce of Art - consumer purchases and returns policy.
 updated: 2025-08-29
 robots: index,follow
 date: 2026-02-03
@@ -9,7 +9,7 @@ date: 2026-02-03
 
 **Effective Date:** 9 August 2025
 
-These Terms of Sale apply to wholesale purchases made from AURICLE through our websites or by direct invoice. They set out how orders are placed, paid for, delivered and handled if something goes wrong.
+These Terms of Sale apply to consumer purchases made from Pierce of Art through our website. They set out how orders are placed, paid for, delivered and handled if you wish to return items or if something goes wrong.
 
 > **NON NEGOTIABLE TERMS:** Placing an order confirms that you accept these Terms of Sale in full. We do not offer tailored variations. If you do not accept these terms, do not place an order. See also the [SHIPPING AND DELIVERY POLICY](/information/shipping-and-delivery-policy), the [RETURNS AND FAULTY GOODS POLICY](/information/returns-and-faulty-goods-policy) and the [TAX AND VAT POLICY](/information/tax-vat-policy).
 
@@ -17,27 +17,26 @@ These Terms of Sale apply to wholesale purchases made from AURICLE through our w
 
 ## 1. Scope
 
-• These terms govern **wholesale B2B sales** only  
+• These terms govern **retail consumer sales** through our website  
 • Website use is governed by the [TERMS OF SERVICE](/information/terms-of-service)  
 • Privacy and cookies are covered by the [PRIVACY POLICY](/information/privacy-policy) and the [COOKIE POLICY](/information/cookie-policy)  
 • Subscription arrangements are covered by the [SUBSCRIPTIONS AND RECURRING BILLING](/information/subscriptions-recurring-billing) terms
+• Your consumer rights under the Consumer Rights Act 2015 are not affected by these terms
 
 ---
 
-## 2. Eligibility and accounts
+## 2. Eligibility
 
-• The Website is intended for legitimate businesses including studios, jewellers and distributors  
-• Pricing and ordering require registration and approval  
-• You are responsible for keeping account details accurate and secure
+• You must be 18 years or older to make a purchase
+• You are responsible for keeping your account details accurate and secure
 
 ---
 
 ## 3. Ordering and contract formation
 
 • Checkout steps allow you to review and correct your order before submission  
-• After you place an order, we send an acknowledgement email; this is not acceptance  
-• We accept your order when we dispatch the products or send a written acceptance  
-• We may refuse an order at our discretion, for example where there are availability issues, account concerns or risk checks  
+• After you place an order, we send an acknowledgement email; your purchase contract is formed once we confirm dispatch  
+• We may refuse an order at our discretion, for example where there are availability issues or risk checks  
 • If we cannot supply an item, we will inform you and refund the affected product
 
 ---
@@ -91,16 +90,26 @@ For more information, see the [TAX AND VAT POLICY](/information/tax-vat-policy) 
 
 ---
 
-## 9. Inspection, faults and returns (B2B)
+## 9. Returns, refunds and your rights
 
-• This Website serves B2B customers and is not subject to consumer distance selling rules; there is no cooling off period  
-• Inspect goods when they arrive and notify us by email at **info@auricle.co.uk** promptly if you identify a fault  
-• Where a fault is confirmed, our usual remedy is a like for like exchange  
-• Once we authorise a return, faulty items must be sent back within seven days of your notice  
-• Returns for change of mind, over ordering or compatibility are not accepted  
-• These rules operate alongside any non excludable statutory rights
+### 9.1 Cooling-Off Period
+If you are purchasing as a consumer, you have **14 calendar days** from delivery to change your mind and return items for a refund. Items must be unused and in original condition. See section 9.4 below.
 
-For detailed steps and packaging requirements, see the [RETURNS AND FAULTY GOODS POLICY](/information/returns-and-faulty-goods-policy).
+### 9.2 Faulty items and statutory rights
+If items are faulty or not as described, you have statutory rights under the Consumer Rights Act 2015:
+• **Within 30 days** of delivery: right to reject the item and get a full refund
+• **After 30 days but within 6 months**: right to a repair or replacement, or refund if repair/replacement is impossible
+• **Within 6 months of delivery**: the item is presumed faulty unless proven otherwise
+
+### 9.3 How to report faulty items
+Inspect goods when they arrive and notify us by email at **info@pierceofart.co.uk** promptly if you identify a fault or if the item is not as described. Include order number, photos, and details of the issue.
+
+### 9.4 Returning items
+For faulty items: we will provide a return label or refund return costs. 
+For change-of-mind returns within 14 days: you pay return postage unless the fault is ours.
+Items must be returned in original condition and packaging.
+
+For detailed steps and procedures, see the [RETURNS AND FAULTY GOODS POLICY](/information/returns-and-faulty-goods-policy).
 
 ---
 
@@ -153,13 +162,13 @@ For design and intellectual property terms, see [DESIGNS AND IP](/information/de
 ## 16. Notices and contact
 
 Formal notices and complaints are handled as described in the [COMPLAINTS AND NOTICES](/information/complaints-notices) page.  
-General enquiries: **info@auricle.co.uk**
+General enquiries: **info@pierceofart.co.uk**
 
 ---
 
-## 17. Company information
+## 16. Company information
 
-AURICLE is a trading style of **AURICLE Limited**.  
+Pierce of Art is a UK business. 
 Registered details are set out in the [COMPANY INFORMATION](/information/company-information-imprint) page.
 
 ---

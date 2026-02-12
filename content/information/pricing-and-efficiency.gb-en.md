@@ -1,6 +1,6 @@
 ---
 title: PRICING & EFFICIENCY
-description: How does AURICLE offer such good quality at the price they do?.
+description: How we offer quality jewellery at competitive prices.
 updated: 2025-08-29
 robots: index,follow
 date: 2026-02-03

@@ -1,6 +1,6 @@
 ---
 title: COOKIE POLICY
-description: How AURICLE uses cookies and similar technologies.
+description: How we use cookies and similar technologies.
 updated: 2025-08-29
 robots: index,follow
 date: 2026-02-03
@@ -11,7 +11,7 @@ date: 2026-02-03
 
 **Effective Date:** 9 August 2025
 
-This Cookie Policy explains how AURICLE Limited (“AURICLE”, “we”, “us”) uses cookies and similar technologies on [www.auricle.co.uk](https://www.auricle.co.uk) and [www.auriclejewelry.com](https://www.auriclejewelry.com) (“Website”). For how we process personal data, see our [Privacy Policy](/information/privacy-policy).
+This Cookie Policy explains how we use cookies and similar technologies on our website ("Website"). For how we process personal data, see our [Privacy Policy](/information/privacy-policy).
 
 > **Consent model:** These cookies are essential to enable core website functions such as account access, security, and checkout. Without these cookies, the website cannot operate correctly. We do **not** offer per-category cookie settings. You can either **accept** cookies to use the Website or **decline** and not use the Website. You may also block cookies via your browser; however, the Website and checkout services may not function correctly without cookies.
 
@@ -67,7 +67,7 @@ We may update this Cookie Policy from time to time. Changes take effect when pos
 
 ## 6) CONTACT
 
-Questions about cookies? Contact **info@auricle.co.uk**.
+Questions about cookies? Contact **info@pierceofart.co.uk**.
 For company details, see [Company Information](/information/company-information-imprint).
 
 ---

@@ -16,28 +16,30 @@ date: 2026-02-03
 
 ## 1. Scope
 
-This policy applies to all B2B purchases from AURICLE made through our website or by invoice.  
+This policy applies to all consumer purchases from Pierce of Art made through our website.  
 Website use is governed by the [TERMS OF SERVICE](/information/terms-of-service).
 
 ---
 
-## 2. UK VAT (domestic supplies)
+## 2. UK VAT (all orders)
 
-• For deliveries within the United Kingdom, prices are shown in **GBP** and are subject to **UK VAT at 20 percent**, unless a lawful zero rate applies  
-• VAT is displayed as a separate amount at checkout and on your invoice  
-• Northern Ireland is treated as part of the UK VAT area for supplies from us  
+• **VAT is included in all prices displayed** on our website — it is not shown separately
+• All prices shown include UK VAT at **20 percent** in accordance with UK law
+• This applies to all orders regardless of delivery destination (UK and international)
 
 Domestic reverse charge rules do not apply to our supply of goods.
 
 ---
 
-## 3. Exports outside the UK (EU and rest of world)
+## 3. Exports outside the UK (EU and rest of world) & Import Duties
 
-### 3.1 General exports
+### 3.1 VAT and international orders
 
-• For deliveries outside the UK, UK VAT is removed at checkout when a valid non UK delivery address is entered  
+• **All prices include UK VAT at 20 percent** and cannot be removed at checkout  
+• In addition to the price you pay (which includes VAT), you **may be responsible for import VAT, customs duties, and taxes** in your destination country
 • International orders are normally shipped under DAP or DDU terms, as described in section 4  
-• You act as the importer of record and are responsible for any import VAT and duties payable in the destination country  
+• You act as the importer of record and are responsible for any import duties and taxes in your country
+• **Customs duties and import taxes in your country are separate from the UK VAT included in our price** — these are set by your local customs authority
 
 ### 3.2 United States specific position
 
@@ -49,7 +51,7 @@ To reduce delays and align with updated carrier and customs practices, for order
 • These amounts are used to pay, or arrange payment of, the relevant US import duties and taxes so that the shipment can clear customs without the consignee being billed later  
 • You remain responsible for any additional duties, taxes or fees assessed by US authorities if information supplied for classification or valuation is incomplete or inaccurate :contentReference[oaicite:3]{index=3}  
 
-Where duties and taxes are collected in advance for US shipments, this does not change your status as importer of record. It means that AURICLE or our carrier pays or arranges payment on your behalf to allow customs clearance.
+Where duties and taxes are collected in advance for US shipments, this does not change your status as importer of record. It means that Pierce of Art or our carrier pays or arranges payment on your behalf to allow customs clearance.
 
 ---
 
@@ -78,7 +80,8 @@ For US shipments where duties and taxes are charged at checkout:
 
 ## 5. Pricing, currency and display
 
-• Prices are shown in **GBP**  
+• Prices are shown in **GBP** and **include UK VAT** 
+• VAT is included in the displayed price and is not shown separately, in accordance with UK law
 • Any USD or EUR amounts displayed are approximate and for guidance only  
 • Your card or payment provider determines the exchange rate at the time of charge  
 • All prices exclude shipping costs; delivery charges are shown at checkout before you confirm the order  
@@ -129,7 +132,7 @@ We may update this policy from time to time. Changes take effect when published 
 
 ## 12. Contact
 
-Tax and VAT enquiries: **info@auricle.co.uk**  
+Tax and VAT enquiries: **info@pierceofart.co.uk**  
 Company details: see the [COMPANY INFORMATION](/information/company-information-imprint) page  
 Formal notices: see the [COMPLAINTS AND NOTICES](/information/complaints-notices) page
 

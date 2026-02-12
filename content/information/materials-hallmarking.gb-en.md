@@ -1,6 +1,6 @@
 ---
 title: MATERIALS & HALLMARKING
-description: Material standards for AURICLE jewellery and how hallmarking is applied in the UK.
+description: Material standards for our jewellery and how hallmarking is applied in the UK.
 updated: 2025-08-29
 robots: index,follow
 date: 2026-02-03
@@ -16,7 +16,7 @@ date: 2026-02-03
 
 ## 1. SCOPE
 
-This page describes the materials commonly used in AURICLE jewellery and how **UK hallmarking** applies. It covers products sold on **auricle.co.uk** and **auriclejewelry.com** and items supplied via our standard trade channels.
+This page describes the materials commonly used in our jewellery and how **UK hallmarking** applies. It covers all products sold through our website.
 
 ---
 
@@ -41,11 +41,11 @@ This page describes the materials commonly used in AURICLE jewellery and how **U
 - Sensitivities vary by individual; no material is universally “hypoallergenic.”
 
 ### 2.5 TESTING & VERIFICATION (TITANIUM)
-- **AURICLE tests the backs/labret posts (the parts that go through the skin) against the ASTM F136 criteria** (and references **ISO 5832-3**) as applicable.  
+- **We test the backs/labret posts (the parts that go through the skin) against the ASTM F136 criteria** (and references **ISO 5832-3**) as applicable.  
 - **Other titanium jewellery** is **randomly selected for testing** on a periodic basis.  
-- For product-specific questions, contact **info@auricle.co.uk** before ordering.
+- For product-specific questions, contact **info@pierceofart.co.uk** before ordering.
 
-> For care and handling, follow any guidance on the product page. Contact **info@auricle.co.uk** with material queries before ordering.
+> For care and handling, follow any guidance on the product page. Contact **info@pierceofart.co.uk** with material queries before or after ordering.
 
 ---
 
@@ -94,7 +94,7 @@ Materials specifications and marking practices may be updated as manufacturing m
 
 ## 7. CONTACT
 
-Material or hallmarking enquiries: **info@auricle.co.uk**  
+Material or hallmarking enquiries: **info@pierceofart.co.uk**  
 Company details: [COMPANY INFORMATION](/information/company-information-imprint)
 Terms: [TERMS OF SALE](/information/terms-of-sale) · [TERMS OF SERVICE](/information/terms-of-service)
 

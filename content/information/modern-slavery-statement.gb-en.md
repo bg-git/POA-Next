@@ -10,15 +10,15 @@ date: 2026-02-03
 
 **Effective Date:** 9 August 2025
 
-> **NON-NEGOTIABLE STANDARDS:** AURICLE does not tolerate modern slavery, forced labour, child labour, or human trafficking. These requirements are mandatory for our suppliers and contractors. 
+> **NON-NEGOTIABLE STANDARDS:** Pierce of Art does not tolerate modern slavery, forced labour, child labour, or human trafficking. These requirements are mandatory for our suppliers and contractors. 
 
-If you have concerns or information related to modern slavery connected to our business or supply chain, email **info@auricle.co.uk**. We aim to respond within **5 business days**.
+If you have concerns or information related to modern slavery connected to our business or supply chain, email **info@pierceofart.co.uk**. We aim to respond within **5 business days**.
 
 ---
 
 ## 1. WHO WE ARE AND SCOPE
 
-This statement covers **auricle.co.uk**, **auriclejewelry.com**, and our **Shopify Checkout** (hosted on Shopify). It applies to our B2B wholesale operations and to suppliers and contractors who provide goods or services to AURICLE.
+This statement covers our online business and retail operations. It applies to our consumer and supplier relationships and to suppliers and contractors who provide goods or services to us.
 
 Website use is governed by our [TERMS OF SERVICE](/information/terms-of-service). Company details are on [COMPANY INFORMATION](/information/company-information-imprint).
 
@@ -26,13 +26,13 @@ Website use is governed by our [TERMS OF SERVICE](/information/terms-of-service)
 
 ## 2. APPLICABILITY UNDER LAW
 
-We publish this statement **voluntarily** in line with the intent of the UK Modern Slavery Act 2015. If and when AURICLE meets the statutory threshold requiring a statement under section 54, we will treat this document as our formal annual statement under that Act and update it accordingly.
+We publish this statement **voluntarily** in line with the intent of the UK Modern Slavery Act 2015. If and when we meet the statutory threshold requiring a statement under section 54, we will treat this document as our formal annual statement under that Act and update it accordingly.
 
 ---
 
 ## 3. OUR BUSINESS AND SUPPLY CHAIN
 
-We operate a **B2B wholesale** jewellery brand supplying professional studios and jewellers. Our supply chain includes materials, manufacturing, finishing, packaging, shipping (including **Royal Mail** and **DHL**), and professional services.
+We operate a **jewellery retail and business** brand supplying consumers and professional clients. Our supply chain includes materials, manufacturing, finishing, packaging, shipping (including **Royal Mail** and **DHL**), and professional services.
 
 ---
 
@@ -88,7 +88,7 @@ Relevant staff (buying, operations, and leadership) receive periodic guidance on
 
 ## 9. REPORTING CONCERNS (WHISTLEBLOWING)
 
-Anyone can report concerns to **info@auricle.co.uk**. We will treat reports sensitively, share information only on a need-to-know basis, and will not tolerate retaliation for good-faith reporting.
+Anyone can report concerns to **info@pierceofart.co.uk**. We will treat reports sensitively, share information only on a need-to-know basis, and will not tolerate retaliation for good-faith reporting.
 
 ---
 

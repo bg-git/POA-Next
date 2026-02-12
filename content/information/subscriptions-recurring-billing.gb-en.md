@@ -1,6 +1,6 @@
 ---
 title: SUBSCRIPTIONS & RECURRING BILLING
-description: Terms for AURICLE subscription services and recurring monthly charges.
+description: Terms for subscription services and recurring monthly charges.
 updated: 2025-08-29
 robots: index,follow
 date: 2026-02-03
@@ -10,27 +10,29 @@ date: 2026-02-03
 
 **Effective Date:** 9 August 2025
 
-> **NON NEGOTIABLE TERMS:** Subscribing authorises recurring charges as described in this policy. We do not offer tailored variations. If you do not accept these terms, do not subscribe. See the [TERMS OF SALE](/information/terms-of-sale), the [TERMS OF SERVICE](/information/terms-of-service), the [PRIVACY POLICY](/information/privacy-policy) and the [COOKIE POLICY](/information/cookie-policy).
+> **NON NEGOTIABLE TERMS:** Subscribing authorises recurring charges as described in this policy. We do not offer tailored variations. If you do not accept these terms, do not subscribe. Your statutory consumer rights under the Consumer Rights Act 2015 are not affected by this policy. See the [TERMS OF SALE](/information/terms-of-sale), the [TERMS OF SERVICE](/information/terms-of-service), the [PRIVACY POLICY](/information/privacy-policy) and the [COOKIE POLICY](/information/cookie-policy).
 
 ---
 
 ## 1. Scope
 
-These terms apply to AURICLE subscription services offered to **B2B customers** through our websites or by invoice. Website use is governed by the [TERMS OF SERVICE](/information/terms-of-service).
+These terms apply to subscription services offered to consumers through our website. Website use is governed by the [TERMS OF SERVICE](/information/terms-of-service).
 
 ---
 
 ## 2. Eligibility
 
-Subscriptions are available to legitimate businesses such as studios, jewellers and distributors with approved accounts. We may refuse, suspend or cancel a subscription at our discretion, including for risk, misuse or non payment.
+Subscriptions are available to consumers aged 18 and over with a valid payment method. We may refuse or cancel a subscription at our discretion, including for security, misuse or non-payment.
 
 ---
 
 ## 3. Billing and renewal
 
 • Subscriptions renew automatically and are billed on the first day of each calendar month  
-• By providing a payment method, you authorise AURICLE to charge recurring fees until you cancel  
-• Fees are shown before you enrol and may be subject to VAT or other taxes, as explained in the [TAX AND VAT POLICY](/information/tax-vat-policy)
+• By providing a payment method, you authorise us to charge recurring fees until you cancel  
+• Fees are shown before you subscribe and may be subject to VAT or other taxes, as explained in the [TAX AND VAT POLICY](/information/tax-vat-policy)
+• You have **14 calendar days from the first charge** to cancel and receive a full refund if you change your mind (cooling-off period)
+• After the cooling-off period, you may still cancel at any time
 
 Cookies are required for account, basket and checkout functionality. We do not offer category based cookie settings. To use the Website you must accept cookies. If you do not wish to accept them, do not use the Website.
 
@@ -46,9 +48,11 @@ Cookies are required for account, basket and checkout functionality. We do not o
 
 ## 5. Cancellation
 
-• You may cancel at any time through your account or by emailing **info@auricle.co.uk** from your registered address  
+• **Cooling-off period (14 days):** You may cancel within 14 calendar days of your first charge and receive a full refund of the first month's fee  
+• **After cooling-off period:** You may cancel at any time through your account or by emailing **info@pierceofart.co.uk**  
 • Cancellation takes effect at the end of the current billing month  
-• We do not provide refunds or credit for partial months unless required by law
+• For cancellations within the cooling-off period, we will refund within 14 working days of receiving your cancellation request
+• For cancellations after the cooling-off period, you will not be refunded for the current month's charges, but no further charges will apply
 
 ---
 
@@ -91,8 +95,8 @@ You may opt out of marketing emails, but you will still receive service essentia
 
 ## 11. Misuse and termination
 
-We may suspend or end a subscription for misuse, fraud, resale of benefits or breaches of AURICLE policies.  
-Termination for breach does not require us to refund previous payments.
+We may suspend or end a subscription for misuse, fraud, resale of benefits or breaches of our policies.  
+Termination for breach does not require us to refund previous payments unless required by consumer protection law.
 
 ---
 
@@ -105,7 +109,7 @@ The courts of England and Wales have exclusive jurisdiction.
 
 ## 13. Contact
 
-Subscription enquiries and cancellations: **info@auricle.co.uk**  
+Subscription enquiries and cancellations: **info@pierceofart.co.uk**  
 Company details: see the [COMPANY INFORMATION](/information/company-information-imprint) page
 
 ---

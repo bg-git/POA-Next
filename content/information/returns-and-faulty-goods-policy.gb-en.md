@@ -1,6 +1,6 @@
 ---
-title: RETURNS / FAULTY GOODS POLICY (B2B)
-description: Reporting timelines and process for faulty goods. B2B only.
+title: RETURNS & FAULTY GOODS POLICY
+description: Consumer returns, cooling-off period, and faulty goods claims with UK Consumer Rights Act protections.
 updated: 2025-08-29
 robots: index,follow
 date: 2026-02-03
@@ -10,28 +10,35 @@ date: 2026-02-03
 
 **Effective Date:** 9 August 2025
 
-> **NON-NEGOTIABLE POLICY (B2B):** Returns are accepted **only** for faulty goods as set out below. No change-of-mind returns are offered. If you do not agree, do not place an order. See also the [TERMS OF SALE](/information/terms-of-sale).
+> **YOUR CONSUMER RIGHTS:** As a consumer, you have the right to return items within 14 calendar days for any reason (cooling-off period), and you have statutory rights under the Consumer Rights Act 2015 if items are faulty or not as described. See also the [TERMS OF SALE](/information/terms-of-sale).
 
 ---
 
 ## 1. SCOPE
 
-This policy applies to B2B purchases from AURICLE. Website use is governed by the [TERMS OF SERVICE](/information/terms-of-service).
+This policy applies to consumer purchases through our website. Website use is governed by the [TERMS OF SERVICE](/information/terms-of-service).
 
 ---
 
-## 2. SUMMARY
+## 2. YOUR RIGHTS - SUMMARY
 
-- **Returns accepted:** **Faulty goods only.**  
-- **No returns** for change of mind, over-ordering, or compatibility.  
-- **Report windows:** see §3.  
-- **Remedy:** repair or like-for-like replacement; if unavailable, a credit note (see §6).
+### Cooling-Off Period (Change of Mind)
+- **14 calendar days** from delivery to return items for any reason
+- Items must be **unused and in original condition** with all packaging
+- **You pay return postage** unless the delay is our fault
+- We will refund the product price within 14 days of receiving the returned item
+
+### Statutory Rights (Consumer Rights Act 2015)
+- **Within 30 days** of delivery: right to **reject the item** and receive a full refund if faulty or not as described
+- **Within 6 months** of delivery: items are presumed faulty unless proven otherwise
+- **After 30 days but within 6 months**: right to repair or replacement, or refund if neither is possible
+- **Your statutory rights apply whether or not items are within the cooling-off period**
 
 ---
 
-## 3. REPORTING TIMEFRAMES
+## 3. COOLING-OFF PERIOD (CHANGE OF MIND RETURNS)
 
-- **Delivery damage / shortages / mis-picks:** notify **within 24 hours of delivery** (UK time) to **info@auricle.co.uk**, including order number, photos of the packaging and items, and a description of the issue.
+- **Delivery damage / shortages / mis-picks:** notify **within 24 hours of delivery** (UK time) to **info@pierceofart.co.uk**, including order number, photos of the packaging and items, and a description of the issue.
 
 - **Latent manufacturing defects (not visible at delivery):** notify **within 7 calendar days of discovery** and **no later than 30 days from delivery**.  
   > Note: This window is to allow reasonable inspection for defects that could not be identified on delivery.
@@ -70,19 +77,11 @@ For authorised faulty returns, we will provide a prepaid label or reimburse stan
 
 ---
 
-## 8. HOW TO REPORT
+## 8. DISPUTE RESOLUTION
 
-Email **info@auricle.co.uk** with:  
-- Order number and date  
-- SKU(s) and quantity affected  
-- Clear photos/videos of the fault and packaging  
-- Brief description of the issue and when discovered
+If you have a complaint about our goods or service, please contact **info@pierceofart.co.uk** or see [COMPLAINTS & NOTICES](/information/complaints-notices).
 
----
-
-## 9. GOVERNING LAW
-
-This policy forms part of the [TERMS OF SALE](/information/terms-of-sale) and is governed by the laws of England and Wales. Formal notices: see [COMPLAINTS & NOTICES](/information/complaints-notices).
+This policy forms part of the [TERMS OF SALE](/information/terms-of-sale) and is governed by the laws of England and Wales under the Consumer Rights Act 2015 and Distance Selling Regulations 2000 (as amended).
 
 ---
 

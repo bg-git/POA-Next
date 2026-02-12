@@ -1,6 +1,6 @@
 ---
 title: SHIPPING & DELIVERY POLICY
-description: Carriers, delivery terms and international shipping for AURICLE orders.
+description: Carriers, delivery terms and international shipping for orders.
 updated: 2025-08-29
 robots: index,follow
 date: 2026-02-03
@@ -16,7 +16,7 @@ date: 2026-02-03
 
 ## 1. Scope
 
-This policy applies to all orders placed with AURICLE through our website or by invoice. Website use is governed by the [TERMS OF SERVICE](/information/terms-of-service).
+This policy applies to all orders placed through our website. Website use is governed by the [TERMS OF SERVICE](/information/terms-of-service).
 
 ---
 
@@ -122,7 +122,7 @@ Changes take effect when published on this page.
 
 ## 14. Contact
 
-Shipping enquiries: **info@auricle.co.uk**  
+Shipping enquiries: **info@pierceofart.co.uk**  
 Formal notices: see [COMPLAINTS AND NOTICES](/information/complaints-notices)  
 Company details: see [COMPANY INFORMATION](/information/company-information-imprint)
 

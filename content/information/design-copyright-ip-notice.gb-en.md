@@ -1,6 +1,6 @@
 ---
 title: DESIGNS & COPYRIGHT / IP NOTICE
-description: Intellectual property terms covering AURICLE designs, product images, and brand assets.
+description: Intellectual property terms covering our designs, product images, and brand assets.
 updated: 2025-08-29
 robots: index,follow
 date: 2026-02-03
@@ -10,23 +10,23 @@ date: 2026-02-03
 
 **Effective Date:** 9 August 2025
 
-> **NON-NEGOTIABLE TERMS:** Use of AURICLE designs, images, and brand assets is restricted as set out here. If you do not agree, do not use or reproduce our materials. See also the [TERMS OF SERVICE](/information/terms-of-service) and [TERMS OF SALE](/information/terms-of-sale).
+> **NON-NEGOTIABLE TERMS:** Use of our designs, images, and brand assets is restricted as set out here. If you do not agree, do not use or reproduce our materials. See also the [TERMS OF SERVICE](/information/terms-of-service) and [TERMS OF SALE](/information/terms-of-sale).
 
 ---
 
 ## 1. SCOPE & DEFINITIONS
 
-This notice covers all intellectual property on **auricle.co.uk**, **auriclejewelry.com**, and associated channels operated by AURICLE Limited (“AURICLE”, “we”, “us”).
+This notice covers all intellectual property on our website and associated channels ("we", "us").
 
 - **Product Designs:** the aesthetic shape, configuration, ornamentation, and arrangement of our jewellery products.  
-- **AURICLE Content:** product photos, renders, videos, graphics, text, page layouts, and code.  
-- **Brand Assets:** AURICLE names, logos, marks, and trade dress.
+- **Our Content:** product photos, renders, videos, graphics, text, page layouts, and code.  
+- **Brand Assets:** our names, logos, marks, and trade dress.
 
 ---
 
 ## 2. OUR RIGHTS
 
-- **Copyright:** All AURICLE Content is protected by copyright.  
+- **Copyright:** All our content is protected by copyright.  
 - **Design Rights:** Our Product Designs are protected by **UK unregistered design right** and may also be protected by registered design rights or other laws where applicable.  
 - **Trade Marks / Trade Dress:** Our names, logos, and get-up are protected as trade marks and/or passing off.
 
@@ -37,9 +37,9 @@ No rights are granted except as expressly stated below. All rights are reserved 
 ## 3. PERMITTED USE (LIMITED)
 
 You may:
-- View our websites and **print/download extracts** for legitimate business with AURICLE (unaltered, with notices intact).  
+- View our website and **print/download extracts** for legitimate personal use (unaltered, with notices intact).  
 - Share links to our pages or posts (linking only, not copying).  
-- If you are an **authorised retailer/distributor**, use our official product images and copy **solely** to market genuine AURICLE goods, subject to §5.
+- If you are an **authorised retailer/distributor**, use our official product images and copy **solely** to market genuine products, subject to §5.
 
 Any other use requires **prior written permission**.
 
@@ -48,19 +48,19 @@ Any other use requires **prior written permission**.
 ## 4. PROHIBITED USES
 
 You must **not**:
-- Copy, reproduce, adapt, translate, or distribute AURICLE Content or Product Designs.  
+- Copy, reproduce, adapt, translate, or distribute our content or product designs.  
 - Reverse-engineer, 3D scan, CAD/CAM reproduce, mould, cast, or otherwise derive products from our designs.  
 - Remove or alter watermarks, metadata, or notices; crop images to obscure branding.  
 - Scrape/download our catalog or images at scale; hotlink assets.  
 - Use our materials to **train AI or datasets**, or for any data-mining intended to replicate our products or brand.  
-- Use AURICLE marks or confusingly similar marks in domains, social handles, ads, packaging, or listings without permission.  
+- Use our marks or confusingly similar marks in domains, social handles, ads, packaging, or listings without permission.  
 - Misrepresent affiliation, endorsement, or origin.
 
 ---
 
 ## 5. RETAILER/DISTRIBUTOR IMAGE LICENCE
 
-If you are an approved trade customer, AURICLE grants a **revocable, non-exclusive, non-transferable** licence to use our official images and short descriptions to market genuine AURICLE products that you stock.
+If you are an approved trade customer, we grant a **revocable, non-exclusive, non-transferable** licence to use our official images and short descriptions to market genuine products that you stock.
 
 Conditions:
 - Use **accurate titles/SKUs**; do not alter the product’s appearance or claims.  
@@ -86,7 +86,7 @@ Where a product is described as “unique” or “unique design”, this means 
 
 ## 8. REPORTING INFRINGEMENT
 
-To report suspected infringement **of our IP** or to request permission/licensing, email **info@auricle.co.uk** with:
+To report suspected infringement **of our IP** or to request permission/licensing, email **info@pierceofart.co.uk** with:
 - Your contact details  
 - Links/screenshots of the material  
 - Description of the use and location  
@@ -98,7 +98,7 @@ We aim to respond within **5 business days**.
 
 ## 9. NOTICE & TAKEDOWN (CLAIMS AGAINST US)
 
-If you believe content on our sites **infringes your rights**, email **info@auricle.co.uk** with:  
+If you believe content on our sites **infringes your rights**, email **info@pierceofart.co.uk** with:  
 your identity and authority, a description of the work, location (URL), proof of ownership, and your requested action. We will review promptly and remove or restrict access where appropriate.
 
 ---

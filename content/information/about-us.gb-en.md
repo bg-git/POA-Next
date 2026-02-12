@@ -1,6 +1,6 @@
 ---
 title: ABOUT US
-description: About AURICLE and how we work.
+description: About Pierce of Art and how we work.
 updated: 2025-08-29
 robots: index,follow
 date: 2026-02-03
@@ -8,11 +8,11 @@ date: 2026-02-03
 
 ## Who we are
 
-AURICLE is a UK-based body piercing jewellery brand supplying professional piercing studios and jewellery retailers across the UK and EU.
+Pierce of Art is a UK-based body piercing jewellery brand creating high-quality jewellery for professional piercing studios, jewellery retailers, and consumers who want confident, beautiful piercing jewellery.
 
 After decades of studio and industry experience, we set out to create a high-quality jewellery brand that studios would be proud to stock and clients would feel confident wearing every day.
 
-For many years, some of the most respected and recognised high-quality body piercing jewellery has come from the United States. We created AURICLE to offer a UK-based option at that same level, not as a replacement, but as an alternative for studios closer to home.
+For many years, some of the most respected and recognised high-quality body piercing jewellery has come from the United States. We created our brand to offer a UK-based option at that same level, not as a replacement, but as an alternative for studios and customers closer to home.
 
 As a UK company, we operate under UK and EU law. Our products are developed for civilian, medical-adjacent jewellery use and are governed by UK consumer and product safety legislation, which defines how materials, testing, and compliance are handled in this market.
 
@@ -24,9 +24,9 @@ As a UK company, we operate under UK and EU law. Our products are developed for 
 
 In piercing, claims alone don’t mean much. Quality needs to be provable.
 
-Too often, decisions are made on reputation or assumption rather than evidence. We believe studios should be able to understand exactly what they are fitting and why it meets the standards required for professional use.
+Too often, decisions are made on reputation or assumption rather than evidence. We believe studios and customers should be able to understand exactly what they are fitting and getting, and why it meets the standards required for professional use.
 
-That belief is what drives how we build AURICLE and how we verify the jewellery we supply.
+That belief is what drives how we build our brand and how we verify the jewellery we supply.
 
 ---
 

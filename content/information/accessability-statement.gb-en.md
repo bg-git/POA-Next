@@ -1,6 +1,6 @@
 ---
 title: ACCESSIBILITY STATEMENT
-description: Our commitment to accessible, usable experiences across AURICLE websites and checkout.
+description: Our commitment to accessible, usable experiences across our website and services.
 updated: 2025-08-29
 robots: index,follow
 date: 2026-02-03
@@ -10,9 +10,9 @@ date: 2026-02-03
 
 **Effective Date:** 9 August 2025
 
-This statement applies to the AURICLE websites and checkout experience.
+This statement applies to our online store and checkout experience.
 
-> We aim to make our services usable by as many people as possible. If you experience any accessibility barriers, contact **info@auricle.co.uk** — we aim to respond within **5 business days**.
+> We aim to make our services usable by as many people as possible. If you experience any accessibility barriers, contact **info@pierceofart.co.uk** — we aim to respond within **5 business days**.
 
 ---
 
@@ -20,9 +20,8 @@ This statement applies to the AURICLE websites and checkout experience.
 
 This statement covers:
 
-- **auricle.co.uk**
-- **auriclejewelry.com**
-- **Shopify Checkout** (hosted on a separate Shopify domain)
+- Our main website
+- Shopify Checkout (hosted on a separate Shopify domain)
 - Third-party integrations used within our purchase flow, including **DHL** and **Royal Mail** (for shipping rate/label/tracking), and our **live chat** powered by the **ChatGPT API**
 
 Website use is governed by our [TERMS OF SERVICE](/information/terms-of-service). For personal data and cookies, see our [PRIVACY POLICY](/information/privacy-policy) and [COOKIE POLICY](/information/cookie-policy).
@@ -58,7 +57,7 @@ The sites are built with **Next.js** and deployed on **Vercel**. We support **mo
 - **Colour & imagery:** Display characteristics vary by device and screen type. Jewellery colours and finishes may appear different in real life compared with on-screen images.  
 - **Third-party components:** Some elements provided by Shopify (checkout), DHL, Royal Mail, and the ChatGPT-powered live chat may not fully align with WCAG 2.2 AA. We raise issues with vendors where feasible.
 
-If you encounter an issue not listed here, please tell us at **info@auricle.co.uk**.
+If you encounter an issue not listed here, please tell us at **info@pierceofart.co.uk**.
 
 ---
 
@@ -88,7 +87,7 @@ Cookies are required for core functionality (authentication, cart, checkout). We
 ## 9. FEEDBACK & CONTACT
 
 If you need assistance or wish to report an accessibility problem:
-- Email: **info@auricle.co.uk**  
+- Email: **info@pierceofart.co.uk**  
 - Response target: **within 5 business days**
 
 ---
