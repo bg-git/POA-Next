@@ -26,14 +26,79 @@ const SHOPIFY_PRODUCTS: Record<string, string> = {
   leicester: '55409591091583',
 };
 
-const SLOT_LIMITS: Record<string, number> = {
-  '09:00 AM': 2,
-  '10:00 AM': 2,
-  '11:00 AM': 2,
-  '02:00 PM': 2,
-  '03:00 PM': 2,
-  '04:00 PM': 1,
+// Operating hours by day of week (0=Sunday, 1=Monday, ..., 6=Saturday)
+const LOCATION_HOURS_BY_DAY: Record<string, Record<number, { open: string; close: string; slots: number }>> = {
+  Chesterfield: {
+    2: { open: '10:00 AM', close: '6:00 PM', slots: 2 }, // Tuesday
+    3: { open: '10:00 AM', close: '6:00 PM', slots: 2 }, // Wednesday
+    4: { open: '10:00 AM', close: '6:00 PM', slots: 2 }, // Thursday
+    5: { open: '10:00 AM', close: '6:00 PM', slots: 2 }, // Friday
+    6: { open: '9:00 AM', close: '6:00 PM', slots: 2 }, // Saturday
+  },
+  Leicester: {
+    0: { open: '11:00 AM', close: '4:00 PM', slots: 1 }, // Sunday
+    1: { open: '11:00 AM', close: '6:00 PM', slots: 1 }, // Monday
+    2: { open: '11:00 AM', close: '6:00 PM', slots: 1 }, // Tuesday
+    3: { open: '11:00 AM', close: '6:00 PM', slots: 1 }, // Wednesday
+    4: { open: '11:00 AM', close: '6:00 PM', slots: 1 }, // Thursday
+    5: { open: '11:00 AM', close: '6:00 PM', slots: 1 }, // Friday
+    6: { open: '10:00 AM', close: '6:00 PM', slots: 1 }, // Saturday
+  },
 };
+
+// Parse time in 12-hour format to minutes since midnight
+function parseTime(timeStr: string): number | null {
+  const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/);
+  if (!match) return null;
+  let hours = parseInt(match[1]);
+  const minutes = parseInt(match[2]);
+  const meridiem = match[3];
+  if (meridiem === 'PM' && hours !== 12) hours += 12;
+  if (meridiem === 'AM' && hours === 12) hours = 0;
+  return hours * 60 + minutes;
+}
+
+// Format minutes to 12-hour time
+function formatTime(minutes: number): string {
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  const meridiem = hours >= 12 ? 'PM' : 'AM';
+  const displayHours = hours % 12 || 12;
+  return `${displayHours}:${mins.toString().padStart(2, '0')} ${meridiem}`;
+}
+
+// Check if a selected time is valid for a given date and location
+function isValidTimeSlot(
+  location: string,
+  date: string,
+  timeStr: string
+): { valid: boolean; maxSlots: number } {
+  const locationName = LOCATION_MAP[location];
+  if (!locationName) return { valid: false, maxSlots: 0 };
+
+  const dateObj = new Date(date);
+  const dayOfWeek = dateObj.getDay();
+
+  const hours = LOCATION_HOURS_BY_DAY[locationName][dayOfWeek];
+  if (!hours) return { valid: false, maxSlots: 0 }; // Location closed this day
+
+  const selectedTimeMinutes = parseTime(timeStr);
+  if (selectedTimeMinutes === null) return { valid: false, maxSlots: 0 };
+
+  const openMinutes = parseTime(hours.open);
+  const closeMinutes = parseTime(hours.close);
+
+  if (openMinutes === null || closeMinutes === null) {
+    return { valid: false, maxSlots: 0 };
+  }
+
+  // Check if time is within opening hours (accounting for 25-minute slots)
+  if (selectedTimeMinutes >= openMinutes && selectedTimeMinutes + 25 <= closeMinutes) {
+    return { valid: true, maxSlots: hours.slots };
+  }
+
+  return { valid: false, maxSlots: 0 };
+}
 
 async function createShopifyCheckout(
   email: string,
@@ -143,13 +208,14 @@ export default async function handler(
     return res.status(400).json({ error: 'Invalid location' });
   }
 
-  if (!SLOT_LIMITS[time]) {
+  // Validate time slot using location hours
+  const { valid: isValidSlot, maxSlots } = isValidTimeSlot(location, date, time);
+  if (!isValidSlot) {
     return res.status(400).json({ error: 'Invalid time slot' });
   }
 
   try {
     const locationName = LOCATION_MAP[location];
-    const maxSlots = SLOT_LIMITS[time];
     const productId = SHOPIFY_PRODUCTS[location];
 
     // Check if slot is still available
