@@ -1,7 +1,15 @@
 ﻿import React, { useState } from 'react';
+import type { GetStaticProps } from 'next';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/router';
 import Seo from '@/components/Seo';
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {},
+    revalidate: 86400, // Revalidate once per day
+  };
+};
 
 export default function SignIn() {
   const [form, setForm] = useState({ email: '', password: '' });

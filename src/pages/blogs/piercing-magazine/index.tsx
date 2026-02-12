@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import type { GetStaticProps } from 'next';
 
 interface BlogArticle {
   id: string;
@@ -17,29 +17,11 @@ interface BlogArticle {
   };
 }
 
-export default function MagazinePage() {
-  const [articles, setArticles] = useState<BlogArticle[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+interface Props {
+  articles: BlogArticle[];
+}
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const res = await fetch('/api/shopify/blog/articles?blog=magazine');
-        if (!res.ok) throw new Error('Failed to fetch articles');
-        
-        const data = await res.json();
-        setArticles(data.articles || []);
-      } catch (err) {
-        setError('Failed to load articles');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchArticles();
-  }, []);
+export default function MagazinePage({ articles }: Props) {
 
   return (
     <>
@@ -59,25 +41,13 @@ export default function MagazinePage() {
           </p>
         </div>
 
-        {loading && (
-          <div style={{ textAlign: 'center', padding: '40px' }}>
-            <p>Loading articles...</p>
-          </div>
-        )}
-
-        {error && (
-          <div style={{ textAlign: 'center', padding: '40px', color: 'red' }}>
-            <p>{error}</p>
-          </div>
-        )}
-
-        {!loading && articles.length === 0 && (
+        {articles.length === 0 && (
           <div style={{ textAlign: 'center', padding: '40px' }}>
             <p>No articles found.</p>
           </div>
         )}
 
-        {!loading && articles.length > 0 && (
+        {articles.length > 0 && (
           <div
             style={{
               display: 'grid',
@@ -144,23 +114,15 @@ export default function MagazinePage() {
 
                     <div
                       style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
                         fontSize: '0.9em',
                         color: '#999',
                       }}
                     >
-                      <span>
-                        {article.author?.name && `By ${article.author.name}`}
-                      </span>
-                      <span>
-                        {new Date(article.publishedAt).toLocaleDateString('en-GB', {
-                          year: 'numeric',
-                          month: 'short',
-                          day: 'numeric',
-                        })}
-                      </span>
+                      {new Date(article.publishedAt).toLocaleDateString('en-GB', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                      })}
                     </div>
                   </div>
                 </div>
@@ -172,3 +134,33 @@ export default function MagazinePage() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const res = await fetch(`${baseUrl}/api/shopify/blog/articles?blog=magazine`);
+    
+    if (!res.ok) throw new Error('Failed to fetch articles');
+    
+    const data = await res.json();
+    const articles = (data.articles || []).sort((a: BlogArticle, b: BlogArticle) => 
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    );
+    
+    return {
+      props: {
+        articles,
+      },
+      revalidate: 3600, // Revalidate every hour (ISR)
+    };
+  } catch (error) {
+    console.error('Error fetching blog articles:', error);
+    
+    return {
+      props: {
+        articles: [],
+      },
+      revalidate: 60, // Retry after 1 minute on error
+    };
+  }
+};

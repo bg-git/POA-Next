@@ -1,264 +1,22 @@
 // pages/index.tsx
-import type { GetServerSideProps, GetServerSidePropsContext } from 'next';
-import { useState, ChangeEvent, FormEvent } from 'react';
+import type { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import Seo from '@/components/Seo';
+import VideoSection from '@/components/VideoSection';
+import HomepageContent from '@/components/HomepageContent';
 
-const REGION_COOKIE_NAME = 'poa_region_pref';
-
-// --- small helper to read one cookie from the header ---
-function getCookieFromHeader(
-  ctx: GetServerSidePropsContext,
-  name: string
-): string | null {
-  const cookieHeader = ctx.req.headers.cookie;
-  if (!cookieHeader) return null;
-
-  const cookies = cookieHeader.split(';');
-  for (const cookie of cookies) {
-    const [key, ...rest] = cookie.trim().split('=');
-    if (key === name) {
-      return decodeURIComponent(rest.join('='));
-    }
-  }
-  return null;
-}
-
-type HomeProps = {
-  showSelector: boolean;
-  noLayout?: boolean; // when true, _app.tsx will NOT wrap with header/footer
-};
-
-export const getServerSideProps: GetServerSideProps<HomeProps> = async (
-  ctx
-) => {
-  try {
-    const host = ctx.req.headers.host || '';
-
-    // POA doesn't need region selection - just show normal homepage
-    // Only the old Auricle .com domains would need the selector
-    const isDotCom = 
-      host.endsWith('pierceofart.com') ||
-      host.endsWith('poa.com');
-
-    // Not .com → normal homepage (including vercel.app for testing)
-    return {
-      props: {
-        showSelector: false,
-        noLayout: false,
-      },
-    };
-  } catch (error) {
-    console.error('Homepage getServerSideProps error:', error);
-    return {
-      props: {
-        showSelector: false,
-        noLayout: false,
-      },
-    };
-  }
-};
-
-// --- REGION SELECTOR COMPONENT (for .com root) ---
-
-type Region = {
-  id: 'gb' | 'us';
-  label: string;
-};
-
-type Language = {
-  id: 'en' | 'es';
-  label: string;
-};
-
-const ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;
-
-const regions: Region[] = [
-  { id: 'gb', label: 'United Kingdom' },
-];
-
-// All languages we support overall
-const languages: Language[] = [
-  { id: 'en', label: 'English' },
-  // Uncomment when ready for US Spanish:
-  // { id: 'es', label: 'Español' },
-];
-
-// Mapping: region -> language -> href
-const regionLanguageHref: Record<string, Record<string, string>> = {
-  gb: {
-    en: 'https://pierceofart.co.uk', // UK–English
-  },
-};
-
-function RegionSelector() {
-  const [selectedRegion, setSelectedRegion] = useState<Region['id'] | ''>('');
-  const [selectedLanguage, setSelectedLanguage] = useState<Language['id'] | ''>(
-    ''
-  );
-  const [rememberPreference, setRememberPreference] = useState<boolean>(false);
-
-  const handleRegionChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value as Region['id'] | '';
-    setSelectedRegion(value);
-    // Reset language + remember when changing region
-    setSelectedLanguage('');
-    setRememberPreference(false);
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {},
+    revalidate: 3600, // Revalidate every hour
   };
-
-  const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value as Language['id'] | '';
-    setSelectedLanguage(value);
-  };
-
-  const handleRememberChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setRememberPreference(e.target.checked);
-  };
-
-  const handleContinue = (e: FormEvent) => {
-    e.preventDefault();
-    if (!selectedRegion || !selectedLanguage) return;
-
-    const href = regionLanguageHref[selectedRegion]?.[selectedLanguage];
-    if (!href) return;
-
-    if (rememberPreference) {
-      // Save preference cookie (on .com)
-      document.cookie = `${REGION_COOKIE_NAME}=${encodeURIComponent(
-        href
-      )}; Max-Age=${ONE_YEAR_SECONDS}; Path=/; SameSite=Lax`;
-    }
-
-    // Redirect
-    window.location.href = href;
-  };
-
-  const availableLanguagesForSelectedRegion: Language[] = selectedRegion
-    ? languages.filter((lang) => regionLanguageHref[selectedRegion]?.[lang.id])
-    : [];
-
-  const canShowRememberRow =
-    Boolean(selectedRegion) &&
-    Boolean(selectedLanguage) &&
-    availableLanguagesForSelectedRegion.some((l) => l.id === selectedLanguage);
-
-  return (
-    <>
-      <Seo
-        title="Choose region | PIERCE OF ART"
-        description="Select your country and language to continue to PIERCE OF ART."
-      />
-
-      <main className="region-selector">
-        <form className="region-selector__panel" onSubmit={handleContinue}>
-          {/* Logo / brand */}
-          <header className="region-selector__brand">
-            <Image
-              src="/auricle-logo.png"
-              alt="PIERCE OF ART"
-              width={140}
-              height={94}              priority
-            />
-            <p className="region-selector__welcome">
-              Welcome to PIERCE OF ART – your premium body piercing studio.
-            </p>
-          </header>
-
-          {/* Region selection */}
-          <section className="region-selector__section">
-            <label htmlFor="region-select" className="region-selector__label">
-              Choose your region
-            </label>
-            <p className="region-selector__hint-text">
-              Select where you are based to see the correct store.
-            </p>
-            <div className="region-selector__field">
-              <select
-                id="region-select"
-                className="region-selector__select"
-                value={selectedRegion}
-                onChange={handleRegionChange}
-              >
-                <option value="">Select region</option>
-                {regions.map((region) => (
-                  <option key={region.id} value={region.id}>
-                    {region.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </section>
-
-          {/* Language selection */}
-          <section className="region-selector__section">
-            <label htmlFor="language-select" className="region-selector__label">
-              Choose your language
-            </label>
-            <p className="region-selector__hint-text">
-              Languages are based on the region selected above.
-            </p>
-            <div className="region-selector__field">
-              <select
-                id="language-select"
-                className="region-selector__select"
-                value={selectedLanguage}
-                onChange={handleLanguageChange}
-                disabled={
-                  !selectedRegion || availableLanguagesForSelectedRegion.length === 0
-                }
-              >
-                <option value="">
-                  {selectedRegion
-                    ? 'Select language'
-                    : 'Select a region first'}
-                </option>
-                {availableLanguagesForSelectedRegion.map((lang) => (
-                  <option key={lang.id} value={lang.id}>
-                    {lang.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </section>
-
-          {/* Remember + Continue (only after language is chosen) */}
-          {canShowRememberRow && (
-            <section className="region-selector__section region-selector__section--remember">
-              <label className="region-selector__remember">
-                <input
-                  type="checkbox"
-                  checked={rememberPreference}
-                  onChange={handleRememberChange}
-                  className="region-selector__remember-checkbox"
-                />
-                <span className="region-selector__remember-label">
-                  Remember this preference on this device
-                </span>
-              </label>
-
-              <button
-                type="submit"
-                className="region-selector__continue"
-              >
-                Continue
-              </button>
-            </section>
-          )}
-
-          <footer className="region-selector__footer">
-            {/* Footer content can go here if needed */}
-          </footer>
-        </form>
-      </main>
-    </>
-  );
-}
+};
 
 
-// --- YOUR EXISTING HOMEPAGE CONTENT, FACTORED OUT ---
+// --- HOMEPAGE CONTENT ---
 
-export function HomeContent() {
+function HomeContent() {
   return (
     <>
       <Seo
@@ -288,7 +46,40 @@ export function HomeContent() {
         }}
       />
 
-      <main className="home-page">
+      {/* HERO SECTION - FULL WIDTH */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            DESIGN | CREATE | DEFINE
+          </h1>
+          <p className="hero-subtitle">
+            REBELLING AGAINST THE ORDINARY
+          </p>
+          <div className="hero-buttons">
+            <Link href="/book-a-piercing/chesterfield" className="hero-button">
+              BOOK CHESTERFIELD
+            </Link>
+            <Link href="/book-a-piercing/leicester" className="hero-button">
+              BOOK LEICESTER
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO SECTION */}
+      <VideoSection
+        videoPath="/piercing-near-me.mp4"
+        title="PIERCING JEWELLERY"
+        subtitle="PIERCING AGAINST THE ORDINARY"
+        description="Explore our full collection of high-quality piercing jewellery, crafted from implant-grade materials and designed for safe, long-term wear."
+        buttonText="SHOP PIERCING JEWELLERY"
+        buttonLink="/collection"
+      />
+
+      {/* HOMEPAGE CONTENT SECTION */}
+      <HomepageContent />
+
+      <main className="home-page" style={{ marginTop: '0', paddingTop: '0' }}>
         <section className="custom-grid">
   {/* ENDS & GEMS (above the fold) */}
   <div className="custom-card">
@@ -517,14 +308,8 @@ export function HomeContent() {
   );
 }
 
-// --- MAIN EXPORT: decides which view to show based on props ---
+// --- MAIN EXPORT ---
 
-export default function Home({ showSelector }: HomeProps) {
-  if (showSelector) {
-    // .com root with no cookie → show country/language selector
-    return <RegionSelector />;
-  }
-
-  // .co.uk root (and any non-.com domain) → normal homepage
+export default function Home() {
   return <HomeContent />;
 }

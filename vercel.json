@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "yarn build",
-  "installCommand": "yarn install",
-  "outputDirectory": "apps/storefront/.next",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": ".next",
   "env": {
     "SHOPIFY_STORE_DOMAIN": "@shopify_store_domain",
     "SHOPIFY_STOREFRONT_ACCESS_TOKEN": "@shopify_storefront_access_token",

@@ -24,6 +24,7 @@ export default async function handler(
       .from('bookings')
       .select('*')
       .eq('customer_id', customerId)
+      .neq('status', 'cancelled')
       .order('appointment_date', { ascending: false });
 
     if (error) {

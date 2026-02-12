@@ -1,21 +1,54 @@
 {
-  "name": "poa-monorepo",
-  "version": "1.0.0",
-  "description": "Pierce of Art monorepo - Storefront + Booking System",
+  "name": "poa-storefront",
+  "version": "0.1.0",
   "type": "module",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "dev": "yarn workspace poa-storefront run dev",
-    "build": "yarn workspaces foreach -pit run build",
-    "start": "yarn workspace poa-storefront run start",
-    "lint": "yarn workspaces foreach -pit run lint",
-    "type-check": "yarn workspaces foreach -pit run type-check",
-    "storefront": "yarn workspace poa-storefront",
-    "booking": "yarn workspace poa-booking"
+    "dev": "next dev",
+    "build": "npm run sitemap && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "sitemap": "node --loader ts-node/esm scripts/generate-sitemap.ts"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "dependencies": {
+    "@react-email/components": "^0.3.3",
+    "@supabase/supabase-js": "^2.52.0",
+    "@vercel/analytics": "^1.6.1",
+    "ai": "^4.3.19",
+    "cookie": "^1.0.2",
+    "dotenv": "^17.2.0",
+    "gray-matter": "^4.0.3",
+    "jszip": "^3.10.1",
+    "marked": "^15.0.12",
+    "next": "^16.0.7",
+    "next-pwa": "^5.6.0",
+    "openai": "^5.10.2",
+    "pdfkit": "^0.13.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "resend": "^4.7.0",
+    "sass": "^1.89.2",
+    "sitemap": "^8.0.0",
+    "stripe": "^20.0.0",
+    "swr": "^2.3.4"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@next/bundle-analyzer": "^15.5.2",
+    "@tailwindcss/postcss": "^4",
+    "@types/marked": "^5.0.2",
+    "@types/minimatch": "^6.0.0",
+    "@types/node": "^20.19.8",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "baseline-browser-mapping": "^2.9.19",
+    "cross-env": "^10.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
 }

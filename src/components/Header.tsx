@@ -20,29 +20,8 @@ const { favourites } = useFavourites();
   return (
     <>
       {/* Top grey bar */}
-      <header
-        style={{
-          width: '100%',
-          background: '#181818',
-          borderTop: '1px solid #fff',
-          height: '40px',
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <div
-          style={{
-            width: '100%',
-            maxWidth: '1400px',
-            margin: '0 auto',
-            padding: '0 16px',
-            display: 'flex',
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-            fontSize: '12px',
-            color: '#000',
-          }}
-        >
+      <header className="header-top">
+        <div className="header-top-content">
           {!loading && (
             isMounted && isAuthenticated ? (
               <>
@@ -82,27 +61,8 @@ const { favourites } = useFavourites();
       </header>
 
       {/* Main white bar */}
-      <div
-        style={{
-          width: '100%',
-          background: '#181818',
-          height: '64px',
-          display: 'flex',
-          alignItems: 'center',
-          borderBottom: '1px solid #fff',
-        }}
-      >
-        <div
-          style={{
-            width: '100%',
-            maxWidth: '1400px',
-            margin: '0 auto',
-            padding: '0 16px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
+      <div className="header-main">
+        <div className="header-main-content">
           {/* Logo */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
          
@@ -162,23 +122,8 @@ const { favourites } = useFavourites();
       </div>
 
       {/* Navigation */}
-      <nav
-        style={{
-          width: '100%',
-          background: '#181818',
-          borderBottom: '1px solid #ececec',
-          overflowX: 'auto',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            maxWidth: '1400px',
-            margin: '0 auto',
-            padding: '0 16px',
-            whiteSpace: 'nowrap',
-          }}
-        >
+      <nav className="header-nav">
+        <div className="header-nav-content">
           {[
   { label: 'BOOK A PIERCING', href: '/collections/ends-gems' },
   { label: 'PIERCING PRICE LIST', href: '/information/piercing-price-list' },

@@ -87,7 +87,7 @@ export default function MyAppointments() {
       return;
     }
 
-    if (!confirm('Are you sure you want to cancel this appointment?\n\nYour payment will be automatically refunded to your original payment method.')) return;
+    if (!confirm('Are you sure you want to cancel this appointment?')) return;
 
     try {
       const res = await fetch('/api/bookings/cancel', {
@@ -98,13 +98,8 @@ export default function MyAppointments() {
       });
 
       if (res.ok) {
-        const data = await res.json();
         setBookings(bookings.filter((b) => b.id !== id));
-        if (data.refundProcessed) {
-          alert('Appointment cancelled successfully. Your refund has been processed and will appear in your account within 3-5 business days.');
-        } else {
-          alert('Appointment cancelled successfully.');
-        }
+        alert('Appointment cancelled successfully');
       } else {
         alert('Failed to cancel appointment');
       }
@@ -113,10 +108,6 @@ export default function MyAppointments() {
       console.error(err);
     }
   };
-
-  if (loading) {
-    return <div style={{ padding: '20px', textAlign: 'center' }}>Loading appointments...</div>;
-  }
 
   if (error) {
     return <div style={{ padding: '20px', color: 'red' }}>{error}</div>;
@@ -204,7 +195,7 @@ export default function MyAppointments() {
                 </div>
 
                 <div style={{ display: 'flex', gap: '10px' }}>
-                  <Link href={`/book-a-piercing/${booking.location.toLowerCase()}`}>
+                  <Link href={`/book-a-piercing/${booking.location.toLowerCase()}?reschedule=${booking.id}`}>
                     <button
                       style={{
                         padding: '10px 15px',

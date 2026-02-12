@@ -19,6 +19,22 @@ interface ShopifyBlogArticle {
   };
 }
 
+interface ShopifyGraphQLArticle {
+  id: string;
+  title: string;
+  handle: string;
+  excerpt?: string;
+  contentHtml: string;
+  publishedAt: string;
+  image?: {
+    url: string;
+    altText?: string;
+  };
+  author?: {
+    name: string;
+  };
+}
+
 interface ApiResponse {
   articles?: ShopifyBlogArticle[];
   error?: string;
@@ -39,7 +55,7 @@ async function fetchBlogArticles(
               title
               handle
               excerpt
-              content
+              contentHtml
               publishedAt
               image {
                 url
@@ -74,12 +90,12 @@ async function fetchBlogArticles(
     throw new Error(`GraphQL error: ${data.errors[0].message}`);
   }
 
-  return data.data?.blog?.articles?.edges?.map((edge: any) => ({
+  return data.data?.blog?.articles?.edges?.map((edge: { node: ShopifyGraphQLArticle }) => ({
     id: edge.node.id,
     title: edge.node.title,
     handle: edge.node.handle,
     excerpt: edge.node.excerpt || '',
-    content: edge.node.content || '',
+    content: edge.node.contentHtml || '',
     publishedAt: edge.node.publishedAt,
     image: edge.node.image,
     author: edge.node.author,
@@ -99,7 +115,7 @@ async function fetchArticleByHandle(
           title
           handle
           excerpt
-          content
+          contentHtml
           publishedAt
           image {
             url
@@ -129,18 +145,25 @@ async function fetchArticleByHandle(
   const data = await response.json();
 
   if (data.errors) {
+    console.error('GraphQL error:', data.errors);
     throw new Error(`GraphQL error: ${data.errors[0].message}`);
   }
 
   const article = data.data?.blog?.articleByHandle;
   if (!article) return null;
 
+  console.log('Article content received:', {
+    title: article.title,
+    hasContent: !!article.contentHtml,
+    contentLength: article.contentHtml?.length || 0,
+  });
+
   return {
     id: article.id,
     title: article.title,
     handle: article.handle,
     excerpt: article.excerpt || '',
-    content: article.content || '',
+    content: article.contentHtml || article.content || '',
     publishedAt: article.publishedAt,
     image: article.image,
     author: article.author,

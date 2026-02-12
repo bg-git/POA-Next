@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 
@@ -12,7 +12,22 @@ interface Studio {
   logo_url?: string;
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { data: studios } = await supabase.from('studios').select('area_slug');
+
+  const paths = Array.from(new Set(studios?.map((s) => s.area_slug) || [])).map(
+    (area_slug) => ({
+      params: { area: area_slug },
+    })
+  );
+
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const area = params?.area as string;
 
   const { data: studios } = await supabase
@@ -24,6 +39,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     props: {
       studios: studios ?? [],
     },
+    revalidate: 3600, // Revalidate every hour
   };
 };
 

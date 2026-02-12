@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import useSWR from "swr";
 import { useAuth } from "@/context/AuthContext";
-import { useAccountValidationContext } from "@/context/AccountValidationContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import MyAppointments from "@/components/MyAppointments";
@@ -48,15 +47,6 @@ export default function AccountPage() {
   const [isMounted, setIsMounted] = useState(false);
   const { isAuthenticated, user, loading } = useAuth();
   const router = useRouter();
-  
-  // Safely get validation context - handle case where it might not be available
-  let refreshValidation = () => {};
-  try {
-    const validationContext = useAccountValidationContext();
-    refreshValidation = validationContext.refreshValidation;
-  } catch (error) {
-    console.warn('AccountValidationContext not available:', error);
-  }
 
   useEffect(() => {
     setIsMounted(true);
@@ -380,15 +370,6 @@ export default function AccountPage() {
 }
 
 function ProfileForm({ customer, refreshCustomer }: { customer: Customer; refreshCustomer: () => Promise<unknown> }) {
-  
-  // Safely get validation context - handle case where it might not be available
-  let refreshValidation = () => {};
-  try {
-    const validationContext = useAccountValidationContext();
-    refreshValidation = validationContext.refreshValidation;
-  } catch (error) {
-    console.warn('AccountValidationContext not available:', error);
-  }
   const [firstName, setFirstName] = useState(customer?.firstName || "");
   const [lastName, setLastName] = useState(customer?.lastName || "");
   const [phone, setPhone] = useState(customer?.phone || "");

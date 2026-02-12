@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
+import type { GetStaticProps, GetStaticPaths } from 'next';
 
 interface BlogArticle {
   id: string;
@@ -19,51 +19,15 @@ interface BlogArticle {
   };
 }
 
-export default function ArticlePage() {
-  const router = useRouter();
-  const { slug } = router.query;
-  
-  const [article, setArticle] = useState<BlogArticle | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+interface Props {
+  article: BlogArticle | null;
+}
 
-  useEffect(() => {
-    if (!slug) return;
-
-    const fetchArticle = async () => {
-      try {
-        const res = await fetch(`/api/shopify/blog/articles?blog=magazine&handle=${slug}`);
-        if (!res.ok) throw new Error('Article not found');
-        
-        const data = await res.json();
-        if (data.articles && data.articles.length > 0) {
-          setArticle(data.articles[0]);
-        } else {
-          setError('Article not found');
-        }
-      } catch (err) {
-        setError('Failed to load article');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchArticle();
-  }, [slug]);
-
-  if (loading) {
+export default function ArticlePage({ article }: Props) {
+  if (!article) {
     return (
       <main style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 20px' }}>
-        <p>Loading article...</p>
-      </main>
-    );
-  }
-
-  if (error || !article) {
-    return (
-      <main style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 20px' }}>
-        <h1>{error || 'Article not found'}</h1>
+        <h1>Article not found</h1>
         <Link href="/blogs/piercing-magazine">
           <button style={{
             padding: '10px 20px',
@@ -89,6 +53,39 @@ export default function ArticlePage() {
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.excerpt} />
         {article.image && <meta property="og:image" content={article.image.url} />}
+        <style>{`
+          .article-content h1,
+          .article-content h2,
+          .article-content h3,
+          .article-content h4,
+          .article-content h5,
+          .article-content h6 {
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+          }
+          .article-content p {
+            margin-bottom: 1em;
+          }
+          .article-content ul,
+          .article-content ol {
+            margin-bottom: 1em;
+            margin-left: 1.5em;
+          }
+          .article-content li {
+            margin-bottom: 0.5em;
+          }
+          .article-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 1.5em 0;
+          }
+          .article-content blockquote {
+            border-left: 4px solid #ddd;
+            margin: 1.5em 0;
+            padding-left: 1em;
+            color: #666;
+          }
+        `}</style>
       </Head>
 
       <main style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 20px' }}>
@@ -104,8 +101,6 @@ export default function ArticlePage() {
 
             <div
               style={{
-                display: 'flex',
-                gap: '20px',
                 fontSize: '0.95em',
                 color: '#666',
                 borderTop: '1px solid #e0e0e0',
@@ -114,24 +109,21 @@ export default function ArticlePage() {
                 paddingBottom: '15px',
               }}
             >
-              {article.author?.name && (
-                <span>By {article.author.name}</span>
-              )}
-              <span>
-                {new Date(article.publishedAt).toLocaleDateString('en-GB', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </span>
+              {new Date(article.publishedAt).toLocaleDateString('en-GB', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
             </div>
           </header>
 
           {article.image && (
             <figure style={{ margin: '40px 0', textAlign: 'center' }}>
-              <img
+              <Image
                 src={article.image.url}
                 alt={article.image.altText || article.title}
+                width={800}
+                height={400}
                 style={{
                   maxWidth: '100%',
                   height: 'auto',
@@ -142,13 +134,19 @@ export default function ArticlePage() {
           )}
 
           <div
+            className="article-content"
             style={{
               lineHeight: '1.8',
               fontSize: '1.05em',
               color: '#333',
             }}
-            dangerouslySetInnerHTML={{ __html: article.content }}
-          />
+          >
+            {article.content ? (
+              <div dangerouslySetInnerHTML={{ __html: article.content }} />
+            ) : (
+              <p>No content available</p>
+            )}
+          </div>
         </article>
 
         <div style={{ marginTop: '60px', paddingTop: '20px', borderTop: '1px solid #e0e0e0' }}>
@@ -169,3 +167,58 @@ export default function ArticlePage() {
     </>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const res = await fetch(`${baseUrl}/api/shopify/blog/articles?blog=magazine`);
+    
+    if (!res.ok) throw new Error('Failed to fetch articles');
+    
+    const data = await res.json();
+    const paths = (data.articles || []).map((article: BlogArticle) => ({
+      params: { slug: article.handle },
+    }));
+
+    return {
+      paths,
+      fallback: 'blocking', // Generate on demand if not pre-generated
+    };
+  } catch (error) {
+    console.error('Error generating static paths:', error);
+    
+    return {
+      paths: [],
+      fallback: 'blocking',
+    };
+  }
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  try {
+    const slug = params?.slug as string;
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const res = await fetch(`${baseUrl}/api/shopify/blog/articles?blog=magazine&handle=${slug}`);
+    
+    if (!res.ok) throw new Error('Failed to fetch article');
+    
+    const data = await res.json();
+    const article = data.articles?.[0] || null;
+    
+    return {
+      props: {
+        article,
+      },
+      revalidate: 3600, // Revalidate every hour (ISR)
+    };
+  } catch (error) {
+    console.error('Error fetching article:', error);
+    
+    return {
+      props: {
+        article: null,
+      },
+      revalidate: 60, // Retry after 1 minute on error
+    };
+  }
+};

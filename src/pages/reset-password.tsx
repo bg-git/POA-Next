@@ -1,5 +1,13 @@
 import { useState, useEffect } from 'react';
+import type { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {},
+    revalidate: 86400, // Revalidate once per day
+  };
+};
 
 export default function ResetPassword() {
   const [form, setForm] = useState({

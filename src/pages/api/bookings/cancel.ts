@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createClient } from '@supabase/supabase-js';
-import { removeBookingFromCalendar } from '@/lib/googleCalendarSync';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
@@ -170,9 +169,6 @@ export default async function handler(
       console.error('Error cancelling booking:', updateError);
       return res.status(500).json({ error: 'Failed to cancel booking' });
     }
-
-    // Remove from Google Calendar
-    await removeBookingFromCalendar(bookingId);
 
     return res.status(200).json({ 
       success: true, 

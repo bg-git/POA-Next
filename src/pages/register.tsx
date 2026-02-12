@@ -1,7 +1,15 @@
 import { useState } from 'react';
+import type { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Seo from '@/components/Seo';
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {},
+    revalidate: 86400, // Revalidate once per day
+  };
+};
 
 export default function Register() {
   const [form, setForm] = useState({
