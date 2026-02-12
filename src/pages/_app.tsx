@@ -176,40 +176,6 @@ export default function MyApp({ Component, pageProps }: MyAppProps) {
   );
 }
 
-MyApp.getInitialProps = async (appContext: AppContext) => {
-  const appProps = await App.getInitialProps(appContext);
-  const myAppProps = appProps as MyAppProps;
-
-  // Ensure pageProps exists
-  myAppProps.pageProps = myAppProps.pageProps || {};
-
-  const req = appContext.ctx.req;
-
-  // 1) Figure out which host this request came in on
-  const hostHeader = req?.headers['x-forwarded-host'] ?? req?.headers['host'];
-  const headerHost = Array.isArray(hostHeader) ? hostHeader[0] : hostHeader;
-
-  // 2) In dev, allow overriding with process.env.HOST so we can simulate domains locally
-  const effectiveHost = process.env.HOST || headerHost;
-
-  // 3) Derive region from effective host (pierceofart.co.uk vs pierceofart.com)
-  const region = getRegionFromHost(effectiveHost);
-  myAppProps.pageProps.region = region;
-
-  // 4) Existing customer logic
-  const customerHeader = req?.headers['x-customer'];
-  if (customerHeader && typeof customerHeader === 'string') {
-    try {
-      myAppProps.pageProps.customer = JSON.parse(customerHeader) as ShopifyCustomer;
-    } catch {
-      // ignore parse errors
-    }
-  }
-
-  const pathname = appContext.router.pathname;
-  if (pathname.startsWith('/admin')) {
-    myAppProps.pageProps.noLayout = true;
-  }
-
-  return myAppProps;
-};
+// NOTE: Removed getInitialProps to enable static generation.
+// Region detection is now handled by middleware at runtime.
+// Customer data should be injected client-side or via an API call.
