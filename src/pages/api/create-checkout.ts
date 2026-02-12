@@ -166,5 +166,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
   }
 
+  // Add return URL parameter to redirect back to website after checkout
+  if (checkoutUrl) {
+    try {
+      const checkoutUrlObj = new URL(checkoutUrl);
+      // Build the site URL from request headers or environment variable
+      const protocol = req.headers['x-forwarded-proto'] || 'https';
+      const host = req.headers['x-forwarded-host'] || req.headers['host'] || 'pierceofart.co.uk';
+      const siteUrl = `${protocol}://${host}`;
+      checkoutUrlObj.searchParams.set('return_url', `${siteUrl}/`);
+      checkoutUrl = checkoutUrlObj.toString();
+    } catch (error) {
+      console.warn('Failed to add return URL to checkout:', error);
+    }
+  }
+
   return res.status(200).json({ checkoutUrl, checkoutId });
 }

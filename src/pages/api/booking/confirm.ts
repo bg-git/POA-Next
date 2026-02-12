@@ -345,7 +345,24 @@ export default async function handler(
       customerAccessToken
     );
     shopifyCheckoutId = cart?.id || '';
-    checkoutUrl = cart?.checkoutUrl || '';
+    let checkoutUrlRaw = cart?.checkoutUrl || '';
+
+    // Add return URL parameter to redirect back to website after checkout
+    if (checkoutUrlRaw) {
+      try {
+        const checkoutUrlObj = new URL(checkoutUrlRaw);
+        // Build the site URL from request headers or environment variable
+        const protocol = req.headers['x-forwarded-proto'] || 'https';
+        const host = req.headers['x-forwarded-host'] || req.headers['host'] || 'pierceofart.co.uk';
+        const siteUrl = `${protocol}://${host}`;
+        checkoutUrlObj.searchParams.set('return_url', `${siteUrl}/booking-complete`);
+        checkoutUrl = checkoutUrlObj.toString();
+        console.log('Checkout return URL:', `${siteUrl}/booking-complete`);
+      } catch (error) {
+        console.warn('Failed to add return URL to checkout:', error);
+        checkoutUrl = checkoutUrlRaw;
+      }
+    }
 
     // Create booking in Supabase (after Shopify succeeds)
     const fullName = `${firstName || 'Guest'} ${lastName || ''}`.trim();
