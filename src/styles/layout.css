@@ -136,7 +136,7 @@
 
 /* Header Logo - Responsive */
 .header-logo {
-  max-width: 120px;
+  max-width: 200px;
   width: 100%;
   height: auto;
   flex-shrink: 0;
@@ -156,7 +156,7 @@
   }
 
   .header-logo {
-    max-width: 180px;
+    max-width: 250px;
   }
 }
 
