@@ -151,8 +151,8 @@ async function createShopifyCheckout(
           email: "${email}"
         }`}
         attributes: [
-          { key: "Appointment Date", value: "${date}" }
-          { key: "Appointment Time", value: "${time}" }
+          { key: "Appointment Date", value: "${date}" },
+          { key: "Appointment Time", value: "${time}" },
           { key: "Location", value: "${location}" }
         ]
       }) {
