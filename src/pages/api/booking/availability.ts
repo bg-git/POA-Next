@@ -30,10 +30,19 @@ const CLOSED_DAYS_OF_WEEK: Record<string, number[]> = {
 
 // Helper function to check if a time is at least 1 hour in advance from now
 function isAtLeast1HourInAdvance(date: string, timeStr: string): boolean {
+  // Get current time
   const now = new Date();
-  const bookingDateTime = new Date(date + 'T00:00:00');
   
-  // Parse time string (e.g., "2:30 PM")
+  // Only apply the 1-hour rule to TODAY (not future dates)
+  const today = new Date();
+  const todayStr = today.toISOString().split('T')[0];
+  
+  // If the booking is for a future date (not today), it's always valid
+  if (date !== todayStr) {
+    return true;
+  }
+  
+  // For today, check if booking time is at least 1 hour from now
   const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/);
   if (!match) return false;
   
@@ -45,6 +54,8 @@ function isAtLeast1HourInAdvance(date: string, timeStr: string): boolean {
   if (meridiem === 'PM' && hours !== 12) hours += 12;
   if (meridiem === 'AM' && hours === 12) hours = 0;
   
+  // Create a date object for today at the specified time
+  const bookingDateTime = new Date();
   bookingDateTime.setHours(hours, minutes, 0, 0);
   
   // Calculate difference in milliseconds
