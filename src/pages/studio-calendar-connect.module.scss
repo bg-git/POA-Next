@@ -1,0 +1,145 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  padding: 40px;
+}
+
+.title {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 28px;
+  text-align: center;
+}
+
+.studioInfo {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.studioName {
+  margin: 0 0 8px 0;
+  color: #667eea;
+  font-size: 20px;
+}
+
+.studioId {
+  margin: 0;
+  color: #999;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.content {
+  margin-bottom: 30px;
+}
+
+.contentText {
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.steps {
+  background: #f0f7ff;
+  border-left: 4px solid #667eea;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.stepsTitle {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.stepsList {
+  margin: 0;
+  padding-left: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.stepsItem {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.statusMessage {
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+
+  &.connecting {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+  }
+
+  &.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  &.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+}
+
+.connectButton {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.info {
+  background: #e8f4f8;
+  border-radius: 6px;
+  padding: 15px;
+  border-left: 4px solid #17a2b8;
+}
+
+.infoText {
+  margin: 0;
+  color: #004085;
+  font-size: 13px;
+  line-height: 1.5;
+}
