@@ -113,15 +113,22 @@ async function createShopifyCheckout(
   const shopifyStoreUrl = process.env.SHOPIFY_STORE_DOMAIN || '';
   const storefrontToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || '';
 
+  const normalizedShopifyDomain = shopifyStoreUrl
+    .trim()
+    .replace(/^https?:\/\//i, '')
+    .replace(/\/$/, '')
+    .split('/')[0];
+
   // Log environment presence for debugging
   console.log('Shopify config check:', {
     storeUrlPresent: !!shopifyStoreUrl,
+    normalizedStoreUrl: normalizedShopifyDomain,
     tokenPresent: !!storefrontToken,
     storeUrl: shopifyStoreUrl,
   });
 
   // Validate credentials are set
-  if (!shopifyStoreUrl) {
+  if (!normalizedShopifyDomain) {
     throw new Error('SHOPIFY_STORE_DOMAIN environment variable is not set');
   }
   if (!storefrontToken) {
@@ -161,7 +168,7 @@ async function createShopifyCheckout(
     }
   `;
 
-  const url = `https://${shopifyStoreUrl}/api/2024-01/graphql.json`;
+  const url = `https://${normalizedShopifyDomain}/api/2024-01/graphql.json`;
   
   console.log('Making Shopify API request to:', url);
 
