@@ -2,7 +2,14 @@
   "version": 2,
   "buildCommand": "npm run build",
   "installCommand": "npm install",
+  "ignoreCommand": "exit 1",
   "outputDirectory": ".next",
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "*": true
+    }
+  },
   "env": {
     "SHOPIFY_STORE_DOMAIN": "@shopify_store_domain",
     "SHOPIFY_STOREFRONT_ACCESS_TOKEN": "@shopify_storefront_access_token",
