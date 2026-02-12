@@ -54,6 +54,28 @@ const BookAPiercing = ({ initialAvailabilities }: BookAPiercingProps) => {
     }
   }, [isClient, currentMonth]);
 
+  // Fetch fresh availability data on client mount
+  useEffect(() => {
+    if (!isClient || !location) return;
+
+    const fetchAvailability = async () => {
+      try {
+        const response = await fetch(`/api/booking/availability?location=${location}`);
+        if (response.ok) {
+          const data = await response.json();
+          if (data.availabilities) {
+            setAvailabilities(data.availabilities);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching availability:', error);
+        // Keep existing availabilities on error
+      }
+    };
+
+    fetchAvailability();
+  }, [isClient, location]);
+
   const locationTitle = location === 'chesterfield' 
     ? 'Chesterfield' 
     : location === 'leicester' 
@@ -656,6 +678,32 @@ const SPECIAL_HOURS: Record<string, Record<string, Array<{ time: string; slots: 
   },
 };
 
+// Helper function to check if a time is at least 1 hour in advance from now
+function isAtLeast1HourInAdvance(date: string, timeStr: string): boolean {
+  const now = new Date();
+  const bookingDateTime = new Date(date + 'T00:00:00');
+  
+  // Parse time string (e.g., "2:30 PM")
+  const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/);
+  if (!match) return false;
+  
+  let hours = parseInt(match[1]);
+  const minutes = parseInt(match[2]);
+  const meridiem = match[3];
+  
+  // Convert to 24-hour format
+  if (meridiem === 'PM' && hours !== 12) hours += 12;
+  if (meridiem === 'AM' && hours === 12) hours = 0;
+  
+  bookingDateTime.setHours(hours, minutes, 0, 0);
+  
+  // Calculate difference in milliseconds
+  const differenceMs = bookingDateTime.getTime() - now.getTime();
+  const differenceHours = differenceMs / (1000 * 60 * 60);
+  
+  return differenceHours >= 1;
+}
+
 // Availability data generation function
 function generateAvailabilities(location: string) {
   const availabilities: Availability[] = [];
@@ -701,11 +749,13 @@ function generateAvailabilities(location: string) {
       continue;
     }
     
-    const timeSlots: TimeSlot[] = hoursForDate.map((hour) => ({
-      start_time: hour.time,
-      formatedTime: hour.time,
-      slots: hour.slots,
-    }));
+    const timeSlots: TimeSlot[] = hoursForDate
+      .map((hour) => ({
+        start_time: hour.time,
+        formatedTime: hour.time,
+        slots: hour.slots,
+      }))
+      .filter((slot) => isAtLeast1HourInAdvance(dateStr, slot.start_time));
     
     availabilities.push({
       date: dateStr,

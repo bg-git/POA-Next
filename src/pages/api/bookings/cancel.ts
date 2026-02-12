@@ -6,7 +6,7 @@ const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const SHOPIFY_DOMAIN = process.env.SHOPIFY_STORE_DOMAIN || '';
-const SHOPIFY_ADMIN_TOKEN = process.env.SHOPIFY_ADMIN_ACCESS_TOKEN || '';
+const SHOPIFY_ADMIN_TOKEN = process.env.SHOPIFY_ADMIN_API_KEY || '';
 
 interface ShopifyOrder {
   id: string;
@@ -19,13 +19,14 @@ interface ShopifyOrder {
 // Process refund through Shopify Admin API
 async function processShopifyRefund(orderId: string): Promise<boolean> {
   if (!SHOPIFY_DOMAIN || !SHOPIFY_ADMIN_TOKEN) {
-    console.warn('Shopify credentials not configured');
+    console.error('Shopify credentials not configured. SHOPIFY_DOMAIN:', SHOPIFY_DOMAIN, 'SHOPIFY_ADMIN_TOKEN present:', !!SHOPIFY_ADMIN_TOKEN);
     return false;
   }
 
   try {
     // Extract numeric ID from orderId if it's in format "gid://shopify/Order/123456789"
     const numericId = orderId.includes('gid://') ? orderId.split('/').pop() : orderId;
+    console.log('Processing refund for order:', numericId);
 
     // First, get the order details
     const orderResponse = await fetch(
@@ -41,6 +42,8 @@ async function processShopifyRefund(orderId: string): Promise<boolean> {
 
     if (!orderResponse.ok) {
       console.error(`Failed to fetch order: ${orderResponse.status}`);
+      const errorText = await orderResponse.text();
+      console.error('Order fetch error response:', errorText);
       return false;
     }
 

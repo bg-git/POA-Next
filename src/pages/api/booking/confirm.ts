@@ -58,6 +58,32 @@ function parseTime(timeStr: string): number | null {
   return hours * 60 + minutes;
 }
 
+// Helper function to check if a time is at least 1 hour in advance from now
+function isAtLeast1HourInAdvance(date: string, timeStr: string): boolean {
+  const now = new Date();
+  const bookingDateTime = new Date(date + 'T00:00:00');
+  
+  // Parse time string (e.g., "2:30 PM")
+  const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/);
+  if (!match) return false;
+  
+  let hours = parseInt(match[1]);
+  const minutes = parseInt(match[2]);
+  const meridiem = match[3];
+  
+  // Convert to 24-hour format
+  if (meridiem === 'PM' && hours !== 12) hours += 12;
+  if (meridiem === 'AM' && hours === 12) hours = 0;
+  
+  bookingDateTime.setHours(hours, minutes, 0, 0);
+  
+  // Calculate difference in milliseconds
+  const differenceMs = bookingDateTime.getTime() - now.getTime();
+  const differenceHours = differenceMs / (1000 * 60 * 60);
+  
+  return differenceHours >= 1;
+}
+
 // Format minutes to 12-hour time
 function formatTime(minutes: number): string {
   const hours = Math.floor(minutes / 60);
@@ -270,6 +296,13 @@ export default async function handler(
   const { valid: isValidSlot, maxSlots } = isValidTimeSlot(location, date, time);
   if (!isValidSlot) {
     return res.status(400).json({ error: 'Invalid time slot' });
+  }
+
+  // Validate booking is at least 1 hour in advance
+  if (!isAtLeast1HourInAdvance(date, time)) {
+    return res.status(400).json({ 
+      error: 'Bookings must be made at least 1 hour in advance' 
+    });
   }
 
   try {

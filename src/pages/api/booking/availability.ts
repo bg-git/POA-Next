@@ -28,6 +28,32 @@ const CLOSED_DAYS_OF_WEEK: Record<string, number[]> = {
   Leicester: [], // Open 7 days a week
 };
 
+// Helper function to check if a time is at least 1 hour in advance from now
+function isAtLeast1HourInAdvance(date: string, timeStr: string): boolean {
+  const now = new Date();
+  const bookingDateTime = new Date(date + 'T00:00:00');
+  
+  // Parse time string (e.g., "2:30 PM")
+  const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/);
+  if (!match) return false;
+  
+  let hours = parseInt(match[1]);
+  const minutes = parseInt(match[2]);
+  const meridiem = match[3];
+  
+  // Convert to 24-hour format
+  if (meridiem === 'PM' && hours !== 12) hours += 12;
+  if (meridiem === 'AM' && hours === 12) hours = 0;
+  
+  bookingDateTime.setHours(hours, minutes, 0, 0);
+  
+  // Calculate difference in milliseconds
+  const differenceMs = bookingDateTime.getTime() - now.getTime();
+  const differenceHours = differenceMs / (1000 * 60 * 60);
+  
+  return differenceHours >= 1;
+}
+
 // Helper function to generate 25-minute appointment slots
 function generateTimeSlots(openTime: string, closeTime: string, numSlots: number): Array<{ time: string; slots: number }> {
   const slots: Array<{ time: string; slots: number }> = [];
@@ -204,7 +230,7 @@ export default async function handler(
         start_time: hour.time,
         formatedTime: hour.time,
         slots: hour.slots - (bookedByTime[hour.time] || 0),
-      })).filter((slot) => slot.slots > 0);
+      })).filter((slot) => slot.slots > 0 && isAtLeast1HourInAdvance(dateStr, slot.start_time));
 
       availabilities.push({
         date: dateStr,
