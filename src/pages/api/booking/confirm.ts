@@ -113,6 +113,13 @@ async function createShopifyCheckout(
   const shopifyStoreUrl = process.env.SHOPIFY_STORE_DOMAIN || '';
   const storefrontToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || '';
 
+  // Log environment presence for debugging
+  console.log('Shopify config check:', {
+    storeUrlPresent: !!shopifyStoreUrl,
+    tokenPresent: !!storefrontToken,
+    storeUrl: shopifyStoreUrl,
+  });
+
   // Validate credentials are set
   if (!shopifyStoreUrl) {
     throw new Error('SHOPIFY_STORE_DOMAIN environment variable is not set');
@@ -156,11 +163,11 @@ async function createShopifyCheckout(
 
   const url = `https://${shopifyStoreUrl}/api/2024-01/graphql.json`;
   
-  console.log('Shopify API request to:', url);
-  console.log('Store domain from env:', shopifyStoreUrl);
+  console.log('Making Shopify API request to:', url);
 
   let response;
   try {
+    console.log('Initiating fetch...');
     response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -169,10 +176,16 @@ async function createShopifyCheckout(
       },
       body: JSON.stringify({ query }),
     });
+    console.log('Fetch completed with status:', response.status);
   } catch (fetchError) {
     const errorMsg = fetchError instanceof Error ? fetchError.message : String(fetchError);
-    console.error('Fetch error calling Shopify:', errorMsg);
-    throw new Error(`Failed to reach Shopify API: ${errorMsg}`);
+    const errorCode = fetchError instanceof Error && 'code' in fetchError ? (fetchError as any).code : 'UNKNOWN';
+    console.error('Fetch error details:', {
+      message: errorMsg,
+      code: errorCode,
+      name: fetchError instanceof Error ? fetchError.name : 'unknown',
+    });
+    throw new Error(`Failed to reach Shopify API (${errorCode}): ${errorMsg}`);
   }
 
   if (!response.ok) {
