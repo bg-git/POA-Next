@@ -203,6 +203,8 @@ async function createShopifyCheckout(
     throw new Error(`Failed to parse Shopify response: ${errorMsg}`);
   }
 
+  console.log('Shopify response data:', JSON.stringify(result, null, 2));
+
   if (result.errors) {
     console.error('Shopify GraphQL errors:', result.errors);
     throw new Error(`Shopify error: ${JSON.stringify(result.errors)}`);
