@@ -749,13 +749,11 @@ function generateAvailabilities(location: string) {
       continue;
     }
     
-    const timeSlots: TimeSlot[] = hoursForDate
-      .map((hour) => ({
-        start_time: hour.time,
-        formatedTime: hour.time,
-        slots: hour.slots,
-      }))
-      .filter((slot) => isAtLeast1HourInAdvance(dateStr, slot.start_time));
+    const timeSlots: TimeSlot[] = hoursForDate.map((hour) => ({
+      start_time: hour.time,
+      formatedTime: hour.time,
+      slots: hour.slots,
+    }));
     
     availabilities.push({
       date: dateStr,
