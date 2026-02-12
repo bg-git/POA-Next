@@ -2,5 +2,6 @@
   "version": 2,
   "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "outputDirectory": ".next"
+  "outputDirectory": ".next",
+  "_comment": "Force deploy 2026-02-12 - static generation fix"
 }
