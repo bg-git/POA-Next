@@ -113,6 +113,14 @@ async function createShopifyCheckout(
   const shopifyStoreUrl = process.env.SHOPIFY_STORE_DOMAIN || '';
   const storefrontToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || '';
 
+  // Validate credentials are set
+  if (!shopifyStoreUrl) {
+    throw new Error('SHOPIFY_STORE_DOMAIN environment variable is not set');
+  }
+  if (!storefrontToken) {
+    throw new Error('SHOPIFY_STOREFRONT_ACCESS_TOKEN environment variable is not set');
+  }
+
   const query = `
     mutation {
       cartCreate(input: {
@@ -146,35 +154,64 @@ async function createShopifyCheckout(
     }
   `;
 
-  const response = await fetch(`https://${shopifyStoreUrl}/api/2024-01/graphql.json`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': storefrontToken,
-    },
-    body: JSON.stringify({ query }),
-  });
+  const url = `https://${shopifyStoreUrl}/api/2024-01/graphql.json`;
+  
+  console.log('Shopify API request to:', url);
+  console.log('Store domain from env:', shopifyStoreUrl);
 
-  const result = await response.json();
+  let response;
+  try {
+    response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': storefrontToken,
+      },
+      body: JSON.stringify({ query }),
+      timeout: 10000, // 10 second timeout
+    });
+  } catch (fetchError) {
+    const errorMsg = fetchError instanceof Error ? fetchError.message : String(fetchError);
+    console.error('Fetch error calling Shopify:', errorMsg);
+    throw new Error(`Failed to reach Shopify API: ${errorMsg}`);
+  }
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error(`Shopify API returned ${response.status}:`, errorText);
+    throw new Error(`Shopify API error: ${response.status} - ${errorText.substring(0, 200)}`);
+  }
+
+  let result;
+  try {
+    result = await response.json();
+  } catch (parseError) {
+    const errorMsg = parseError instanceof Error ? parseError.message : String(parseError);
+    console.error('Failed to parse Shopify response:', errorMsg);
+    throw new Error(`Failed to parse Shopify response: ${errorMsg}`);
+  }
 
   if (result.errors) {
+    console.error('Shopify GraphQL errors:', result.errors);
     throw new Error(`Shopify error: ${JSON.stringify(result.errors)}`);
   }
 
   if (result.data?.cartCreate?.userErrors?.length > 0) {
-    throw new Error(
-      `Checkout error: ${result.data.cartCreate.userErrors
-        .map((e: { message: string }) => e.message)
-        .join(', ')}`
-    );
+    const userErrors = result.data.cartCreate.userErrors
+      .map((e: { field?: string[]; message: string }) => `${e.field?.join('.') || 'field'}: ${e.message}`)
+      .join('; ');
+    console.error('Shopify user errors:', userErrors);
+    throw new Error(`Checkout error: ${userErrors}`);
   }
 
   const cart = result.data?.cartCreate?.cart;
   
   if (!cart) {
-    throw new Error('Failed to create cart');
+    console.error('No cart returned from Shopify:', result.data);
+    throw new Error('Failed to create cart - no cart ID returned');
   }
   
+  console.log('Successfully created Shopify cart:', cart.id);
   return cart;
 }
 
