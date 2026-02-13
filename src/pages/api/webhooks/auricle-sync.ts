@@ -1,5 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+interface MetafieldEdge {
+  node: {
+    key: string;
+    value: string;
+  };
+}
+
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function shopifyGraphQL(
@@ -141,7 +148,7 @@ async function syncProductMetafields(auricleProductId: string) {
   // 3. Sync product metafields
   const productMetafields = auricleProduct.metafields?.edges || [];
   if (productMetafields.length > 0) {
-    const metafieldsToSet = productMetafields.map((mf: any) => ({
+    const metafieldsToSet = productMetafields.map((mf: MetafieldEdge) => ({
       namespace: 'custom',
       key: mf.node.key,
       value: mf.node.value,
@@ -180,7 +187,7 @@ async function syncProductMetafields(auricleProductId: string) {
 
     const variantMetafields = auricleVariant.metafields?.edges || [];
     if (variantMetafields.length > 0) {
-      const metafieldsToSet = variantMetafields.map((mf: any) => ({
+      const metafieldsToSet = variantMetafields.map((mf: MetafieldEdge) => ({
         namespace: 'custom',
         key: mf.node.key,
         value: mf.node.value,
