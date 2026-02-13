@@ -277,6 +277,43 @@ export default function ProductPage({ product, ugcItems }: ProductPageProps) {
     shipping: 'Shipping'
   };
 
+  type DetailKey = keyof typeof fieldLabels;
+  const detailKeys: DetailKey[] = [
+    'title',
+    'name',
+    'sku',
+    'metal',
+    'alloy',
+    'metal_colour',
+    'thread_type',
+    'fitting',
+    'gem_type',
+    'gem_colour',
+    'gauge',
+    'base_size',
+    'length',
+    'width',
+    'height',
+    'sold_as',
+    'shipping',
+  ];
+
+  type ExtraRow = { label: string; value: string };
+  const extraRows: ExtraRow[] = useMemo(() => {
+    const field = metafields.find((f) => f?.key === 'extra_table_rows');
+    const raw = field?.value?.trim();
+    if (!raw) return [];
+    try {
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return [];
+      return parsed
+        .filter((r) => r && typeof r.label === 'string' && typeof r.value === 'string')
+        .map((r) => ({ label: r.label.trim(), value: r.value.trim() }));
+    } catch {
+      return [];
+    }
+  }, [metafields]);
+
 
 
 
@@ -624,6 +661,12 @@ export default function ProductPage({ product, ugcItems }: ProductPageProps) {
   {/* Details block (unchanged) */}
   <div style={{ marginTop: '32px' }}>
     <h2 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '8px' }}>Details</h2>
+    {/* Debug: Show metafields */}
+    {process.env.NODE_ENV === 'development' && (
+      <div style={{ fontSize: '12px', color: '#999', marginBottom: '8px' }}>
+        DEBUG: {metafields.length} metafields found
+      </div>
+    )}
     <table
       style={{
         width: '100%',
@@ -633,17 +676,44 @@ export default function ProductPage({ product, ugcItems }: ProductPageProps) {
       }}
     >
       <tbody>
-        {Object.entries(fieldLabels).map(([key, label]) => {
+        {detailKeys.map((key) => {
           const value = getFieldValue(key);
-          return value ? (
-            <tr key={key}>
-              <td style={cellLabelStyle}>{label.toUpperCase()}</td>
-              <td style={cellValueStyle}>{value}</td>
-            </tr>
-          ) : null;
-        })}
+          const label = fieldLabels[key];
+
+          if (!value && key !== 'shipping') return null;
+
+          const rows: React.ReactNode[] = [];
+          
+          if (key === 'shipping') {
+            extraRows.forEach((row, i) => {
+              rows.push(
+                <tr key={`extra-${i}`}>
+                  <td style={cellLabelStyle}>{row.label.toUpperCase()}</td>
+                  <td style={cellValueStyle}>{row.value}</td>
+                </tr>
+              );
+            });
+          }
+
+          if (value) {
+            rows.push(
+              <tr key={key}>
+                <td style={cellLabelStyle}>{label.toUpperCase()}</td>
+                <td style={cellValueStyle}>{value}</td>
+              </tr>
+            );
+          }
+
+          return rows;
+        }).flat()}
       </tbody>
     </table>
+
+    {detailKeys.every(key => !getFieldValue(key)) && extraRows.length === 0 && (
+      <div style={{ fontSize: '12px', color: '#999', marginTop: '8px' }}>
+        ℹ️ No product details available. Populate metafields in Shopify to display information here.
+      </div>
+    )}
 
     {product.descriptionHtml && (
       <div
@@ -761,7 +831,8 @@ export const getStaticProps: GetStaticProps<ProductPageProps> = async (
         { namespace: "custom", key: "base_size" },
         { namespace: "custom", key: "variants" },
         { namespace: "custom", key: "variant_label" },
-        { namespace: "custom", key: "fitting" }
+        { namespace: "custom", key: "fitting" },
+        { namespace: "custom", key: "extra_table_rows" }
       ]) {
         key
         value

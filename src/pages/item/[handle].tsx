@@ -9,7 +9,6 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Seo from '@/components/Seo';
 import Link from 'next/link';
-import { useAuth } from '@/context/AuthContext';
 import { useToast } from '@/context/ToastContext';
 import { useMemo } from 'react';
 import { mapStyledByYou } from "@/lib/mapStyledByYou";
@@ -968,19 +967,7 @@ const testCertificateUrl = getFileUrl('test_certificate');
     </div>
   </div>
 
-  {/* VAT Note (reserve height to avoid CLS) */}
-  <p
-    style={{
-      fontSize: '12px',
-      color: '#666',
-      marginTop: '10px',
-      marginBottom: '16px',
-      textAlign: 'right',
-      minHeight: 18,
-    }}
-  >
-    {copy.taxLabel}
-  </p>
+ 
 
   {/* Details block (unchanged) */}
   <div style={{ marginTop: '32px' }}>
@@ -994,33 +981,43 @@ const testCertificateUrl = getFileUrl('test_certificate');
   }}
 >
   <tbody>
-  {detailKeys.map((key) => {
-    const value =
-      key === 'shipping'
-        ? copy.shippingFromText
-        : getFieldValue(key);
+  {detailKeys.flatMap((key) => {
+    const value = key === 'shipping' ? copy.shippingFromText : getFieldValue(key);
 
-    if (!value && key !== 'shipping') return null;
+    // If there is no value (except shipping, which is always shown), render nothing
+    if (!value && key !== 'shipping') return [];
 
-    const label = copy.detailLabels[key];
+    const labelRaw =
+      (copy?.detailLabels as Record<string, string> | undefined)?.[key] ??
+      key.replace(/_/g, ' '); // fallback: "metal_colour" -> "metal colour"
 
-    return (
-      <>
-        {key === 'shipping' && extraRows.map((row, i) => (
+    const label = String(labelRaw).toUpperCase();
+
+    const rows: React.ReactNode[] = [];
+
+    // Inject extra rows BEFORE shipping row
+    if (key === 'shipping' && extraRows.length) {
+      extraRows.forEach((row, i) => {
+        rows.push(
           <tr key={`extra-${i}`}>
             <td style={cellLabelStyle}>{row.label.toUpperCase()}</td>
             <td style={cellValueStyle}>{row.value}</td>
           </tr>
-        ))}
+        );
+      });
+    }
 
-        {value ? (
-          <tr key={key}>
-            <td style={cellLabelStyle}>{label.toUpperCase()}</td>
-            <td style={cellValueStyle}>{value}</td>
-          </tr>
-        ) : null}
-      </>
-    );
+    // Main row
+    if (value) {
+      rows.push(
+        <tr key={key}>
+          <td style={cellLabelStyle}>{label}</td>
+          <td style={cellValueStyle}>{value}</td>
+        </tr>
+      );
+    }
+
+    return rows;
   })}
 </tbody>
 
