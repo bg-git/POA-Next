@@ -29,7 +29,13 @@ Follow these steps in the AURICLE Shopify Admin:
    - **Format**: `JSON`
    - Leave other options as default
 
-4. Click **Create webhook** to save
+4. **Important**: After creating, Shopify will display the **Webhook secret**. Copy this and add it to your `.env.local`:
+   ```
+   AURICLE_WEBHOOK_SECRET=your_copied_secret_here
+   ```
+   Also add it to Vercel Environment Variables.
+
+5. Save the webhook
 
 ### 3. Test the Webhook
 
@@ -84,12 +90,19 @@ To add monitoring/alerts, you can:
 
 ## Environment Variables Required
 
-Ensure these are in your `.env.local`:
+Ensure these are in your `.env.local` and Vercel:
 
 ```
 AURICLE_SHOPIFY_STORE_DOMAIN=your-auricle-store.myshopify.com
 AURICLE_SHOPIFY_ADMIN_API_ACCESS_TOKEN=shpat_xxxxx
+AURICLE_WEBHOOK_SECRET=your_webhook_secret_here
 SHOPIFY_STORE_DOMAIN=your-poi-store.myshopify.com
 SHOPIFY_ADMIN_API_ACCESS_TOKEN=shpat_xxxxx
 SHOPIFY_ADMIN_API_VERSION=2025-01
 ```
+
+**How to get `AURICLE_WEBHOOK_SECRET`:**
+1. After creating the webhook in AURICLE Admin, go to **Settings** → **Webhooks**
+2. Click on the webhook you created
+3. Copy the **Webhook secret** (shown in the webhook details)
+4. Add it to your environment variables

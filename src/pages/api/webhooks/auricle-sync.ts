@@ -1,10 +1,38 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import crypto from 'crypto';
 
 interface MetafieldEdge {
   node: {
     key: string;
     value: string;
   };
+}
+
+// Verify webhook signature from AURICLE
+function verifyWebhookSignature(req: NextApiRequest): boolean {
+  const secret = process.env.AURICLE_WEBHOOK_SECRET;
+  if (!secret) {
+    console.warn('[AURICLE SYNC] ⚠️ AURICLE_WEBHOOK_SECRET not set, skipping signature verification');
+    return true; // Allow if secret not configured
+  }
+
+  const hmacHeader = req.headers['x-shopify-hmac-sha256'];
+  if (!hmacHeader || typeof hmacHeader !== 'string') {
+    console.error('[AURICLE SYNC] ❌ Missing X-Shopify-Hmac-SHA256 header');
+    return false;
+  }
+
+  const rawBody = (req as any).rawBody || JSON.stringify(req.body);
+  const hmac = crypto
+    .createHmac('sha256', secret)
+    .update(rawBody, 'utf8')
+    .digest('base64');
+
+  const isValid = hmac === hmacHeader;
+  if (!isValid) {
+    console.error('[AURICLE SYNC] ❌ Invalid webhook signature');
+  }
+  return isValid;
 }
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -221,9 +249,14 @@ async function syncProductMetafields(auricleProductId: string) {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // Verify webhook is from Shopify
+  // Verify webhook is from AURICLE
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Verify webhook signature
+  if (!verifyWebhookSignature(req)) {
+    return res.status(401).json({ error: 'Unauthorized - Invalid signature' });
   }
 
   try {
