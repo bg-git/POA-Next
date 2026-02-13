@@ -111,7 +111,9 @@ async function syncProductMetafields(auricleProductId: string) {
   const apiVersion = process.env.SHOPIFY_ADMIN_API_VERSION || '2025-01';
 
   if (!auricleStore || !auricleToken || !poiStore || !poiToken) {
-    throw new Error('Missing required environment variables');
+    throw new Error(
+      `Missing required environment variables: auricle=${!auricleStore}, token=${!auricleToken}, poi=${!poiStore}, token=${!poiToken}`
+    );
   }
 
   const auricleEndpoint = `https://${auricleStore}/admin/api/${apiVersion}/graphql.json`;
